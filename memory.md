@@ -43,6 +43,34 @@ itself must remember even if the brain is elsewhere.
 - Design decision recorded in design.md: the `primary` Tailwind scale is intentionally
   non-monotonic (400 is light tint, 500-900 are the navy ramp) — derive colors from the ramp.
 
+## 2026-10-17 — Design audit + homepage redesign (reference build)
+
+- Ran a full design audit against the Hallmark anti-slop rules and rendered the site in a real
+  browser (Firefox headless) rather than reading source alone. Verdict: **9 critical · 11 major
+  · 6 minor** tells — a textbook AI template (full-viewport hero, equal card grids, emoji icons,
+  eyebrows on every section, duplicated service panels, invented stats, AI nav + footer).
+  Two rendering facts source-reading alone missed: the hero becomes a ~5200px navy void at a
+  tall viewport (`min-h-screen`), and **the brand name is invisible on mobile** (`hidden sm:block`).
+- **User decision: redesign the homepage first as the site-wide reference**, then propagate.
+  Imagery decision: **client shoot list** (not stock, not empty slots).
+- Rebuilt the homepage to an industrial-corporate system:
+  - Navbar → masthead: dark utility strip (phone/email/language) + light main bar. Fixes the
+    logo/first-link collision and shows the wordmark at every width.
+  - Hero → asymmetric, content-height (no `min-h-screen`), solid navy + engineered grid + grain.
+    Right column is a real "What we supply" panel (role counts from `services.json`), not filler.
+  - Capabilities → a ledger (hairline rows, left/right split) instead of the 4-card grid.
+  - New "Behind every deployment" operations section (accommodation / transport / training / HSE)
+    — the buyer's diligence set, and where the shoot-list photos land.
+  - Sectors → dense hairline index. Closing CTA → distinct from the interior pages' band.
+  - Footer → statement-led close; removed the dead `href="#"` social row.
+  - Removed: emoji feature icons, section eyebrows (except one hero kicker), gradient surfaces,
+    duplicate service panels, and the **invented stat band** — per our own rules.md, unverified
+    numbers no longer ship. Tokens added: warm `paper`/`ink`/`rule`; `.slot` image placeholders.
+- Wrote `SHOOT-LIST.md` — client photography + brand-asset brief with delivery spec, full shot
+  list by section, an asset→page map, and a claims-confirmation checklist (§5).
+- Verified: build 13 pages / 6.6s; rendered desktop, tablet and 320px — no overflow, no console
+  errors; brand name visible on mobile. Preview served locally on :8899 during review (stopped).
+
 ## Open items (see phases.md for the ordered list)
 
 1. Client decision: where leads land (inbox vs WhatsApp-only) — blocks Phase 2, highest value

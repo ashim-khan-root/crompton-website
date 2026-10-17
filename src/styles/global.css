@@ -9,23 +9,28 @@
     --color-primary: #1a365d;
     --color-secondary: #d69e2e;
     --color-accent: #2563eb;
-    --color-bg: #ffffff;
-    --color-bg-alt: #f8fafc;
-    --color-text: #1e293b;
-    --color-text-light: #64748b;
+    --color-paper: #fbfaf7;
+    --color-paper-2: #f4f1ea;
+    --color-ink: #141c29;
+    --color-ink-muted: #4a5568;
+    --color-rule: #e3ded2;
     --font-heading: 'Plus Jakarta Sans', sans-serif;
     --font-body: 'Inter', sans-serif;
     --font-arabic: 'Noto Sans Arabic', sans-serif;
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --dur-1: 160ms;
+    --dur-2: 280ms;
   }
 
   html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
     font-family: var(--font-body);
-    color: var(--color-text);
-    background-color: var(--color-bg);
+    color: var(--color-ink);
+    background-color: var(--color-paper);
     overflow-x: clip;
   }
 
@@ -33,80 +38,116 @@
     font-family: var(--font-arabic);
   }
 
+  /* Display type is always roman. No italic headings. */
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
+    font-style: normal;
+    letter-spacing: -0.021em;
   }
 
-  [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6 {
+  [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3,
+  [dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6 {
     font-family: var(--font-arabic);
+    letter-spacing: 0;
+  }
+
+  /* Focus is instant, never animated in. */
+  :focus-visible {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: 2px;
   }
 }
 
 @layer components {
-  .btn-primary {
-    @apply bg-primary-500 text-white px-6 py-3 rounded-lg font-semibold
-           hover:bg-primary-600 transition-all duration-300
-           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  /* ---- Buttons ---- Two shapes, explicit transitions, no transition-all. */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm px-7 py-3.5
+           text-[0.95rem] font-semibold leading-none whitespace-nowrap
+           transition-[background-color,border-color,color,transform] duration-[var(--dur-1)] ease-out;
+  }
+  .btn:active {
+    transform: translateY(1px);
   }
 
-  .btn-secondary {
-    @apply bg-secondary-400 text-white px-6 py-3 rounded-lg font-semibold
-           hover:bg-secondary-500 transition-all duration-300
-           focus:outline-none focus:ring-2 focus:ring-secondary-400 focus:ring-offset-2;
+  .btn-gold {
+    @apply btn bg-secondary-400 text-primary-900 hover:bg-secondary-300;
   }
 
+  .btn-ghost {
+    @apply btn border border-white/25 text-white hover:border-white/60 hover:bg-white/5;
+  }
+
+  .btn-navy {
+    @apply btn bg-primary-500 text-white hover:bg-primary-700;
+  }
+
+  /* Legacy aliases kept so existing pages keep building unchanged. */
+  .btn-primary { @apply btn-navy; }
+  .btn-secondary { @apply btn-gold; }
   .btn-outline {
-    @apply border-2 border-primary-500 text-primary-500 px-6 py-3 rounded-lg font-semibold
-           hover:bg-primary-500 hover:text-white transition-all duration-300
-           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+    @apply btn border border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white;
   }
 
-  .section-padding {
-    @apply py-16 md:py-24 px-4 md:px-8 lg:px-16;
-  }
-
+  /* ---- Layout ---- */
   .container-custom {
-    @apply max-w-7xl mx-auto;
+    @apply mx-auto max-w-shell;
+  }
+  .section-padding {
+    @apply px-5 py-16 md:px-8 md:py-24 lg:px-10;
   }
 
-  .gradient-text {
-    @apply bg-gradient-to-r from-primary-500 to-secondary-400 bg-clip-text text-transparent;
+  /* ---- Hairline rule ---- */
+  .rule {
+    @apply border-0 border-t border-rule;
   }
 
-  .card {
-    @apply bg-white rounded-xl shadow-lg p-6 transition-all duration-300
-           hover:shadow-xl hover:-translate-y-1;
-  }
-
+  /* ---- Field ---- */
   .input-field {
-    @apply w-full px-4 py-3 rounded-lg border border-gray-300
-           focus:border-primary-500 focus:ring-2 focus:ring-primary-200
-           transition-all duration-200 outline-none;
+    @apply w-full rounded-sm border border-rule bg-white px-4 py-3 text-ink
+           transition-[border-color] duration-[var(--dur-1)] ease-out
+           placeholder:text-ink-faint focus:border-primary-500 focus:outline-none;
+  }
+
+  /* ---- Image slot ----
+     A labelled placeholder that holds the exact layout an approved
+     photograph will occupy. Replaced by <img> when assets arrive. */
+  .slot {
+    @apply relative flex items-center justify-center overflow-hidden
+           border border-dashed border-rule bg-paper-2 text-ink-faint/80;
+  }
+  .slot-dark {
+    @apply border-dashed border-white/15 bg-white/[0.03] text-white/45;
+  }
+  .slot-label {
+    @apply text-[0.7rem] uppercase tracking-[0.14em] text-center leading-relaxed px-4;
+  }
+
+  /* ---- Engineered grid texture for dark grounds ---- */
+  .grid-tex {
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.045) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  /* ---- Fine film grain, layered under content ---- */
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.32;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  }
+
+  /* ---- Numbers that align ---- */
+  .tnum {
+    font-variant-numeric: tabular-nums;
   }
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-
-  .animate-delay-100 {
-    animation-delay: 100ms;
-  }
-
-  .animate-delay-200 {
-    animation-delay: 200ms;
-  }
-
-  .animate-delay-300 {
-    animation-delay: 300ms;
-  }
-
-  .animate-delay-400 {
-    animation-delay: 400ms;
-  }
-
-  .animate-delay-500 {
-    animation-delay: 500ms;
-  }
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
 }

@@ -4,6 +4,8 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Brand navy ramp. 500 is the anchor; 700-900 are the deep surfaces
+        // used for hero and footer grounds. 50-400 are UI tints only.
         primary: {
           50: '#eff6ff',
           100: '#dbeafe',
@@ -16,6 +18,8 @@ export default {
           800: '#0f2440',
           900: '#0a1929',
         },
+        // Brand gold. The single accent — used for marks, rules and the
+        // primary action. Never as a surface fill.
         secondary: {
           50: '#fffbeb',
           100: '#fef3c7',
@@ -29,44 +33,32 @@ export default {
           900: '#1c1006',
         },
         accent: '#2563eb',
+        // Warm neutrals. Paper replaces pure white; rule is the hairline.
+        paper: { DEFAULT: '#fbfaf7', 2: '#f4f1ea' },
+        ink: { DEFAULT: '#141c29', muted: '#4a5568', faint: '#8c94a3' },
+        rule: '#e3ded2',
       },
       fontFamily: {
         heading: ['Plus Jakarta Sans', 'sans-serif'],
         body: ['Inter', 'sans-serif'],
         arabic: ['Noto Sans Arabic', 'sans-serif'],
       },
-      spacing: {
-        'xs': '0.25rem',
-        'sm': '0.5rem',
-        'md': '1rem',
-        'lg': '1.5rem',
-        'xl': '2rem',
-        '2xl': '3rem',
-        '3xl': '4rem',
+      maxWidth: {
+        shell: '80rem',
+        measure: '42rem',
+      },
+      transitionTimingFunction: {
+        out: 'cubic-bezier(0.16, 1, 0.3, 1)',
       },
       animation: {
-        'fade-in': 'fadeIn 0.5s ease-in-out',
-        'slide-up': 'slideUp 0.5s ease-out',
-        'slide-in-left': 'slideInLeft 0.5s ease-out',
-        'slide-in-right': 'slideInRight 0.5s ease-out',
-        'counter': 'counter 2s ease-out forwards',
+        'fade-in': 'fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both',
+        'rise': 'rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both',
       },
       keyframes: {
-        fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
-        },
-        slideUp: {
-          '0%': { opacity: '0', transform: 'translateY(20px)' },
+        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+        rise: {
+          '0%': { opacity: '0', transform: 'translateY(14px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
-        slideInLeft: {
-          '0%': { opacity: '0', transform: 'translateX(-20px)' },
-          '100%': { opacity: '1', transform: 'translateX(0)' },
-        },
-        slideInRight: {
-          '0%': { opacity: '0', transform: 'translateX(20px)' },
-          '100%': { opacity: '1', transform: 'translateX(0)' },
         },
       },
     },

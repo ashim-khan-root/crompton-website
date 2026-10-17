@@ -20,9 +20,30 @@ assets and form delivery, not code.
 - [x] Site builds and is navigable: 13 static pages, 5.9s build
 - [x] Data-driven content (`src/data/*.json`) with bilingual keys
 - [x] Git repo repaired and real import committed 2026-10-17
+- [x] **Homepage redesigned as the site-wide design reference** (2026-10-17). Industrial-corporate
+      system replacing the AI-template layout: masthead nav (utility strip + main bar, fixes the
+      logo/link collision and the missing mobile brand name), asymmetric content-height hero,
+      capability ledger instead of a card grid, operations section with image slots, sectors index,
+      statement-led footer. Emoji icons, section eyebrows, gradient surfaces, duplicate panels and
+      the invented stat band are gone. Tokens added for warm paper/ink/rule; image slots
+      (`.slot`) hold the exact space approved photography will occupy.
 - [x] prd.md, architecture.md, rules.md, phases.md, design.md written this date
-- [ ] memory.md written (sync with `.agent` daily notes from the 2026-09 audit session)
-- Gate: 6 docs complete — **pending memory.md**
+- [x] memory.md written
+- [x] SHOOT-LIST.md written — client photography + brand asset brief, incl. the claims checklist
+- Gate: 6 docs complete — **passed 2026-10-17**
+
+## Phase 1.5: Roll the reference design across the other 12 pages [Status: PENDING — next up]
+
+The homepage is the agreed visual reference; the interior pages still carry the old template.
+
+- [ ] Apply the system to `about`, `services`, `industries`, `workforce`, `clients`, `careers`,
+      `contact`, `hse`, `gallery`, `certificates`, `news`, `ar/index`
+- [ ] Remove the remaining per-page tells: the identical `pt-32 pb-16` gradient hero band (×11),
+      emoji/numbered section labels, centred section heads, duplicated service panels
+- [ ] Replace card grids with ledger/index layouts where density allows
+- [ ] Swap icon placeholders for document scans on Certificates once assets land
+- Dependencies: none (homepage reference approved)
+- Gate: all pages share one system, no interior page still opens with the old gradient band
 
 ## Phase 2: Fix the lead path [Status: PENDING — next up]
 
@@ -76,7 +97,11 @@ Because the demo used placeholders, assets are the critical path for go-live.
 
 ## Current Phase
 
-**Phase: 1 → 2**
-**Next Task: write `memory.md`, then start Phase 2 with the client decision on lead delivery.**
-The form question is the single most valuable open item — the site cannot convert reliably
-until it is answered.
+**Phase: 1.5 → 2**
+**Next Task: roll the approved homepage design across the other 12 pages, in parallel with the
+client decision on lead delivery (Phase 2).**
+
+Two threads now run in parallel:
+- **Design** — the homepage is the agreed reference; Phase 1.5 propagates it.
+- **Revenue** — the WhatsApp-only form is still the highest-value functional gap (Phase 2).
+- **Assets** — `SHOOT-LIST.md` went to the client 2026-10-17; Phase 3 is blocked on it.
