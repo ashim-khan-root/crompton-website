@@ -3,132 +3,121 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navbar from '../../components/Navbar.tsx';
 import Footer from '../../components/Footer.tsx';
 import WhatsAppButton from '../../components/WhatsAppButton.tsx';
+import PageHeader from '../../components/PageHeader.astro';
+import CtaBand from '../../components/CtaBand.astro';
 import workforce from '../../data/workforce.json';
 ---
 
 <BaseLayout
-  title="Workforce Categories"
-  description="Detailed list of available manpower - white collar professionals and blue collar workforce for construction, engineering, and industrial projects."
+  title="Workforce categories"
+  description="Available manpower categories from Crompton International: white collar professionals and blue collar skilled trades for construction, engineering and industrial projects in Qatar."
 >
-  <Navbar lang="en"  client:load />
-  
-  <!-- Hero -->
-  <section class="pt-32 pb-16 bg-gradient-to-br from-primary-900 to-primary-700">
-    <div class="container-custom mx-auto px-4 md:px-8 lg:px-16">
-      <div class="max-w-3xl">
-        <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
-          Workforce Categories
-        </h1>
-        <p class="text-xl text-gray-300">
-          Skilled professionals for every project need
-        </p>
-      </div>
-    </div>
-  </section>
+  <Navbar lang="en" client:load />
 
-  <!-- Search -->
-  <section class="py-8 bg-gray-50 border-b">
-    <div class="container-custom mx-auto px-4 md:px-8 lg:px-16">
-      <div class="max-w-xl mx-auto">
+  <main>
+    <PageHeader
+      title="Workforce categories"
+      lead="White collar professionals and blue collar trades, available for individual placement or full project mobilization."
+      context={`${workforce.whiteCollar.length} professional roles · ${workforce.blueCollar.length} skilled trades`}
+    />
+
+    <!-- Search -->
+    <section class="border-b border-rule bg-paper-2">
+      <div class="container-custom px-5 py-6 md:px-8 lg:px-10">
+        <label for="workforce-search" class="sr-only">Search workforce categories</label>
         <input
           type="text"
           id="workforce-search"
-          placeholder="Search job categories..."
-          class="w-full px-6 py-4 rounded-xl border border-gray-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition-all duration-200 outline-none text-lg"
+          placeholder="Search categories — e.g. welder, engineer, electrician"
+          class="input-field max-w-xl"
         />
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- White Collar -->
-  <section class="py-20">
-    <div class="container-custom mx-auto px-4 md:px-8 lg:px-16">
-      <div class="mb-16">
-        <span class="text-secondary-400 font-semibold text-sm uppercase tracking-wider">Professional Staff</span>
-        <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mt-2">
-          White Collar Professionals
-        </h2>
-      </div>
-      
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="white-collar-grid">
-        {workforce.whiteCollar.map((item) => (
-          <div class="workforce-card bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow" data-category={item.category.toLowerCase()}>
-            <h3 class="font-heading font-semibold text-lg text-gray-900 mb-2">
-              {item.category}
-            </h3>
-            <p class="text-gray-600 text-sm leading-relaxed">
-              {item.description}
-            </p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
+    <!-- White collar -->
+    <section class="bg-paper">
+      <div class="container-custom px-5 py-14 md:px-8 md:py-20 lg:px-10">
+        <div class="mb-10">
+          <h2 class="font-heading text-[1.7rem] font-bold text-primary-500">
+            White collar professionals
+          </h2>
+          <p class="mt-3 max-w-measure text-[0.95rem] leading-relaxed text-ink-muted">
+            Engineers, managers and technical staff with verified qualifications and GCC project experience.
+          </p>
+        </div>
 
-  <!-- Blue Collar -->
-  <section class="py-20 bg-gray-50">
-    <div class="container-custom mx-auto px-4 md:px-8 lg:px-16">
-      <div class="mb-16">
-        <span class="text-secondary-400 font-semibold text-sm uppercase tracking-wider">Skilled Workers</span>
-        <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mt-2">
-          Blue Collar Workforce
-        </h2>
+        <ul class="grid border-t border-rule md:grid-cols-2 md:gap-x-16" id="white-collar-list">
+          {workforce.whiteCollar.map((item) => (
+            <li
+              class="workforce-card border-b border-rule py-6"
+              data-category={item.category.toLowerCase()}
+            >
+              <h3 class="font-heading text-[1.1rem] font-semibold text-primary-500">
+                {item.category}
+              </h3>
+              <p class="mt-2 max-w-[52ch] text-[0.9rem] leading-relaxed text-ink-muted">
+                {item.description}
+              </p>
+            </li>
+          ))}
+        </ul>
       </div>
-      
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="blue-collar-grid">
-        {workforce.blueCollar.map((item) => (
-          <div class="workforce-card bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow" data-category={item.category.toLowerCase()}>
-            <h3 class="font-heading font-semibold text-lg text-gray-900 mb-2">
-              {item.category}
-            </h3>
-            <p class="text-gray-600 text-sm leading-relaxed">
-              {item.description}
-            </p>
-          </div>
-        ))}
+    </section>
+
+    <!-- Blue collar -->
+    <section class="border-t border-rule bg-paper-2">
+      <div class="container-custom px-5 py-14 md:px-8 md:py-20 lg:px-10">
+        <div class="mb-10">
+          <h2 class="font-heading text-[1.7rem] font-bold text-primary-500">
+            Blue collar workforce
+          </h2>
+          <p class="mt-3 max-w-measure text-[0.95rem] leading-relaxed text-ink-muted">
+            Skilled trades and general workers, screened and safety-inducted before they reach your site.
+          </p>
+        </div>
+
+        <ul class="grid border-t border-rule md:grid-cols-2 md:gap-x-16" id="blue-collar-list">
+          {workforce.blueCollar.map((item) => (
+            <li
+              class="workforce-card border-b border-rule py-6"
+              data-category={item.category.toLowerCase()}
+            >
+              <h3 class="font-heading text-[1.1rem] font-semibold text-primary-500">
+                {item.category}
+              </h3>
+              <p class="mt-2 max-w-[52ch] text-[0.9rem] leading-relaxed text-ink-muted">
+                {item.description}
+              </p>
+            </li>
+          ))}
+        </ul>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CTA -->
-  <section class="py-20">
-    <div class="container-custom mx-auto px-4 md:px-8 lg:px-16 text-center">
-      <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
-        Don't See What You Need?
-      </h2>
-      <p class="text-gray-600 max-w-2xl mx-auto mb-8">
-        Contact us for custom workforce requirements. We can source specialized talent for your specific project needs.
-      </p>
-      <a
-        href="/en/contact"
-        class="inline-flex items-center gap-2 bg-primary-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary-600 transition-all duration-300"
-      >
-        Request Custom Manpower
-      </a>
-    </div>
-  </section>
+    <CtaBand
+      title="Don't see the trade you need?"
+      body="We source outside the listed categories. Tell us the role, the certification level and the headcount."
+      primaryLabel="Request custom manpower"
+    />
+  </main>
 
-  <Footer lang="en" />
-  <WhatsAppButton lang="en" />
+  <Footer lang="en" client:load />
+  <WhatsAppButton lang="en" client:load />
 </BaseLayout>
 
 <script>
   const searchInput = document.getElementById('workforce-search') as HTMLInputElement;
   const cards = document.querySelectorAll('.workforce-card');
-  
+
   searchInput?.addEventListener('input', (e) => {
     const target = e.target as HTMLInputElement;
-    const query = target.value.toLowerCase();
-    
-    cards.forEach(card => {
+    const query = target.value.trim().toLowerCase();
+
+    cards.forEach((card) => {
       const category = card.getAttribute('data-category') || '';
       const text = card.textContent?.toLowerCase() || '';
-      
-      if (category.includes(query) || text.includes(query)) {
-        (card as HTMLElement).style.display = 'block';
-      } else {
-        (card as HTMLElement).style.display = 'none';
-      }
+      const match = !query || category.includes(query) || text.includes(query);
+      (card as HTMLElement).style.display = match ? '' : 'none';
     });
   });
 </script>

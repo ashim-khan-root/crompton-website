@@ -26,15 +26,15 @@
     },
     {
       "category": "Planning Engineers",
-      "categoryAr": "مهندسوا تخطيط",
+      "categoryAr": "مهندسو تخطيط",
       "description": "Planning engineers for project scheduling and resource allocation.",
       "descriptionAr": "مهندسوا تخطيط لجدولة المشاريع وتوزيع الموارد."
     },
     {
       "category": "Quantity Surveyors",
-      "categoryAr": "م UTF-8 قيمون",
+      "categoryAr": "مساحو كميات",
       "description": "Quantity surveyors for cost estimation and contract management.",
-      "descriptionAr": "م UTF-8 قيمون لتقييم التكاليف وإدارة العقود."
+      "descriptionAr": "مساحو كميات لتقييم التكاليف وإدارة العقود."
     },
     {
       "category": "QA/QC Engineers",
@@ -56,7 +56,7 @@
     },
     {
       "category": "Procurement Officers",
-      "categoryAr": "ضباط المشتريات",
+      "categoryAr": "موظفو المشتريات",
       "description": "Procurement specialists for material sourcing and vendor management.",
       "descriptionAr": "متخصصو مشتريات لتوريد المواد وإدارة الموردين."
     },
@@ -74,13 +74,13 @@
     },
     {
       "category": "Document Controllers",
-      "categoryAr": "مسيطرو وثائق",
+      "categoryAr": "مراقبو الوثائق",
       "description": "Document controllers for project documentation management.",
       "descriptionAr": "مسيطرو وثائق لإدارة وثائق المشاريع."
     },
     {
       "category": "Store Keepers",
-      "categoryAr": " أمين المخازن",
+      "categoryAr": "أمناء المخازن",
       "description": "Store keepers for inventory and material management.",
       "descriptionAr": " أمين المخازن لإدارة المخزون والمواد."
     }
@@ -112,7 +112,7 @@
     },
     {
       "category": "Fabricators",
-      "categoryAr": "صانعون",
+      "categoryAr": "مصنّعو المعادن",
       "description": "Metal fabricators for structural steel and metal works.",
       "descriptionAr": "صانعون للمعدنية الهيكلية والأعمال المعدنية."
     },
@@ -130,7 +130,7 @@
     },
     {
       "category": "Instrument Technicians",
-      "categoryAr": "فنيو أجهزة",
+      "categoryAr": "فنيو أجهزة قياس",
       "description": "Instrument technicians for calibration and maintenance of control systems.",
       "descriptionAr": "فنيو أجهزة لمعايرة وصيانة أنظمة التحكم."
     },
@@ -184,7 +184,7 @@
     },
     {
       "category": "Riggers",
-      "categoryAr": "ربّاطجيون",
+      "categoryAr": "معلّقو الأحمال",
       "description": "Riggers for lifting operations and crane work.",
       "descriptionAr": "ربّاطجيون لعمليات الرفع وأعمال الرافعات."
     },
@@ -196,7 +196,7 @@
     },
     {
       "category": "Crane Operators",
-      "categoryAr": "مشغّلو رافعات",
+      "categoryAr": "مشغّلو أوناش",
       "description": "Certified crane operators for heavy lifting operations.",
       "descriptionAr": "مشغّلو رافعات معتمدون لعمليات الرفع الثقيلة."
     }

@@ -3,55 +3,74 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navbar from '../../components/Navbar.tsx';
 import Footer from '../../components/Footer.tsx';
 import WhatsAppButton from '../../components/WhatsAppButton.tsx';
-import { FileCheck, Award, Shield, Building } from 'lucide-react';
+import PageHeader from '../../components/PageHeader.astro';
+import CtaBand from '../../components/CtaBand.astro';
 
 const certificates = [
-  { icon: Building, title: 'Commercial Registration', description: 'Valid Commercial Registration with Qatar Chamber of Commerce' },
-  { icon: FileCheck, title: 'Manpower License', description: 'Licensed manpower supply company by Qatar Ministry of Labour' },
-  { icon: Shield, title: 'ISO 9001:2015', description: 'Quality Management System Certification' },
-  { icon: Award, title: 'ISO 14001:2015', description: 'Environmental Management System Certification' },
-  { icon: Shield, title: 'ISO 45001:2018', description: 'Occupational Health and Safety Management System' },
-  { icon: FileCheck, title: 'Qatar Civil Defence', description: 'Fire Safety and Civil Defence Compliance Certificate' },
+  { title: 'Commercial Registration', description: 'Commercial registration with the Qatar Chamber of Commerce.' },
+  { title: 'Manpower Supply Licence', description: 'Licence to supply manpower, issued by the Qatar Ministry of Labour.' },
+  { title: 'ISO 9001:2015', description: 'Quality management system certification.' },
+  { title: 'ISO 14001:2015', description: 'Environmental management system certification.' },
+  { title: 'ISO 45001:2018', description: 'Occupational health and safety management system certification.' },
+  { title: 'Qatar Civil Defence', description: 'Fire safety and civil defence compliance certificate.' },
 ];
 ---
 
 <BaseLayout
-  title="Certificates & Licenses"
-  description="Crompton International's accreditations, licenses, and compliance certifications."
+  title="Certificates & licences"
+  description="Crompton International's registrations, licences and certifications. Document copies are available on request."
 >
-  <Navbar lang="en"  client:load />
-  
-  <section class="pt-32 pb-16 bg-gradient-to-br from-primary-900 to-primary-700">
-    <div class="container-custom mx-auto px-4 md:px-8 lg:px-16">
-      <div class="max-w-3xl">
-        <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-6">Certificates & Licenses</h1>
-        <p class="text-xl text-gray-300">Our accreditations and compliance documents</p>
-      </div>
-    </div>
-  </section>
+  <Navbar lang="en" client:load />
 
-  <section class="py-20">
-    <div class="container-custom mx-auto px-4 md:px-8 lg:px-16">
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {certificates.map((cert) => {
-          const Icon = cert.icon;
-          return (
-            <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow text-center">
-              <div class="w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center mx-auto mb-6">
-                <Icon size={32} className="text-primary-500" />
+  <main>
+    <PageHeader
+      title="Certificates & licences"
+      lead="Registrations and certifications held by the company. Scanned copies are available to clients on request."
+      context="Documents on request"
+    />
+
+    <section class="bg-paper">
+      <div class="container-custom px-5 py-14 md:px-8 md:py-20 lg:px-10">
+        <div class="grid gap-x-8 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
+          {certificates.map((cert) => (
+            <figure>
+              <div class="slot aspect-[4/3]">
+                <p class="slot-label">
+                  Document scan — {cert.title}<br />
+                  <span class="normal-case tracking-normal">1600 × 1200 · SHOOT-LIST.md §J</span>
+                </p>
               </div>
-              <h3 class="font-heading font-semibold text-xl text-gray-900 mb-3">{cert.title}</h3>
-              <p class="text-gray-600">{cert.description}</p>
-            </div>
-          );
-        })}
-      </div>
-      <p class="text-center text-gray-500 mt-12">
-        For copies of certificates, please contact us directly.
-      </p>
-    </div>
-  </section>
+              <figcaption class="mt-4">
+                <h2 class="font-heading text-[1.1rem] font-semibold text-primary-500">
+                  {cert.title}
+                </h2>
+                <p class="mt-1.5 max-w-[40ch] text-[0.88rem] leading-relaxed text-ink-muted">
+                  {cert.description}
+                </p>
+                <p class="mt-3 font-heading text-[0.7rem] uppercase tracking-[0.16em] text-ink-faint">
+                  Number &amp; expiry on file
+                </p>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
 
-  <Footer lang="en" />
-  <WhatsAppButton lang="en" />
+        <div class="mt-14 border-t border-rule pt-8">
+          <p class="max-w-measure text-[0.9rem] leading-relaxed text-ink-muted">
+            Certificate numbers and validity dates are confirmed on request, so that a client's
+            procurement or HSE team can verify each document before award.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <CtaBand
+      title="Need the documents for pre-qualification?"
+      body="Tell us which certificates your process requires and we will send the scans and reference numbers."
+      primaryLabel="Request documents"
+    />
+  </main>
+
+  <Footer lang="en" client:load />
+  <WhatsAppButton lang="en" client:load />
 </BaseLayout>

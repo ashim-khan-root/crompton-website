@@ -3,18 +3,18 @@
     "id": "white-collar",
     "icon": "Briefcase",
     "title": "White Collar Staffing",
-    "titleAr": "توظيف الكادرة البيضاء",
+    "titleAr": "توظيف الكوادر البيضاء",
     "description": "We provide qualified professionals for engineering, project management, administration, finance, procurement, planning, HSE, QA/QC, HR, document control, and other technical and management positions.",
-    "descriptionAr": "نقدم محترفين مؤهلين في الهندسة وإدارة المشاريع والإدارة والمالية والمشتريات والتخطيط والسلامة وجودة الجودة والموارد البشرية والتحكم في الوثائق及其他 التقنية والإدارية.",
+    "descriptionAr": "نقدم محترفين مؤهلين في الهندسة وإدارة المشاريع والإدارة والمالية والمشتريات والتخطيط والسلامة وضبط الجودة والموارد البشرية والتحكم في الوثائق وغيرها من التخصصات التقنية والإدارية.",
     "roles": ["Project Managers", "Civil Engineers", "Mechanical Engineers", "Electrical Engineers", "Planning Engineers", "Quantity Surveyors", "QA/QC Engineers", "HSE Engineers", "Supervisors", "Procurement Officers", "HR Professionals", "Accountants", "Document Controllers", "Store Keepers"]
   },
   {
     "id": "blue-collar",
     "icon": "HardHat",
     "title": "Blue Collar Manpower Supply",
-    "titleAr": "توريد الكادرة الزرقاء",
+    "titleAr": "توريد الكوادر الزرقاء",
     "description": "We supply experienced skilled, semi-skilled, and unskilled workers for construction, industrial operations, maintenance, logistics, MEP, and infrastructure projects.",
-    "descriptionAr": "نورد عمالة ماهرة وشبه ماهر وغير ماهرة للبناء والعمليات الصيانة والmaintenant واللوجستيات والسبك والبنية التحتية.",
+    "descriptionAr": "نورد عمالة ماهرة وشبه ماهر وغير ماهرة لأعمال البناء والصيانة والتشغيل واللوجستيات والأنظمة الكهروميكانيكية والبنية التحتية.",
     "roles": ["Electricians", "Plumbers", "Welders", "Pipe Fitters", "Fabricators", "HVAC Technicians", "AC Technicians", "Instrument Technicians", "Mechanical Technicians", "Scaffolders", "Steel Fixers", "Carpenters", "Masons", "Painters", "Helpers", "Drivers", "Riggers", "Forklift Operators", "Crane Operators"]
   },
   {
@@ -23,7 +23,7 @@
     "title": "Project-Based Workforce Solutions",
     "titleAr": "حلول عمالة مشاريع",
     "description": "Whether you require manpower for short-term projects, shutdowns, maintenance work, or long-term contracts, our team delivers flexible workforce solutions tailored to your project requirements.",
-    "descriptionAr": " سواء كنت بحاجة إلى عمالة لمشاريع قصيرة الأمد أو إيقاف الصيانة أو أعمال الصيانة أو عقود طويلة الأمد، يوفر فريقنا حلول عمالة مرنة مصممة وفقاً لاحتياجات مشروعك.",
+    "descriptionAr": "سواء كنت بحاجة إلى عمالة لمشاريع قصيرة الأمد أو لأعمال الإيقاف والصيانة أو لعقود طويلة الأمد، يوفر فريقنا حلول عمالة مرنة مصممة وفقاً لاحتياجات مشروعك.",
     "roles": ["Short-term Projects", "Shutdowns", "Maintenance Work", "Long-term Contracts", "Seasonal Staffing", "Emergency Mobilization"]
   },
   {
@@ -32,7 +32,7 @@
     "title": "Recruitment & Mobilization",
     "titleAr": "التوظيف والتعبئة",
     "description": "Our recruitment specialists ensure timely sourcing, screening, documentation, deployment, and workforce management, enabling clients to maintain productivity while reducing recruitment challenges.",
-    "descriptionAr": "يضمن متخصصو التوظيف لدينا التوريد والفرز والتوثيق والنشر وإدارة العمالة في الوقت المناسب، مما يمكين العملاء من الحفاظ على الإنتاجية مع تقليل تحديات التوظيف.",
+    "descriptionAr": "يضمن متخصصو التوظيف لدينا التوريد والفرز والتوثيق والنشر وإدارة العمالة في الوقت المناسب، مما يمكّن العملاء من الحفاظ على الإنتاجية مع تقليل تحديات التوظيف.",
     "roles": ["Sourcing", "Screening", "Documentation", "Deployment", "Workforce Management", "Compliance"]
   },
   {

@@ -1,0 +1,48 @@
+---
+import { ArrowRight } from 'lucide-react';
+
+interface Props {
+  title?: string;
+  body?: string;
+  primaryLabel?: string;
+  primaryHref?: string;
+}
+const {
+  title = 'Tell us the roles and the headcount.',
+  body = 'Send your requirement and our team will come back with availability, timelines and documentation.',
+  primaryLabel = 'Request Manpower',
+  primaryHref = '/en/contact',
+} = Astro.props;
+---
+
+<!-- Shared closing CTA for interior pages.
+     Light ground with navy buttons: on a dark ground the site uses gold, on a
+     light ground it uses navy — so the page CTA never repeats the gold
+     "Request Manpower" button sitting in the navy footer directly below it. -->
+<section class="border-t border-rule bg-paper-2">
+  <div class="container-custom px-5 py-14 md:px-8 md:py-20 lg:px-10">
+    <div class="grid items-center gap-8 lg:grid-cols-12">
+      <div class="lg:col-span-7">
+        <h2 class="font-heading text-[1.8rem] font-bold leading-tight text-primary-500 md:text-[2.1rem]">
+          {title}
+        </h2>
+        <p class="mt-4 max-w-measure text-[0.95rem] leading-relaxed text-ink-muted">{body}</p>
+      </div>
+
+      <div class="flex flex-col gap-3 sm:flex-row lg:col-span-5 lg:justify-end">
+        <a href={primaryHref} class="btn-navy">
+          {primaryLabel}
+          <ArrowRight size={18} aria-hidden="true" />
+        </a>
+        <a
+          href="https://wa.me/97455019646"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-outline"
+        >
+          Chat on WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

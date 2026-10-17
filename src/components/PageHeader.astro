@@ -1,0 +1,42 @@
+---
+interface Props {
+  title: string;
+  lead?: string;
+  context?: string;
+  homeLabel?: string;
+  homeHref?: string;
+}
+
+const { title, lead, context, homeLabel = 'Home', homeHref = '/en' } = Astro.props;
+---
+
+<!-- Interior page header. Shared across pages so the system reads as one site;
+     the breadcrumb keeps it functional rather than decorative. -->
+<section class="relative overflow-hidden bg-primary-900 pt-36 pb-14 md:pt-44 md:pb-16">
+  <div class="grain absolute inset-0 grid-tex opacity-50" aria-hidden="true"></div>
+
+  <div class="container-custom relative px-5 md:px-8 lg:px-10">
+    <nav aria-label="Breadcrumb" class="mb-7 flex items-center gap-2.5 text-[0.75rem] text-white/45">
+      <a href={homeHref} class="transition-colors duration-150 hover:text-white/80">{homeLabel}</a>
+      <span class="text-white/25" aria-hidden="true">/</span>
+      <span class="text-white/70">{title}</span>
+    </nav>
+
+    <div class="grid items-end gap-6 lg:grid-cols-12">
+      <div class="lg:col-span-8">
+        <h1 class="font-heading text-[2.1rem] font-bold leading-[1.08] text-white md:text-[2.9rem]">
+          {title}
+        </h1>
+        {lead && (
+          <p class="mt-5 max-w-measure text-[1rem] leading-relaxed text-white/65">{lead}</p>
+        )}
+      </div>
+
+      {context && (
+        <div class="lg:col-span-4 lg:text-right">
+          <p class="text-[0.8rem] leading-relaxed text-white/45">{context}</p>
+        </div>
+      )}
+    </div>
+  </div>
+</section>

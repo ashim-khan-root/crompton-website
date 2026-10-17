@@ -172,14 +172,18 @@ Transportation · Projects · Training · Office.**
 
 ## 5. Claims we need confirmed before launch
 
-These appear on the site now, from the original demo material, and must be signed off by
-Crompton or removed. One of them ("100% Client Satisfaction") was already taken off the
-homepage; the rest still need a decision.
+These appeared on the site from the original demo material and must be signed off by Crompton
+before they go back on. As of 2026-10-17 the unverified ones have been **taken off the pages**: the
+"100% Client Satisfaction" line, the client-stat band, and the HSE stat band are gone, and the
+news entries no longer assert a headcount or a certification. The items below are what we would
+need confirmed in order to put real, sourced numbers back.
 
-- [ ] **800+ skilled workers** — current headcount?
-- [ ] **50+ client companies** — count, and are they names we're allowed to use?
-- [ ] **10+ years experience** / **"Trusted since 2010"** — founding year?
-- [ ] **12+ industries served** — the twelve on the Sectors list are correct?
+- [ ] **Skilled worker headcount** — the old "800+" was never verified and is no longer on the
+      site. If Crompton wants a headcount shown, we need the real current figure.
+- [ ] **Client count / names** — the old "50+" is off the site. Are there names we're allowed to
+      use, and in what form (logo, name only, sector only)?
+- [ ] **Founding year** / **"Trusted since 2010"** — removed pending confirmation.
+- [ ] **Industries served** — the twelve on the Sectors list are correct?
 - [ ] **Licensed by Qatar Ministry of Labour** — licence number and validity?
 - [ ] **ISO 9001 / 14001 / 45001** — held, and current?
 - [ ] **Qatar Civil Defence certificate** — held?
@@ -187,6 +191,11 @@ homepage; the rest still need a decision.
 - [ ] **Address**: P.O. Box 37491, NBK-Msheireb Buildings, 4th Floor, Office 405 & 406 — correct?
 - [ ] **Domain** — `crompton-intl.com` is unregistered. The site cannot go live until a domain
       is chosen and registered.
+- [ ] **Arabic copy — native review required.** The Arabic content files contained machine-
+      translation damage (stray Chinese and French words, English tokens, one corrupted string that
+      had destroyed a job title). That damage has been repaired, but **repaired is not the same as
+      reviewed**: no native Arabic speaker has read this copy. Before the Arabic homepage goes live,
+      someone fluent in Gulf business Arabic needs to read it end to end.
 
 ---
 

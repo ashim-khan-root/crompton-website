@@ -13,7 +13,7 @@
     "titleAr": "الهندسة",
     "icon": "Cog",
     "description": "Professional engineers for civil, mechanical, electrical, and structural projects.",
-    "descriptionAr": "مهندسو محترفون للمشاريع المدنية والميكانيكية الكهربائية والهيكليه."
+    "descriptionAr": "مهندسو محترفون للمشاريع المدنية والميكانيكية والكهربائية والهيكلية."
   },
   {
     "id": "infrastructure",
@@ -34,10 +34,10 @@
   {
     "id": "mep",
     "title": "Mechanical, Electrical & Plumbing (MEP)",
-    "titleAr": "السبك والكهرباء والسباكة",
+    "titleAr": "الكهروميكانيكية",
     "icon": "Zap",
     "description": "MEP technicians, engineers, and workers for building systems installation and maintenance.",
-    "descriptionAr": "فنيي وم engineers وعمال السبك لتثبيت وصيانة أنظمة المباني."
+    "descriptionAr": "فنيون وعمال كهروميكانيكيون لتركيب وصيانة أنظمة المباني."
   },
   {
     "id": "facility-management",
@@ -53,7 +53,7 @@
     "titleAr": "التصنيع",
     "icon": "Factory",
     "description": "Production line workers, machine operators, and quality control personnel.",
-    "descriptionAr": "عمالة خطوط الإنتاج ومشغلي الآلات وال personnel المراقبة على الجودة."
+    "descriptionAr": "عمالة خطوط الإنتاج ومشغلو الآلات ومراقبو الجودة."
   },
   {
     "id": "logistics",
@@ -74,10 +74,10 @@
   {
     "id": "corporate",
     "title": "Corporate Offices",
-    "titleAr": "المكاتب الشركات",
+    "titleAr": "المكاتب المؤسسية",
     "icon": "Briefcase",
     "description": "Administrative staff, IT professionals, and corporate support personnel.",
-    "descriptionAr": "موظفو إداريون ومحترفو تكنولوجيا المعلومات و personnel الدعمorporate."
+    "descriptionAr": "موظفون إداريون ومحترفو تقنية المعلومات وفرق الدعم."
   },
   {
     "id": "retail",

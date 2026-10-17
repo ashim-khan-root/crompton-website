@@ -32,18 +32,56 @@ assets and form delivery, not code.
 - [x] SHOOT-LIST.md written — client photography + brand asset brief, incl. the claims checklist
 - Gate: 6 docs complete — **passed 2026-10-17**
 
-## Phase 1.5: Roll the reference design across the other 12 pages [Status: PENDING — next up]
+## Phase 1.5: Roll the reference design across the other 12 pages [Status: DONE — 2026-10-17]
 
-The homepage is the agreed visual reference; the interior pages still carry the old template.
+The homepage is the agreed visual reference; the interior pages carried the old template.
 
-- [ ] Apply the system to `about`, `services`, `industries`, `workforce`, `clients`, `careers`,
-      `contact`, `hse`, `gallery`, `certificates`, `news`, `ar/index`
-- [ ] Remove the remaining per-page tells: the identical `pt-32 pb-16` gradient hero band (×11),
-      emoji/numbered section labels, centred section heads, duplicated service panels
-- [ ] Replace card grids with ledger/index layouts where density allows
-- [ ] Swap icon placeholders for document scans on Certificates once assets land
+- [x] Applied the system to all 12: `about`, `services`, `industries`, `workforce`, `clients`,
+      `careers`, `contact`, `hse`, `gallery`, `certificates`, `news`, `ar/index`
+- [x] Two new shared components so the pages read as one site: `PageHeader.astro` (navy + grid
+      texture, breadcrumb, title, lead, right-aligned context line) and `CtaBand.astro` (closing
+      CTA). Every old `pt-32 pb-16` gradient hero band is gone.
+- [x] Card grids replaced with ledger/index layouts: 12-column hairline rows used for services,
+      industries, workforce categories, values, HSE commitments, news and vacancies
+- [x] Per-page tells removed: the duplicated navy service panel (services ×2 → one), the invented
+      stat bands on clients and hse, "Coming Soon" gallery tiles, cert-claim icon cards
+      (now document slots), per-section emoji/numbered labels
+- [x] Certificates page: icon tiles → document slots, with a visible "number & expiry on file"
+      line per certificate rather than an unverified badge
+- [x] **Design bug found by rendering, not by reading:** the interior CTA band and the navy footer
+      both carried a gold button, so pages ended with two identical "Request Manpower" buttons
+      stacked. The CTA band is now light-ground with navy buttons. Rule adopted: gold on dark
+      grounds (hero, footer), navy on light grounds.
+- [x] Contact form honesty bug fixed: `ContactForm.tsx` claimed "message sent successfully" even
+      when the visitor cancelled the WhatsApp popup. Now it only reports success if a window
+      actually opened, and the copy says WhatsApp was opened rather than that a message was sent.
+- [x] Careers page: the fake drag-and-drop CV uploader was removed. It never uploaded anything.
+      Replaced with accurate copy ("attach your CV in the WhatsApp chat") and the dead control is
+      gone.
+- [x] HSE page: the mid-page "Request the HSE pack" button duplicated the CTA band immediately
+      below it; the section was folded into the CTA band.
+- [x] News page: unverified claims removed from the three sample entries (the "800+ professionals"
+      headline and the "ISO 45001 certification achieved" headline). Sample entries now assert
+      nothing. Verified in the built HTML: zero occurrences of "800+".
+- [x] **Arabic content repair.** A contamination audit of `src/data/*.json` found machine-
+      translation damage in strings that render on the Arabic homepage: a CJK run inside
+      `services.json[0].descriptionAr`, French "maintenant" in `[…].descriptionAr` (also in
+      `workforce.json` user-facing strings), a broken UTF-8 escape that had destroyed
+      "Quantity Surveyors" into `م UTF-8 قيمون`, raw English tokens ("engineers", "personnel",
+      "orporate"), misspellings ("الكادرة" → "الكوادر", "يمكين" → "يمكّن", "الهيكليه"), and
+      nonsense words ("ربّاطجيون", "السبك" for MEP). All repaired. `i18n/ar.json` is still dead
+      code but is no longer a contaminated landmine.
+- [x] Arabic typography rule added to `global.css`: Arabic script must never be letter-spaced, so
+      every tracking utility is neutralised under `[dir="rtl"]` — tracking on Arabic breaks the
+      cursive joins between letters.
+- Verified by rendering every page in headless Firefox (1440px) and reading the screenshots:
+      build 13 pages / 6.6s; 371 internal links, 0 broken; no "Coming Soon", Lorem, placeholder
+      service, dead `href="#"`, gradient-text or emoji left anywhere in `dist/`.
+- Not done (deferred, deliberately): `astro check` needs `@astrojs/check` + `typescript` installed
+      and there is no network-independent way to add them here — it is recorded as a Phase 2 gate.
 - Dependencies: none (homepage reference approved)
-- Gate: all pages share one system, no interior page still opens with the old gradient band
+- Gate: all pages share one system, no interior page still opens with the old gradient band —
+  **passed 2026-10-17**
 
 ## Phase 2: Fix the lead path [Status: PENDING — next up]
 
@@ -97,11 +135,25 @@ Because the demo used placeholders, assets are the critical path for go-live.
 
 ## Current Phase
 
-**Phase: 1.5 → 2**
-**Next Task: roll the approved homepage design across the other 12 pages, in parallel with the
-client decision on lead delivery (Phase 2).**
+**Phase: 2**
+**Next Task: the client decision on lead delivery — which inbox or number receives enquiries. That
+single answer unblocks the highest-value functional gap on the site.**
 
 Two threads now run in parallel:
-- **Design** — the homepage is the agreed reference; Phase 1.5 propagates it.
-- **Revenue** — the WhatsApp-only form is still the highest-value functional gap (Phase 2).
-- **Assets** — `SHOOT-LIST.md` went to the client 2026-10-17; Phase 3 is blocked on it.
+- **Revenue** — the WhatsApp-only form is the highest-value functional gap. Phase 2 needs a client
+  answer (which inbox/number). Code work can start before that answer lands: hosted form service,
+  honeypot, spam filtering, and a `verify` script wrapping `astro check`.
+- **Assets** — `SHOOT-LIST.md` went to the client 2026-10-17; Phase 3 is blocked on it. Nothing in
+  Phase 1.5 changes that: every image slot on every page is still waiting on the same shoot.
+- **Design** — Phase 1.5 done. The system is now consistent site-wide, so further design work is
+  refinement rather than rollout.
+
+Outstanding from the design round, for whoever picks it up next:
+- The Arabic site is still homepage-only (`/ar/` has one page); navbar and footer links from the
+  Arabic page fall back to `/en/`. Either build the 12 Arabic pages (Phase 4) or hide the
+  language switcher.
+- Photography is the binding constraint on "does this look like a real company". The code is
+  ready; the slots are labelled and sized. No amount of further CSS work substitutes for the
+  shoot.
+- `gsap`, `react-hook-form`, `zod`, `@hookform/resolvers` are still installed and unused, and
+  `src/i18n/` is still dead code. Phase 2 cleanup.

@@ -16,8 +16,8 @@ export default function Footer({ lang = 'en' }: FooterProps) {
   ];
 
   const serviceLinks = [
-    { href: '/en/services#white-collar', label: 'White Collar Staffing', labelAr: 'الكادرة البيضاء' },
-    { href: '/en/services#blue-collar', label: 'Blue Collar Manpower', labelAr: 'الكادرة الزرقاء' },
+    { href: '/en/services#white-collar', label: 'White Collar Staffing', labelAr: 'الكوادر البيضاء' },
+    { href: '/en/services#blue-collar', label: 'Blue Collar Manpower', labelAr: 'الكوادر الزرقاء' },
     { href: '/en/services#project-based', label: 'Project-Based Workforce', labelAr: 'حلول مشاريع' },
     { href: '/en/services#recruitment', label: 'Recruitment & Mobilization', labelAr: 'التوظيف والتعبئة' },
     { href: '/en/services#outsourcing', label: 'Outsourcing Solutions', labelAr: 'توظيف خارجي' },

@@ -3,128 +3,86 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navbar from '../../components/Navbar.tsx';
 import Footer from '../../components/Footer.tsx';
 import WhatsAppButton from '../../components/WhatsAppButton.tsx';
+import PageHeader from '../../components/PageHeader.astro';
+import CtaBand from '../../components/CtaBand.astro';
 import clients from '../../data/clients.json';
+
+// Placeholder cells for the client-logo wall. Populated only from
+// clients.json once real names and written permission are supplied.
+const logoSlots = Array.from({ length: 6 });
 ---
 
 <BaseLayout
-  title="Clients & Projects"
-  description="Crompton International supplies workforce to leading companies across Qatar. Client references available on request."
+  title="Clients"
+  description="Crompton International supplies workforce to companies across Qatar. Client references are shared on request, in line with confidentiality obligations."
 >
-  <Navbar lang="en"  client:load />
-  
-  <!-- Hero -->
-  <section class="pt-32 pb-16 bg-gradient-to-br from-primary-900 to-primary-700">
-    <div class="container-custom mx-auto px-4 md:px-8 lg:px-16">
-      <div class="max-w-3xl">
-        <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
-          Our Clients
-        </h1>
-        <p class="text-xl text-gray-300">
-          Trusted by leading companies in Qatar
-        </p>
-      </div>
-    </div>
-  </section>
+  <Navbar lang="en" client:load />
 
-  <!-- Client Note -->
-  <section class="py-8 bg-yellow-50 border-b border-yellow-200">
-    <div class="container-custom mx-auto px-4 md:px-8 lg:px-16">
-      <p class="text-yellow-800 text-sm text-center">
-        Client names and logos are displayed with appropriate permission. We respect all contractual obligations regarding client confidentiality.
-      </p>
-    </div>
-  </section>
+  <main>
+    <PageHeader
+      title="Clients"
+      lead="We supply workforce to companies across Qatar. Names and project references are shared on request, under our confidentiality obligations."
+      context="References on request"
+    />
 
-  <!-- Clients Grid -->
-  <section class="py-20">
-    <div class="container-custom mx-auto px-4 md-8 lg:px-16">
-      {clients.length > 0 ? (
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {clients.map((client) => (
-            <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow text-center">
-              <div class="w-24 h-24 bg-gray-100 rounded-xl flex items-center justify-center mx-auto mb-6">
-                <span class="font-heading font-bold text-2xl text-gray-700">
-                  {client.name.split(' ').map(w => w[0]).join('')}
-                </span>
-              </div>
-              <h3 class="font-heading font-semibold text-xl text-gray-900 mb-2">
-                {client.name}
+    <section class="bg-paper">
+      <div class="container-custom px-5 py-14 md:px-8 md:py-20 lg:px-10">
+        {clients.length > 0 ? (
+          <ul class="grid gap-x-16 border-t border-rule md:grid-cols-2">
+            {clients.map((client) => (
+              <li class="border-b border-rule py-7">
+                <h2 class="font-heading text-[1.2rem] font-semibold text-primary-500">{client.name}</h2>
+                <p class="mt-2 text-[0.9rem] text-ink-muted">{client.industry}</p>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+            <div class="lg:col-span-5">
+              <h2 class="font-heading text-[1.7rem] font-bold leading-snug text-primary-500 md:text-[2rem]">
+                Client references
+              </h2>
+              <p class="mt-5 max-w-measure text-[0.98rem] leading-relaxed text-ink-muted">
+                We supply workforce to leading companies across Qatar. Because of contractual
+                confidentiality, we share client names and project references directly rather than
+                listing them publicly.
+              </p>
+              <p class="mt-4 max-w-measure text-[0.98rem] leading-relaxed text-ink-muted">
+                Ask us for references relevant to your sector.
+              </p>
+              <a href="/en/contact" class="mt-7 inline-flex items-center gap-2 border-b border-primary-500 pb-1 font-heading text-[0.9rem] font-semibold text-primary-500 transition-colors duration-150 hover:border-secondary-400 hover:text-secondary-600">
+                Request references
+              </a>
+            </div>
+
+            <div class="lg:col-span-7">
+              <h3 class="font-heading text-[0.72rem] uppercase tracking-[0.18em] text-ink-faint">
+                Client logos &mdash; published with written permission
               </h3>
-              <p class="text-gray-500 text-sm">
-                {client.industry}
+              <ul class="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3">
+                {logoSlots.map(() => (
+                  <li class="slot aspect-[3/2]">
+                    <p class="slot-label">Client logo</p>
+                  </li>
+                ))}
+              </ul>
+              <p class="mt-5 text-[0.8rem] leading-relaxed text-ink-faint">
+                These cells stay empty until a client gives written permission to be named. We do
+                not substitute borrowed or placeholder logos.
               </p>
             </div>
-          ))}
-        </div>
-      ) : (
-        <div class="max-w-2xl mx-auto text-center bg-white rounded-xl shadow-lg p-12">
-          <h2 class="font-heading font-semibold text-2xl text-gray-900 mb-4">
-            Client References
-          </h2>
-          <p class="text-gray-600 mb-8">
-            We supply workforce to leading companies across Qatar. Client names and
-            project references are shared on request, in line with our contractual
-            confidentiality obligations.
-          </p>
-          <a
-            href="/en/contact"
-            class="inline-flex items-center gap-2 bg-primary-500 text-white font-semibold px-8 py-4 rounded-lg hover:bg-primary-600 transition-colors"
-          >
-            Request References
-          </a>
-        </div>
-      )}
-    </div>
-  </section>
-
-  <!-- Trust Section -->
-  <section class="py-20 bg-gray-50">
-    <div class="container-custom mx-auto px-4 md:px-8 lg:px-16 text-center">
-      <h2 class="text-3xl font-heading font-bold text-gray-900 mb-6">
-        Building Trust Through Excellence
-      </h2>
-      <p class="text-gray-600 max-w-2xl mx-auto mb-8">
-        We are proud to support workforce requirements for well-known organizations across Qatar. Our commitment to quality, safety, and reliability has earned us the trust of industry leaders.
-      </p>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-        <div class="text-center">
-          <div class="text-4xl font-heading font-bold text-secondary-400 mb-2">50+</div>
-          <p class="text-gray-600 font-medium">Client Companies</p>
-        </div>
-        <div class="text-center">
-          <div class="text-4xl font-heading font-bold text-secondary-400 mb-2">10+</div>
-          <p class="text-gray-600 font-medium">Years Partnership</p>
-        </div>
-        <div class="text-center">
-          <div class="text-4xl font-heading font-bold text-secondary-400 mb-2">100%</div>
-          <p class="text-gray-600 font-medium">Client Satisfaction</p>
-        </div>
-        <div class="text-center">
-          <div class="text-4xl font-heading font-bold text-secondary-400 mb-2">24/7</div>
-          <p class="text-gray-600 font-medium">Support Available</p>
-        </div>
+          </div>
+        )}
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CTA -->
-  <section class="py-20">
-    <div class="container-custom mx-auto px-4 md:px-8 lg:px-16 text-center">
-      <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
-        Become Our Next Success Story
-      </h2>
-      <p class="text-gray-600 max-w-2xl mx-auto mb-8">
-        Join our growing list of satisfied clients. Contact us today to discuss your workforce requirements.
-      </p>
-      <a
-        href="/en/contact"
-        class="inline-flex items-center gap-2 bg-primary-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary-600 transition-all duration-300"
-      >
-        Get Started Today
-      </a>
-    </div>
-  </section>
+    <CtaBand
+      title="Become our next reference."
+      body="Tell us your workforce requirement and we will put you in touch with clients we already supply in your sector."
+      primaryLabel="Start a conversation"
+    />
+  </main>
 
-  <Footer lang="en" />
-  <WhatsAppButton lang="en" />
+  <Footer lang="en" client:load />
+  <WhatsAppButton lang="en" client:load />
 </BaseLayout>

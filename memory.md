@@ -71,9 +71,57 @@ itself must remember even if the brain is elsewhere.
 - Verified: build 13 pages / 6.6s; rendered desktop, tablet and 320px — no overflow, no console
   errors; brand name visible on mobile. Preview served locally on :8899 during review (stopped).
 
+## 2026-10-17 — Phase 1.5: rolled the reference design across all 12 remaining pages
+
+- Built two shared components so eleven hand-written pages read as one site instead of eleven
+  variations: `PageHeader.astro` (navy + grid texture, breadcrumb, title, lead, context line) and
+  `CtaBand.astro` (closing CTA). Every old `pt-32 pb-16` gradient hero band is gone.
+- Card grids → ledger/index layouts: hairline rows on services, industries, workforce, values, HSE
+  commitments, news and vacancies. Density went up and the "equal rounded cards" tell went away.
+- Per-page tells removed: the duplicated navy service panel on `services.astro`, the invented stat
+  bands on `clients.astro` and `hse.astro`, "Coming Soon" gallery tiles, and the cert-claim icon
+  cards (now document slots with a "number & expiry on file" line).
+- **Two honesty bugs fixed, both found by reading the code rather than the render:**
+  - `ContactForm.tsx` reported "message sent successfully" even when the visitor cancelled the
+    WhatsApp popup — nothing was sent. It now checks whether a window actually opened and the copy
+    says WhatsApp was *opened*, not that a message was sent.
+  - `careers.astro` had a drag-and-drop CV uploader that uploaded nothing (WhatsApp deep links
+    cannot carry files). Removed the control, kept accurate copy: attach the CV in the chat.
+- **Design bug only visible when rendered:** interior CTA band and navy footer each carried a gold
+  button, so pages ended with two identical "Request Manpower" buttons stacked ~180px apart. Fixed
+  by making the interior CTA band light-ground with navy buttons. Rule adopted: **gold on dark
+  grounds (hero, footer), navy on light grounds.** Also folded a duplicated HSE CTA section into
+  the band.
+- **Arabic content repair (contamination audit of `src/data/*.json`).** Found machine-translation
+  damage that actually renders on the Arabic homepage — not just in the known-dead `i18n/` files:
+  a CJK run (`其他`) inside `services.json` `descriptionAr`, French `maintenant` inside another,
+  raw English tokens ("engineers", "personnel", "orporate") in `industries.json`, nonsense words
+  ("السبك" used for MEP, "ربّاطجيون"), misspellings ("الكادرة" → "الكوادر", "يمكين" → "يمكّن",
+  "الهيكليه"), and a corrupted UTF-8 escape in `workforce.json` that had turned "Quantity
+  Surveyors" into `م UTF-8 قيمون`. All repaired.
+  - Editing method worth remembering: **Arabic strings that mix scripts could not be matched by
+    literal text** — typed Arabic+CJK/Latin literals came back reordered, so `str.replace` silently
+    missed. Fix: escape the non-Arabic characters (`\u53ca\u5176\u4ed6`) and match on pure-Arabic
+    anchors, with an assertion that each replacement actually landed.
+  - Arabic typography rule added to `global.css`: Arabic must never be letter-spaced, so all
+    tracking utilities are neutralised under `[dir="rtl"]` (tracking breaks cursive joins).
+- Verified by rendering every page in headless Firefox at 1440px and reading the screenshots — not
+  by reading source. 13 pages / 6.6s build; **371 internal links, 0 broken**; zero "Coming Soon",
+  Lorem, placeholder-service, dead `href="#"`, gradient-text or emoji left in `dist/`. Removed the
+  last unverified claim the audit caught: the news page's "800+ professionals" headline (the page
+  already carried a sample-content warning, but the number still shipped in the HTML).
+- Not verified: `astro check`. It needs `@astrojs/check` + `typescript` installed via npm and there
+  was no network-independent way to add them in this environment. Recorded as a Phase 2 gate rather
+  than claimed as passing.
+
 ## Open items (see phases.md for the ordered list)
 
 1. Client decision: where leads land (inbox vs WhatsApp-only) — blocks Phase 2, highest value
-2. memory.md sync — this file plus `.agent` cross-check is the Phase 1 gate
-3. Client assets (photos, certificates, client names) — blocks Phase 3
-4. Arabic build-or-hide decision — blocks Phase 4
+2. `astro check` cannot run until `@astrojs/check` + `typescript` are installed — Phase 2 gate
+3. `gsap`, `react-hook-form`, `zod`, `@hookform/resolvers` still installed and unused; `src/i18n/`
+   still dead code — Phase 2 cleanup
+4. Arabic site is homepage-only; navbar/footer links from `/ar/` fall back to `/en/` — build the
+   Arabic pages (Phase 4) or hide the switcher
+5. Client assets (photos, certificates, client names) — blocks Phase 3. This is now the binding
+   constraint on the site looking like a real company: the code is ready and every slot is labelled
+   and sized, but no further CSS substitutes for the shoot.

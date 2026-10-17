@@ -51,6 +51,14 @@
     letter-spacing: 0;
   }
 
+  /* Arabic script must never be letter-spaced — tracking breaks the cursive
+     joins between letters. Neutralise every tracking utility in RTL. */
+  [dir="rtl"] *,
+  [dir="rtl"] *::before,
+  [dir="rtl"] *::after {
+    letter-spacing: 0 !important;
+  }
+
   /* Focus is instant, never animated in. */
   :focus-visible {
     outline: 2px solid var(--color-secondary);

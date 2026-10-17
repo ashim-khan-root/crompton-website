@@ -4,133 +4,132 @@ import Navbar from '../../components/Navbar.tsx';
 import Footer from '../../components/Footer.tsx';
 import WhatsAppButton from '../../components/WhatsAppButton.tsx';
 import ContactForm from '../../components/ContactForm.tsx';
+import PageHeader from '../../components/PageHeader.astro';
 import { Phone, Mail, MapPin, MessageCircle, Clock } from 'lucide-react';
 ---
 
 <BaseLayout
-  title="Contact Us"
-  description="Get in touch with Crompton International. Office in Doha, Qatar. Call +974 4468 1414 or WhatsApp +974 5501 9646."
+  title="Contact"
+  description="Contact Crompton International in Doha, Qatar. Call +974 4468 1414, WhatsApp +974 5501 9646, or email info@crompton-intl.com to request manpower."
 >
-  <Navbar lang="en"  client:load />
-  
-  <!-- Hero -->
-  <section class="pt-32 pb-16 bg-gradient-to-br from-primary-900 to-primary-700">
-    <div class="container-custom mx-auto px-4 md:px-8 lg:px-16">
-      <div class="max-w-3xl">
-        <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
-          Contact Us
-        </h1>
-        <p class="text-xl text-gray-300">
-          Get in touch with our team for manpower solutions
-        </p>
-      </div>
-    </div>
-  </section>
+  <Navbar lang="en" client:load />
 
-  <!-- Contact Info + Form -->
-  <section class="py-20">
-    <div class="container-custom mx-auto px-4 md:px-8 lg:px-16">
-      <div class="grid lg:grid-cols-2 gap-16">
-        <!-- Contact Information -->
-        <div>
-          <h2 class="text-3xl font-heading font-bold text-gray-900 mb-8">
-            Get In Touch
-          </h2>
-          
-          <div class="space-y-6 mb-12">
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                <MapPin size={24} className="text-primary-500" />
-              </div>
-              <div>
-                <h3 class="font-semibold text-gray-900 mb-1">Office Address</h3>
-                <p class="text-gray-600">
-                  P.O. Box: 37491<br />
-                  NBK-Msheireb Buildings<br />
-                  4th Floor, Office #405 & 406<br />
-                  Doha, Qatar
-                </p>
-              </div>
-            </div>
-            
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                <Phone size={24} className="text-primary-500" />
-              </div>
-              <div>
-                <h3 class="font-semibold text-gray-900 mb-1">Telephone</h3>
-                <a href="tel:+97444681414" class="text-primary-500 hover:text-primary-600 text-lg font-medium">
-                  +974 4468 1414
-                </a>
-              </div>
-            </div>
-            
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                <MessageCircle size={24} className="text-green-600" />
-              </div>
-              <div>
-                <h3 class="font-semibold text-gray-900 mb-1">WhatsApp</h3>
-                <a href="https://wa.me/97455019646" target="_blank" rel="noopener noreferrer" class="text-green-600 hover:text-green-700 text-lg font-medium">
-                  +974 5501 9646
-                </a>
-              </div>
-            </div>
-            
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                <Mail size={24} className="text-primary-500" />
-              </div>
-              <div>
-                <h3 class="font-semibold text-gray-900 mb-1">Email</h3>
-                <a href="mailto:info@crompton-intl.com" class="text-primary-500 hover:text-primary-600 text-lg font-medium">
-                  info@crompton-intl.com
-                </a>
-              </div>
-            </div>
-            
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                <Clock size={24} className="text-primary-500" />
-              </div>
-              <div>
-                <h3 class="font-semibold text-gray-900 mb-1">Working Hours</h3>
-                <p class="text-gray-600">
-                  Sunday - Thursday: 8:00 AM - 5:00 PM<br />
-                  Friday - Saturday: Closed
-                </p>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Map -->
-          <div class="rounded-xl overflow-hidden shadow-lg h-64 bg-gray-200">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.8476!2d51.5319!3d25.2854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sDoha%2C+Qatar!5e0!3m2!1sen!2sqa!4v1234567890"
-              width="100%"
-              height="100%"
-              style="border:0;"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              title="Crompton International Office Location"
-            ></iframe>
-          </div>
-        </div>
-        
-        <!-- Contact Form -->
-        <div>
-          <div class="bg-gray-50 rounded-2xl p-8">
-            <h2 class="text-2xl font-heading font-bold text-gray-900 mb-6">
-              Send Us a Message
+  <main>
+    <PageHeader
+      title="Contact"
+      lead="Send your workforce requirement and our team will come back with availability, timelines and documentation."
+      context="Doha, Qatar · Sun–Thu"
+    />
+
+    <section class="bg-paper">
+      <div class="container-custom px-5 py-14 md:px-8 md:py-20 lg:px-10">
+        <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+          <!-- Details -->
+          <div class="lg:col-span-5">
+            <h2 class="font-heading text-[1.7rem] font-bold leading-snug text-primary-500 md:text-[2rem]">
+              Reach us directly
             </h2>
-            <ContactForm lang="en" type="contact"  client:load />
+
+            <dl class="mt-8 border-t border-rule">
+              <div class="border-b border-rule py-6">
+                <dt class="flex items-center gap-2.5 font-heading text-[0.72rem] uppercase tracking-[0.18em] text-ink-faint">
+                  <MapPin size={14} aria-hidden="true" class="text-secondary-500" />
+                  Office
+                </dt>
+                <dd class="mt-3 text-[0.95rem] leading-relaxed text-ink-muted">
+                  P.O. Box 37491<br />
+                  NBK-Msheireb Buildings<br />
+                  4th Floor, Office 405 &amp; 406<br />
+                  Doha, Qatar
+                </dd>
+              </div>
+
+              <div class="border-b border-rule py-6">
+                <dt class="flex items-center gap-2.5 font-heading text-[0.72rem] uppercase tracking-[0.18em] text-ink-faint">
+                  <Phone size={14} aria-hidden="true" class="text-secondary-500" />
+                  Telephone
+                </dt>
+                <dd class="mt-3">
+                  <a href="tel:+97444681414" class="tnum font-heading text-[1.15rem] font-semibold text-primary-500 transition-colors duration-150 hover:text-secondary-600">
+                    +974 4468 1414
+                  </a>
+                </dd>
+              </div>
+
+              <div class="border-b border-rule py-6">
+                <dt class="flex items-center gap-2.5 font-heading text-[0.72rem] uppercase tracking-[0.18em] text-ink-faint">
+                  <MessageCircle size={14} aria-hidden="true" class="text-secondary-500" />
+                  WhatsApp
+                </dt>
+                <dd class="mt-3">
+                  <a
+                    href="https://wa.me/97455019646"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="tnum font-heading text-[1.15rem] font-semibold text-primary-500 transition-colors duration-150 hover:text-secondary-600"
+                  >
+                    +974 5501 9646
+                  </a>
+                </dd>
+              </div>
+
+              <div class="border-b border-rule py-6">
+                <dt class="flex items-center gap-2.5 font-heading text-[0.72rem] uppercase tracking-[0.18em] text-ink-faint">
+                  <Mail size={14} aria-hidden="true" class="text-secondary-500" />
+                  Email
+                </dt>
+                <dd class="mt-3">
+                  <a href="mailto:info@crompton-intl.com" class="font-heading text-[1.15rem] font-semibold text-primary-500 transition-colors duration-150 hover:text-secondary-600">
+                    info@crompton-intl.com
+                  </a>
+                </dd>
+              </div>
+
+              <div class="py-6">
+                <dt class="flex items-center gap-2.5 font-heading text-[0.72rem] uppercase tracking-[0.18em] text-ink-faint">
+                  <Clock size={14} aria-hidden="true" class="text-secondary-500" />
+                  Working hours
+                </dt>
+                <dd class="mt-3 text-[0.95rem] leading-relaxed text-ink-muted">
+                  Sunday &ndash; Thursday, 8:00 &ndash; 17:00<br />
+                  Friday &ndash; Saturday: closed
+                </dd>
+              </div>
+            </dl>
+
+            <div class="mt-8 overflow-hidden border border-rule">
+              <iframe
+                src="https://www.google.com/maps?q=Msheireb,Doha,Qatar&output=embed"
+                width="100%"
+                height="260"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Crompton International office location, Doha"
+              ></iframe>
+            </div>
+          </div>
+
+          <!-- Form -->
+          <div class="lg:col-span-7">
+            <div class="border border-rule bg-paper-2 p-6 md:p-10">
+              <h2 class="font-heading text-[1.5rem] font-bold text-primary-500">
+                Send a requirement
+              </h2>
+              <p class="mt-3 text-[0.92rem] leading-relaxed text-ink-muted">
+                Fields marked <span class="text-secondary-600">*</span> are required.
+              </p>
+              <div class="mt-8">
+                <ContactForm lang="en" type="contact" client:load />
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <Footer lang="en" />
-  <WhatsAppButton lang="en" />
+  <Footer lang="en" client:load />
+  <WhatsAppButton lang="en" client:load />
 </BaseLayout>

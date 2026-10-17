@@ -3,119 +3,120 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navbar from '../../components/Navbar.tsx';
 import Footer from '../../components/Footer.tsx';
 import WhatsAppButton from '../../components/WhatsAppButton.tsx';
+import PageHeader from '../../components/PageHeader.astro';
+import CtaBand from '../../components/CtaBand.astro';
 import { Shield, HardHat, ClipboardCheck, AlertTriangle, BookOpen, Award } from 'lucide-react';
 
 const commitments = [
   {
     icon: Shield,
-    title: 'Safety Policy',
-    description: 'Comprehensive health and safety policy covering all aspects of workforce operations in compliance with Qatar Labour Law.'
+    title: 'Safety policy',
+    description: 'A health and safety policy covering all workforce operations, aligned with Qatar Labour Law.',
   },
   {
     icon: HardHat,
-    title: 'PPE Provision',
-    description: 'All workers provided with appropriate Personal Protective Equipment (PPE) for their specific job requirements.'
+    title: 'PPE provision',
+    description: 'Every worker is issued appropriate personal protective equipment for their specific job.',
   },
   {
     icon: ClipboardCheck,
-    title: 'Safety Training',
-    description: 'Mandatory safety induction training for all workers before deployment to client sites.'
+    title: 'Safety training',
+    description: 'Mandatory induction training is completed before any worker is deployed to a client site.',
   },
   {
     icon: AlertTriangle,
-    title: 'Risk Assessment',
-    description: 'Regular risk assessments and safety audits to identify and mitigate workplace hazards.'
+    title: 'Risk assessment',
+    description: 'Regular risk assessments and safety audits to identify and mitigate workplace hazards.',
   },
   {
     icon: BookOpen,
-    title: 'Incident Reporting',
-    description: 'Robust incident reporting and investigation system to prevent recurrence of accidents.'
+    title: 'Incident reporting',
+    description: 'Incident reporting and investigation procedures designed to prevent recurrence.',
   },
   {
     icon: Award,
-    title: 'Quality Management',
-    description: 'ISO-compliant quality management systems to ensure consistent service delivery.'
-  }
+    title: 'Quality management',
+    description: 'Quality management procedures to keep service delivery consistent across deployments.',
+  },
 ];
 ---
 
 <BaseLayout
   title="Health, Safety & Environment"
-  description="Crompton International's commitment to health, safety, and environmental standards in workforce management."
+  description="Crompton International's health, safety and environmental standards across workforce supply and deployment in Qatar."
 >
-  <Navbar lang="en"  client:load />
-  
-  <!-- Hero -->
-  <section class="pt-32 pb-16 bg-gradient-to-br from-primary-900 to-primary-700">
-    <div class="container-custom mx-auto px-4 md:px-8 lg:px-16">
-      <div class="max-w-3xl">
-        <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
-          Health, Safety & Environment
-        </h1>
-        <p class="text-xl text-gray-300">
-          Our commitment to safety standards and compliance
-        </p>
-      </div>
-    </div>
-  </section>
+  <Navbar lang="en" client:load />
 
-  <!-- Safety Statement -->
-  <section class="py-20">
-    <div class="container-custom mx-auto px-4 md:px-8 lg:px-16">
-      <div class="max-w-4xl mx-auto text-center mb-16">
-        <h2 class="text-3xl font-heading font-bold text-gray-900 mb-6">
-          Our Safety Commitment
-        </h2>
-        <p class="text-gray-600 leading-relaxed text-lg">
-          At Crompton International, safety is not just a policy — it's a core value. We are committed to providing a safe and healthy working environment for all our employees and stakeholders. Our safety management system is designed to prevent accidents, protect health, and minimize environmental impact.
-        </p>
-      </div>
+  <main>
+    <PageHeader
+      title="Health, Safety &amp; Environment"
+      lead="Safety is a condition of supply, not a claim on a page. Every worker is inducted and equipped before reaching your site."
+      context="HSE · Qatar Labour Law"
+    />
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {commitments.map((item) => {
-          const Icon = item.icon;
-          return (
-            <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow">
-              <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center mb-6">
-                <Icon size={28} className="text-primary-500" />
-              </div>
-              <h3 class="font-heading font-semibold text-xl text-gray-900 mb-3">
-                {item.title}
-              </h3>
-              <p class="text-gray-600 leading-relaxed">
-                {item.description}
+    <!-- Statement -->
+    <section class="bg-paper">
+      <div class="container-custom px-5 py-14 md:px-8 md:py-20 lg:px-10">
+        <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+          <div class="lg:col-span-7">
+            <h2 class="font-heading text-[1.7rem] font-bold leading-snug text-primary-500 md:text-[2rem]">
+              Our safety commitment
+            </h2>
+            <p class="mt-5 max-w-measure text-[0.98rem] leading-relaxed text-ink-muted">
+              We provide a safe and healthy working environment for our employees and for the sites
+              they work on. Our procedures are built to prevent accidents, protect health and
+              minimise environmental impact &mdash; and to produce the documentation a client's HSE
+              team will ask for.
+            </p>
+          </div>
+
+          <div class="lg:col-span-5">
+            <div class="slot aspect-[4/3]">
+              <p class="slot-label">
+                Photograph — toolbox talk or safety briefing<br />
+                <span class="normal-case tracking-normal">1600 × 1200 · SHOOT-LIST.md §F</span>
               </p>
             </div>
-          );
-        })}
-      </div>
-    </div>
-  </section>
-
-  <!-- Key Stats -->
-  <section class="py-20 bg-gray-50">
-    <div class="container-custom mx-auto px-4 md:px-8 lg:px-16">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-        <div>
-          <div class="text-4xl font-heading font-bold text-secondary-400 mb-2">0</div>
-          <p class="text-gray-600 font-medium">Lost Time Injuries</p>
-        </div>
-        <div>
-          <div class="text-4xl font-heading font-bold text-secondary-400 mb-2">100%</div>
-          <p class="text-gray-600 font-medium">Safety Training</p>
-        </div>
-        <div>
-          <div class="text-4xl font-heading font-bold text-secondary-400 mb-2">100%</div>
-          <p class="text-gray-600 font-medium">PPE Compliance</p>
-        </div>
-        <div>
-          <div class="text-4xl font-heading font-bold text-secondary-400 mb-2">24/7</div>
-          <p class="text-gray-600 font-medium">Safety Support</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <Footer lang="en" />
-  <WhatsAppButton lang="en" />
+    <!-- Commitments -->
+    <section class="border-t border-rule bg-paper-2">
+      <div class="container-custom px-5 py-14 md:px-8 md:py-20 lg:px-10">
+        <h2 class="font-heading text-[1.7rem] font-bold text-primary-500 md:text-[2rem]">
+          How we manage it
+        </h2>
+
+        <ul class="mt-10 grid border-t border-rule md:grid-cols-2 lg:grid-cols-3 lg:gap-x-14">
+          {commitments.map((item) => {
+            const Icon = item.icon;
+            return (
+              <li class="border-b border-rule py-7">
+                <div class="flex items-center gap-3">
+                  <Icon size={19} className="shrink-0 text-secondary-500" aria-hidden="true" />
+                  <h3 class="font-heading text-[1.08rem] font-semibold text-primary-500">
+                    {item.title}
+                  </h3>
+                </div>
+                <p class="mt-3 max-w-[42ch] text-[0.9rem] leading-relaxed text-ink-muted">
+                  {item.description}
+                </p>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </section>
+
+    <CtaBand
+      title="Add us to your pre-qualification list."
+      body="Send your HSE questionnaire and we will return the completed pack — safety policy, risk assessments, training records and certification."
+      primaryLabel="Request the HSE pack"
+    />
+  </main>
+
+  <Footer lang="en" client:load />
+  <WhatsAppButton lang="en" client:load />
 </BaseLayout>

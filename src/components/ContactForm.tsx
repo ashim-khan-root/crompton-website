@@ -5,167 +5,183 @@ interface ContactFormProps {
   type?: 'contact' | 'manpower';
 }
 
+const WHATSAPP_NUMBER = '97455019646';
+
 export default function ContactForm({ lang = 'en', type = 'contact' }: ContactFormProps) {
   const [submitted, setSubmitted] = useState(false);
+  const isAr = lang === 'ar';
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData.entries());
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form).entries());
 
-    let message = `New ${type === 'manpower' ? 'Manpower Request' : 'Contact Form Submission'}:\n\n`;
+    let message = `${type === 'manpower' ? 'Manpower Request' : 'Enquiry'} — crompton-intl.com\n\n`;
     message += `Name: ${data.name}\n`;
     if (data.company) message += `Company: ${data.company}\n`;
     message += `Phone: ${data.phone}\n`;
     message += `Email: ${data.email}\n`;
     if (data.category) message += `Category: ${data.category}\n`;
     if (data.quantity) message += `Quantity: ${data.quantity}\n`;
-    message += `Message: ${data.message}`;
+    message += `\n${data.message}`;
 
-    const whatsappUrl = `https://wa.me/97455019646?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+    const opened = window.open(
+      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,
+      '_blank'
+    );
 
-    e.currentTarget.reset();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
+    // Only claim success if a window actually opened. Previously this said
+    // "sent successfully" even when the visitor cancelled the popup.
+    if (opened) {
+      form.reset();
+      setSubmitted(true);
+      setTimeout(() => setSubmitted(false), 8000);
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="grid md:grid-cols-2 gap-6">
+    <form onSubmit={handleSubmit} className="space-y-5">
+      <div className="grid gap-5 md:grid-cols-2">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-            {lang === 'ar' ? 'الاسم الكامل' : 'Full Name'} *
+          <label htmlFor="cf-name" className="mb-2 block text-[0.85rem] font-medium text-ink">
+            {isAr ? 'الاسم الكامل' : 'Full name'} <span className="text-secondary-600">*</span>
           </label>
           <input
             type="text"
-            id="name"
+            id="cf-name"
             name="name"
             required
-            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition-all duration-200 outline-none"
-            placeholder={lang === 'ar' ? 'أدخل اسمك' : 'Enter your name'}
+            className="input-field"
+            placeholder={isAr ? 'أدخل اسمك' : 'Your full name'}
           />
         </div>
-        
+
         <div>
-          <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
-            {lang === 'ar' ? 'اسم الشركة' : 'Company Name'}
+          <label htmlFor="cf-company" className="mb-2 block text-[0.85rem] font-medium text-ink">
+            {isAr ? 'اسم الشركة' : 'Company'}
           </label>
           <input
             type="text"
-            id="company"
+            id="cf-company"
             name="company"
-            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition-all duration-200 outline-none"
-            placeholder={lang === 'ar' ? 'اسم شركتك' : 'Your company name'}
+            className="input-field"
+            placeholder={isAr ? 'اسم شركتك' : 'Your company'}
           />
         </div>
       </div>
-      
-      <div className="grid md:grid-cols-2 gap-6">
+
+      <div className="grid gap-5 md:grid-cols-2">
         <div>
-          <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-            {lang === 'ar' ? 'رقم الهاتف' : 'Phone Number'} *
+          <label htmlFor="cf-phone" className="mb-2 block text-[0.85rem] font-medium text-ink">
+            {isAr ? 'رقم الهاتف' : 'Phone'} <span className="text-secondary-600">*</span>
           </label>
           <input
             type="tel"
-            id="phone"
+            id="cf-phone"
             name="phone"
             required
-            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition-all duration-200 outline-none"
+            className="input-field"
             placeholder="+974 XXXX XXXX"
           />
         </div>
-        
+
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-            {lang === 'ar' ? 'البريد الإلكتروني' : 'Email Address'} *
+          <label htmlFor="cf-email" className="mb-2 block text-[0.85rem] font-medium text-ink">
+            {isAr ? 'البريد الإلكتروني' : 'Email'} <span className="text-secondary-600">*</span>
           </label>
           <input
             type="email"
-            id="email"
+            id="cf-email"
             name="email"
             required
-            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition-all duration-200 outline-none"
-            placeholder={lang === 'ar' ? 'بريدك الإلكتروني' : 'your@email.com'}
+            className="input-field"
+            placeholder={isAr ? 'بريدك الإلكتروني' : 'you@company.com'}
           />
         </div>
       </div>
-      
+
       {type === 'manpower' && (
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid gap-5 md:grid-cols-2">
           <div>
-            <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-2">
-              {lang === 'ar' ? 'الفئة الوظيفية' : 'Job Category'} *
+            <label htmlFor="cf-category" className="mb-2 block text-[0.85rem] font-medium text-ink">
+              {isAr ? 'الفئة الوظيفية' : 'Category'} <span className="text-secondary-600">*</span>
             </label>
-            <select
-              id="category"
-              name="category"
-              required
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition-all duration-200 outline-none"
-            >
-              <option value="">{lang === 'ar' ? 'اختر الفئة' : 'Select category'}</option>
-              <optgroup label={lang === 'ar' ? 'الكادرة البيضاء' : 'White Collar'}>
-                <option value="project-manager">{lang === 'ar' ? 'مدير مشروع' : 'Project Manager'}</option>
-                <option value="civil-engineer">{lang === 'ar' ? 'مهندس مدني' : 'Civil Engineer'}</option>
-                <option value="mechanical-engineer">{lang === 'ar' ? 'مهندس ميكانيكا' : 'Mechanical Engineer'}</option>
-                <option value="electrical-engineer">{lang === 'ar' ? 'مهندس كهرباء' : 'Electrical Engineer'}</option>
-                <option value="hse-engineer">{lang === 'ar' ? 'مهندس صحة وسلامة' : 'HSE Engineer'}</option>
-                <option value="qa-qc-engineer">{lang === 'ar' ? 'مهندس جودة' : 'QA/QC Engineer'}</option>
+            <select id="cf-category" name="category" required className="input-field">
+              <option value="">{isAr ? 'اختر الفئة' : 'Select a category'}</option>
+              <optgroup label={isAr ? 'الكوادر البيضاء' : 'White collar'}>
+                <option value="project-manager">{isAr ? 'مدير مشروع' : 'Project Manager'}</option>
+                <option value="civil-engineer">{isAr ? 'مهندس مدني' : 'Civil Engineer'}</option>
+                <option value="mechanical-engineer">{isAr ? 'مهندس ميكانيكا' : 'Mechanical Engineer'}</option>
+                <option value="electrical-engineer">{isAr ? 'مهندس كهرباء' : 'Electrical Engineer'}</option>
+                <option value="hse-engineer">{isAr ? 'مهندس صحة وسلامة' : 'HSE Engineer'}</option>
+                <option value="qa-qc-engineer">{isAr ? 'مهندس جودة' : 'QA/QC Engineer'}</option>
               </optgroup>
-              <optgroup label={lang === 'ar' ? 'الكادرة الزرقاء' : 'Blue Collar'}>
-                <option value="electrician">{lang === 'ar' ? 'كهربائي' : 'Electrician'}</option>
-                <option value="plumber">{lang === 'ar' ? 'سبّاك' : 'Plumber'}</option>
-                <option value="welder">{lang === 'ar' ? 'لحّام' : 'Welder'}</option>
-                <option value="hvac-technician">{lang === 'ar' ? 'فني تكييف' : 'HVAC Technician'}</option>
-                <option value="carpenter">{lang === 'ar' ? 'نجّار' : 'Carpenter'}</option>
-                <option value="mason">{lang === 'ar' ? 'بنّاء' : 'Mason'}</option>
-                <option value="painter">{lang === 'ar' ? 'صبّاغ' : 'Painter'}</option>
-                <option value="helper">{lang === 'ar' ? 'مساعد' : 'Helper'}</option>
+              <optgroup label={isAr ? 'الكوادر الزرقاء' : 'Blue collar'}>
+                <option value="electrician">{isAr ? 'كهربائي' : 'Electrician'}</option>
+                <option value="plumber">{isAr ? 'سبّاك' : 'Plumber'}</option>
+                <option value="welder">{isAr ? 'لحّام' : 'Welder'}</option>
+                <option value="hvac-technician">{isAr ? 'فني تكييف' : 'HVAC Technician'}</option>
+                <option value="carpenter">{isAr ? 'نجّار' : 'Carpenter'}</option>
+                <option value="mason">{isAr ? 'بنّاء' : 'Mason'}</option>
+                <option value="painter">{isAr ? 'صبّاغ' : 'Painter'}</option>
+                <option value="helper">{isAr ? 'مساعد' : 'Helper'}</option>
               </optgroup>
             </select>
           </div>
-          
+
           <div>
-            <label htmlFor="quantity" className="block text-sm font-medium text-gray-700 mb-2">
-              {lang === 'ar' ? 'العدد المطلوب' : 'Quantity Required'} *
+            <label htmlFor="cf-quantity" className="mb-2 block text-[0.85rem] font-medium text-ink">
+              {isAr ? 'العدد المطلوب' : 'Headcount'} <span className="text-secondary-600">*</span>
             </label>
             <input
               type="number"
-              id="quantity"
+              id="cf-quantity"
               name="quantity"
               min="1"
               required
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition-all duration-200 outline-none"
-              placeholder={lang === 'ar' ? 'عدد العمال' : 'Number of workers'}
+              className="input-field"
+              placeholder={isAr ? 'عدد العمال' : 'Number of workers'}
             />
           </div>
         </div>
       )}
-      
+
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-          {lang === 'ar' ? 'الرسالة' : 'Message'} *
+        <label htmlFor="cf-message" className="mb-2 block text-[0.85rem] font-medium text-ink">
+          {isAr ? 'الرسالة' : 'Requirement'} <span className="text-secondary-600">*</span>
         </label>
         <textarea
-          id="message"
+          id="cf-message"
           name="message"
-          rows={4}
+          rows={5}
           required
-          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition-all duration-200 outline-none resize-none"
-          placeholder={lang === 'ar' ? 'اكتب رسالتك هنا...' : 'Write your message here...'}
+          className="input-field resize-none"
+          placeholder={
+            isAr
+              ? 'صف احتياجك: المهن، العدد، الجدول الزمني'
+              : 'Describe your requirement: trades, headcount, timeline'
+          }
         ></textarea>
       </div>
-      
-      <button
-        type="submit"
-        className="w-full bg-primary-500 text-white px-6 py-4 rounded-lg font-semibold text-lg hover:bg-primary-600 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
-      >
-        {lang === 'ar' ? 'إرسال الرسالة' : 'Send Message'}
+
+      <button type="submit" className="btn-navy w-full">
+        {isAr ? 'إرسال عبر واتساب' : 'Send via WhatsApp'}
       </button>
-      
+
+      <p className="text-[0.78rem] leading-relaxed text-ink-faint">
+        {isAr
+          ? 'سيتم فتح واتساب برسالة معدّة مسبقاً. اضغط إرسال هناك لإتمام التواصل.'
+          : 'This opens WhatsApp with your details pre-filled. Press send there to reach our team.'}
+      </p>
+
       {submitted && (
-        <div className="bg-green-50 text-green-700 p-4 rounded-lg text-center font-medium">
-          {lang === 'ar' ? 'تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.' : 'Your message has been sent successfully! We will contact you soon.'}
+        <div
+          role="status"
+          className="border border-secondary-400/40 bg-secondary-50 p-4 text-center text-[0.88rem] font-medium text-secondary-700"
+        >
+          {isAr
+            ? 'تم فتح واتساب — أكمل الإرسال من هناك.'
+            : 'WhatsApp opened — complete the send there.'}
         </div>
       )}
     </form>
