@@ -1,0 +1,72 @@
+# Design System
+
+Design tokens live in `tailwind.config.js` (source of truth for Tailwind classes) and
+`src/styles/global.css` (CSS custom properties + fonts). This document records intent and
+constraints; the config files are the implementation contract.
+
+## Brand
+
+Crompton International — manpower supply, Doha. The visual language is corporate-industrial:
+deep navy carries authority, gold carries premium service, blue carries action.
+
+| Token | Value | Use |
+|---|---|---|
+| `primary.500` | `#1a365d` navy | headings, nav, hero grounds, primary buttons |
+| `primary.600-900` | `#1e3a5f` → `#0a1929` | gradients (hero: `from-primary-900 to-primary-700`) |
+| `secondary.400` | `#d69e2e` gold | accents, icons, highlights |
+| `accent` | `#2563eb` blue | links, active states |
+| background | `#ffffff` / `#f8fafc` | page / alt sections |
+| text | `#1e293b` body, `#64748b` muted | — |
+
+Note the intentional scale quirk: `primary.400` (`#60a5fa`, light blue) is *lighter* than
+`primary.500` (`#1a365d`, navy) — the scale is not a monotonically darkening blue ramp. The
+navy ramp runs 500→900, and 50–400 are decorative tints. Get new colors from the existing ramp
+rather than inventing hexes.
+
+## Typography
+
+| Role | Face | Notes |
+|---|---|---|
+| Headings | Plus Jakarta Sans (500–800) | `font-heading` |
+| Body | Inter (300–700) | `font-body` |
+| Arabic | Noto Sans Arabic (300–700) | applies via `[dir="rtl"]` selectors — Arabic pages and any RTL context get the Arabic face automatically for body and headings |
+
+All three load from Google Fonts CDN with `display=swap`. If performance regresses when real
+photography lands, self-host via `@fontsource` before dropping weights.
+
+## Bilingual / RTL rules
+
+- Arabic is not "the same site mirrored with different strings": body and heading fonts swap on
+  `[dir="rtl"]`, and layout must be checked mirrored (nav order, form alignment, icon positions)
+- Every English content string needs an `*Ar` sibling key in the same data file — half-filled
+  bilingual content is what produced the dead `src/i18n/` files
+- Arabic只有在真翻译到位时才上线: no machine translation ships unreviewed (the 2026-10-17
+  contamination audit found Chinese/French tokens embedded in Arabic strings)
+
+## Components
+
+- `Navbar.tsx` — sticky, `client:load`, lang-aware links (falls back `/ar/` → `/en/`)
+- `Footer.tsx` — contact block, quick links, hardcoded phone/WhatsApp/address (PRD-verified)
+- `ContactForm.tsx` — two variants via `type` prop: `contact` and `manpower` (adds job-category
+  select + headcount). WhatsApp deep-link submit; styled via Tailwind utility classes
+- `ClientCarousel.tsx` — renders only when `clients.json` is non-empty (deliberate)
+- `StatsCounter.tsx` — animated counters; values must satisfy the content-truth rules
+- `WhatsAppButton.tsx` — floating CTA, bottom corner
+- Reusable classes in `global.css`: `.btn-primary`, `.container-custom`, gradient section
+  pattern (`pt-32 pb-16 bg-gradient-to-br from-primary-900 to-primary-700` + `max-w-3xl` hero)
+
+## Imagery
+
+- Real photography is required for: workforce, accommodation, transportation, projects,
+  training, office (gallery categories double as the shot list)
+- Certificates may be shown as scans only after client documents verify the claims
+- No stock photography (rules.md). Placeholder tiles carry fixed aspect ratio + "Coming Soon"
+  label so they're obvious in review
+- Alt text required on every image, describing the actual subject
+
+## Motion
+
+- Tailwind keyframes: `fade-in`, `slide-up`, `slide-in-left/right`, `counter` (stats)
+- Motion is ambient, not blocking: nothing may gate reading or interaction. `gsap` was installed
+  for richer animation and never used — current animation set is sufficient, do not reach for it
+- `html { scroll-behavior: smooth }` is global; anchors scroll, nothing else animates position
