@@ -1,0 +1,56 @@
+[
+  {
+    "id": "white-collar",
+    "icon": "Briefcase",
+    "title": "White Collar Staffing",
+    "titleAr": "توظيف الكادرة البيضاء",
+    "description": "We provide qualified professionals for engineering, project management, administration, finance, procurement, planning, HSE, QA/QC, HR, document control, and other technical and management positions.",
+    "descriptionAr": "نقدم محترفين مؤهلين في الهندسة وإدارة المشاريع والإدارة والمالية والمشتريات والتخطيط والسلامة وجودة الجودة والموارد البشرية والتحكم في الوثائق及其他 التقنية والإدارية.",
+    "roles": ["Project Managers", "Civil Engineers", "Mechanical Engineers", "Electrical Engineers", "Planning Engineers", "Quantity Surveyors", "QA/QC Engineers", "HSE Engineers", "Supervisors", "Procurement Officers", "HR Professionals", "Accountants", "Document Controllers", "Store Keepers"]
+  },
+  {
+    "id": "blue-collar",
+    "icon": "HardHat",
+    "title": "Blue Collar Manpower Supply",
+    "titleAr": "توريد الكادرة الزرقاء",
+    "description": "We supply experienced skilled, semi-skilled, and unskilled workers for construction, industrial operations, maintenance, logistics, MEP, and infrastructure projects.",
+    "descriptionAr": "نورد عمالة ماهرة وشبه ماهر وغير ماهرة للبناء والعمليات الصيانة والmaintenant واللوجستيات والسبك والبنية التحتية.",
+    "roles": ["Electricians", "Plumbers", "Welders", "Pipe Fitters", "Fabricators", "HVAC Technicians", "AC Technicians", "Instrument Technicians", "Mechanical Technicians", "Scaffolders", "Steel Fixers", "Carpenters", "Masons", "Painters", "Helpers", "Drivers", "Riggers", "Forklift Operators", "Crane Operators"]
+  },
+  {
+    "id": "project-based",
+    "icon": "Calendar",
+    "title": "Project-Based Workforce Solutions",
+    "titleAr": "حلول عمالة مشاريع",
+    "description": "Whether you require manpower for short-term projects, shutdowns, maintenance work, or long-term contracts, our team delivers flexible workforce solutions tailored to your project requirements.",
+    "descriptionAr": " سواء كنت بحاجة إلى عمالة لمشاريع قصيرة الأمد أو إيقاف الصيانة أو أعمال الصيانة أو عقود طويلة الأمد، يوفر فريقنا حلول عمالة مرنة مصممة وفقاً لاحتياجات مشروعك.",
+    "roles": ["Short-term Projects", "Shutdowns", "Maintenance Work", "Long-term Contracts", "Seasonal Staffing", "Emergency Mobilization"]
+  },
+  {
+    "id": "recruitment",
+    "icon": "Users",
+    "title": "Recruitment & Mobilization",
+    "titleAr": "التوظيف والتعبئة",
+    "description": "Our recruitment specialists ensure timely sourcing, screening, documentation, deployment, and workforce management, enabling clients to maintain productivity while reducing recruitment challenges.",
+    "descriptionAr": "يضمن متخصصو التوظيف لدينا التوريد والفرز والتوثيق والنشر وإدارة العمالة في الوقت المناسب، مما يمكين العملاء من الحفاظ على الإنتاجية مع تقليل تحديات التوظيف.",
+    "roles": ["Sourcing", "Screening", "Documentation", "Deployment", "Workforce Management", "Compliance"]
+  },
+  {
+    "id": "outsourcing",
+    "icon": "Building",
+    "title": "Outsourcing Solutions",
+    "titleAr": "حلول التوظيف الخارجي",
+    "description": "Complete workforce outsourcing solutions including recruitment, payroll, accommodation, transportation, and end-to-end workforce management.",
+    "descriptionAr": "حلول شاملة للتوظيف الخارجي تشمل التوظيف والرواتب والسكن والنقل وإدارة شاملة للعمالة.",
+    "roles": ["Complete Outsourcing", "Payroll Management", "Accommodation", "Transportation", "Visa Processing", "Medical Insurance"]
+  },
+  {
+    "id": "payroll",
+    "icon": "Calculator",
+    "title": "Payroll Support",
+    "titleAr": "دعم الرواتب",
+    "description": "Comprehensive payroll management services including salary processing, WPS compliance, end-of-service benefits, and government liaison.",
+    "descriptionAr": "خدمات إدارة شاملة للرواتب تشمل معالجة الرواتب والامتثال لنظام سداد الأجور والمزايا عند نهاية الخدمة والتواصل مع الجهات الحكومية.",
+    "roles": ["Salary Processing", "WPS Compliance", "End-of-Service Benefits", "Government Liaison", "Leave Management", "Overtime Calculation"]
+  }
+]

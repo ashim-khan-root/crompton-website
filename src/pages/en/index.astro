@@ -1,0 +1,352 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar.tsx';
+import Footer from '../../components/Footer.tsx';
+import WhatsAppButton from '../../components/WhatsAppButton.tsx';
+import StatsCounter from '../../components/StatsCounter.tsx';
+import ClientCarousel from '../../components/ClientCarousel.tsx';
+import clients from '../../data/clients.json';
+import { ArrowRight, Phone, Users, Building2, Shield, Clock, ChevronRight } from 'lucide-react';
+
+const stats = [
+  { value: 800, suffix: '+', label: 'Skilled Workers', labelAr: 'عميل مؤهل' },
+  { value: 50, suffix: '+', label: 'Client Companies', labelAr: 'شركة عميل' },
+  { value: 10, suffix: '+', label: 'Years Experience', labelAr: 'سنة خبرة' },
+  { value: 12, suffix: '+', label: 'Industries Served', labelAr: 'قطاع مخدوم' },
+];
+
+const services = [
+  {
+    icon: '👥',
+    title: 'White Collar Staffing',
+    titleAr: 'توظيف الكادرة البيضاء',
+    description: 'Qualified professionals for engineering, management, and technical positions.',
+    descriptionAr: 'محترفون مؤهلون للهندسة والإدارة والمناصب التقنية.',
+  },
+  {
+    icon: '🏗️',
+    title: 'Blue Collar Manpower',
+    titleAr: 'توريد الكادرة الزرقاء',
+    description: 'Skilled and semi-skilled workers for construction and industrial projects.',
+    descriptionAr: 'عمالة ماهرة وشبه ماهرة لمشاريع البناء والصناعة.',
+  },
+  {
+    icon: '📋',
+    title: 'Project-Based Solutions',
+    titleAr: 'حلول مشاريع',
+    description: 'Flexible workforce for short-term projects and long-term contracts.',
+    descriptionAr: 'عمالة مرنة لمشاريع قصيرة الأمد وعقود طويلة الأمد.',
+  },
+  {
+    icon: '🔄',
+    title: 'Recruitment & Mobilization',
+    titleAr: 'التوظيف والتعبئة',
+    description: 'End-to-end recruitment from sourcing to deployment.',
+    descriptionAr: 'توظيف شامل من التوريد إلى النشر.',
+  },
+];
+
+const industries = [
+  'Construction', 'Engineering', 'Infrastructure', 'Oil & Gas',
+  'MEP', 'Facility Management', 'Manufacturing', 'Logistics',
+  'Hospitality', 'Corporate', 'Retail', 'Healthcare'
+];
+---
+
+<BaseLayout
+  title="Home"
+  description="Crompton International - Reliable Manpower Solutions for Qatar's Growing Industries. 800+ skilled workers across 12 industries."
+>
+  <Navbar lang="en" client:load />
+  
+  <!-- Hero Section -->
+  <section class="relative min-h-screen flex items-center bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 overflow-hidden">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.4\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+    </div>
+    
+    <div class="container-custom mx-auto px-4 md:px-8 lg:px-16 py-32 relative z-10">
+      <div class="max-w-3xl">
+        <span class="inline-block bg-secondary-400/20 text-secondary-400 px-4 py-2 rounded-full text-sm font-medium mb-6">
+          Trusted Since 2010
+        </span>
+        
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6 leading-tight">
+          Reliable Manpower Solutions for Qatar's Growing Industries
+        </h1>
+        
+        <p class="text-xl text-gray-300 mb-4">
+          Supplying Skilled White Collar and Blue Collar Professionals Across Qatar
+        </p>
+        
+        <p class="text-gray-400 mb-8 max-w-2xl">
+          With over 800 skilled professionals, Crompton International Trading & Contracting & Services W.L.L. is a trusted manpower supply company headquartered in Doha, Qatar. We provide reliable workforce solutions to the construction, engineering, infrastructure, and corporate sectors.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a
+            href="/en/contact"
+            class="inline-flex items-center justify-center gap-2 bg-secondary-400 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-secondary-500 transition-all duration-300"
+          >
+            Request Manpower
+            <ArrowRight size={20} />
+          </a>
+          <a
+            href="tel:+97444681414"
+            class="inline-flex items-center justify-center gap-2 bg-white/10 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white/20 transition-all duration-300"
+          >
+            <Phone size={20} />
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+      <div class="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2">
+        <div class="w-1.5 h-3 bg-white/50 rounded-full"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="container-custom mx-auto px-4 md:px-8 lg:px-16">
+      <StatsCounter stats={stats} lang="en" client:load />
+    </div>
+  </section>
+
+  <!-- About Preview -->
+  <section class="py-20">
+    <div class="container-custom mx-auto px-4 md:px-8 lg:px-16">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <span class="text-secondary-400 font-semibold text-sm uppercase tracking-wider">About Us</span>
+          <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mt-2 mb-6">
+            Your Trusted Manpower Partner in Qatar
+          </h2>
+          <p class="text-gray-600 mb-6 leading-relaxed">
+            Crompton International Trading & Contracting & Services W.L.L. is committed to delivering dependable manpower solutions that help businesses complete projects safely, efficiently, and on schedule.
+          </p>
+          <p class="text-gray-600 mb-8 leading-relaxed">
+            Our workforce includes highly qualified engineers, supervisors, technicians, skilled tradesmen, and general workers who are carefully selected and deployed according to each client's operational requirements.
+          </p>
+          
+          <div class="grid grid-cols-2 gap-4 mb-8">
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <Shield size={20} class="text-primary-500" />
+              </div>
+              <div>
+                <p class="font-semibold text-gray-900">Safety First</p>
+                <p class="text-sm text-gray-500">Compliance with Qatar Labour Regulations</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <Clock size={20} class="text-primary-500" />
+              </div>
+              <div>
+                <p class="font-semibold text-gray-900">Quick Mobilization</p>
+                <p class="text-sm text-gray-500">Fast workforce deployment</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <Users size={20} class="text-primary-500" />
+              </div>
+              <div>
+                <p class="font-semibold text-gray-900">Quality Screening</p>
+                <p class="text-sm text-gray-500">Thorough vetting process</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <Building2 size={20} class="text-primary-500" />
+              </div>
+              <div>
+                <p class="font-semibold text-gray-900">Long-Term Partners</p>
+                <p class="text-sm text-gray-500">Building lasting relationships</p>
+              </div>
+            </div>
+          </div>
+          
+          <a
+            href="/en/about"
+            class="inline-flex items-center gap-2 text-primary-500 font-semibold hover:text-primary-600 transition-colors"
+          >
+            Learn More About Us
+            <ChevronRight size={20} />
+          </a>
+        </div>
+        
+        <div class="relative">
+          <div class="bg-gradient-to-br from-primary-500 to-primary-700 rounded-2xl p-8 text-white">
+            <h3 class="font-heading font-bold text-2xl mb-6">Our Strength</h3>
+            <ul class="space-y-4">
+              <li class="flex items-center gap-3">
+                <span class="w-2 h-2 bg-secondary-400 rounded-full"></span>
+                <span>800+ Skilled Workers</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="w-2 h-2 bg-secondary-400 rounded-full"></span>
+                <span>White Collar & Blue Collar Recruitment</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="w-2 h-2 bg-secondary-400 rounded-full"></span>
+                <span>Fast Workforce Mobilization</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="w-2 h-2 bg-secondary-400 rounded-full"></span>
+                <span>Experienced Recruitment Team</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="w-2 h-2 bg-secondary-400 rounded-full"></span>
+                <span>Compliance with Qatar Labour Regulations</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="w-2 h-2 bg-secondary-400 rounded-full"></span>
+                <span>Dedicated Client Support</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="container-custom mx-auto px-4 md:px-8 lg:px-16">
+      <div class="text-center mb-16">
+        <span class="text-secondary-400 font-semibold text-sm uppercase tracking-wider">What We Offer</span>
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mt-2 mb-4">
+          Comprehensive Workforce Solutions
+        </h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">
+          Professional manpower supply services tailored to your project needs
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {services.map((service) => (
+          <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            <div class="text-4xl mb-4">{service.icon}</div>
+            <h3 class="font-heading font-semibold text-xl text-gray-900 mb-3">
+              {service.title}
+            </h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              {service.description}
+            </p>
+          </div>
+        ))}
+      </div>
+      
+      <div class="text-center mt-12">
+        <a
+          href="/en/services"
+          class="inline-flex items-center gap-2 bg-primary-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary-600 transition-all duration-300"
+        >
+          View All Services
+          <ArrowRight size={20} />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industries Section -->
+  <section class="py-20">
+    <div class="container-custom mx-auto px-4 md:px-8 lg:px-16">
+      <div class="text-center mb-16">
+        <span class="text-secondary-400 font-semibold text-sm uppercase tracking-wider">Expertise Across Sectors</span>
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mt-2 mb-4">
+          Industries We Serve
+        </h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">
+          Supporting manpower requirements across diverse sectors
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {industries.map((industry) => (
+          <div class="bg-gray-50 rounded-lg p-6 text-center hover:bg-primary-50 hover:text-primary-500 transition-all duration-300">
+            <p class="font-medium">{industry}</p>
+          </div>
+        ))}
+      </div>
+      
+      <div class="text-center mt-12">
+        <a
+          href="/en/industries"
+          class="inline-flex items-center gap-2 text-primary-500 font-semibold hover:text-primary-600 transition-colors"
+        >
+          Explore All Industries
+          <ChevronRight size={20} />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {clients.length > 0 && (
+  <!-- Clients Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="container-custom mx-auto px-4 md:px-8 lg:px-16">
+      <div class="text-center mb-16">
+        <span class="text-secondary-400 font-semibold text-sm uppercase tracking-wider">Our Partners</span>
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mt-2 mb-4">
+          Trusted by Leading Companies
+        </h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">
+          We are proud to support workforce requirements for well-known organizations across Qatar
+        </p>
+      </div>
+      
+      <ClientCarousel lang="en" client:load />
+      
+      <div class="text-center mt-12">
+        <a
+          href="/en/clients"
+          class="inline-flex items-center gap-2 text-primary-500 font-semibold hover:text-primary-600 transition-colors"
+        >
+          View All Clients
+          <ChevronRight size={20} />
+        </a>
+      </div>
+    </div>
+  </section>
+  )}
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-gradient-to-r from-primary-900 to-primary-700">
+    <div class="container-custom mx-auto px-4 md:px-8 lg:px-16 text-center">
+      <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-6">
+        Looking for Reliable Manpower?
+      </h2>
+      <p class="text-gray-300 max-w-2xl mx-auto mb-8">
+        Whether you require skilled engineers, experienced technicians, construction professionals, or project support staff, Crompton International is ready to provide dependable manpower solutions.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/en/contact"
+          class="inline-flex items-center justify-center gap-2 bg-secondary-400 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-secondary-500 transition-all duration-300"
+        >
+          Contact Us Today
+          <ArrowRight size={20} />
+        </a>
+        <a
+          href="https://wa.me/97455019646"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center gap-2 bg-green-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-green-600 transition-all duration-300"
+        >
+          Chat on WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer lang="en" client:load />
+  <WhatsAppButton lang="en" client:load />
+</BaseLayout>

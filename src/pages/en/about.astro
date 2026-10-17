@@ -1,0 +1,217 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar.tsx';
+import Footer from '../../components/Footer.tsx';
+import WhatsAppButton from '../../components/WhatsAppButton.tsx';
+import { Target, Eye, Heart, Users, Shield, Clock, Award, Handshake } from 'lucide-react';
+
+const values = [
+  { icon: Shield, title: 'Safety First', titleAr: 'السلامة أولاً', description: 'We prioritize the safety of our workforce and comply with all Qatar labour regulations.' },
+  { icon: Award, title: 'Quality Workforce', titleAr: 'عمالة ذات جودة', description: 'Thorough screening and vetting to ensure only qualified professionals.' },
+  { icon: Users, title: 'Client Focus', titleAr: 'التركيز على العميل', description: 'Understanding and meeting each client\'s unique operational requirements.' },
+  { icon: Heart, title: 'Integrity', titleAr: 'النزاهة', description: 'Transparent and honest business practices in all our dealings.' },
+  { icon: Handshake, title: 'Long-term Partnerships', titleAr: 'شراكات طويلة الأمد', description: 'Building lasting relationships based on trust and mutual success.' },
+  { icon: Clock, title: 'Quick Mobilization', titleAr: 'التعبئة السريعة', description: 'Fast and efficient workforce deployment to meet project timelines.' },
+];
+---
+
+<BaseLayout
+  title="About Us"
+  description="Learn about Crompton International - your trusted manpower partner in Qatar with 800+ skilled workers and 10+ years of experience."
+>
+  <Navbar lang="en"  client:load />
+  
+  <!-- Hero -->
+  <section class="pt-32 pb-16 bg-gradient-to-br from-primary-900 to-primary-700">
+    <div class="container-custom mx-auto px-4 md:px-8 lg:px-16">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
+          Your Trusted Manpower Partner in Qatar
+        </h1>
+        <p class="text-xl text-gray-300">
+          Delivering dependable workforce solutions since 2010
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="py-20">
+    <div class="container-custom mx-auto px-4 md:px-8 lg:px-16">
+      <div class="grid lg:grid-cols-2 gap-16 items-start">
+        <div>
+          <h2 class="text-3xl font-heading font-bold text-gray-900 mb-6">
+            About Crompton International
+          </h2>
+          <p class="text-gray-600 mb-6 leading-relaxed">
+            Crompton International Trading & Contracting & Services W.L.L. is committed to delivering dependable manpower solutions that help businesses complete projects safely, efficiently, and on schedule.
+          </p>
+          <p class="text-gray-600 mb-6 leading-relaxed">
+            Our workforce includes highly qualified engineers, supervisors, technicians, skilled tradesmen, and general workers who are carefully selected and deployed according to each client's operational requirements.
+          </p>
+          <p class="text-gray-600 mb-8 leading-relaxed">
+            We focus on building long-term partnerships by providing responsive service, quality manpower, and a commitment to safety and compliance. With over 800 skilled professionals, we serve clients across Qatar's construction, engineering, infrastructure, and corporate sectors.
+          </p>
+          
+          <div class="bg-gray-50 rounded-xl p-8">
+            <h3 class="font-heading font-semibold text-xl text-gray-900 mb-4">Our Strength</h3>
+            <ul class="grid grid-cols-2 gap-3">
+              <li class="flex items-center gap-2">
+                <span class="w-2 h-2 bg-secondary-400 rounded-full"></span>
+                <span class="text-gray-700">800+ Skilled Workers</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-2 h-2 bg-secondary-400 rounded-full"></span>
+                <span class="text-gray-700">50+ Client Companies</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-2 h-2 bg-secondary-400 rounded-full"></span>
+                <span class="text-gray-700">10+ Years Experience</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-2 h-2 bg-secondary-400 rounded-full"></span>
+                <span class="text-gray-700">12+ Industries Served</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="space-y-8">
+          <!-- Vision -->
+          <div class="bg-primary-50 rounded-xl p-8">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 bg-primary-500 rounded-lg flex items-center justify-center">
+                <Eye size={24} className="text-white" />
+              </div>
+              <h3 class="font-heading font-semibold text-xl text-gray-900">Our Vision</h3>
+            </div>
+            <p class="text-gray-600 leading-relaxed">
+              To be Qatar's most trusted and preferred manpower supply partner, recognized for quality, reliability, and safety.
+            </p>
+          </div>
+          
+          <!-- Mission -->
+          <div class="bg-secondary-50 rounded-xl p-8">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 bg-secondary-400 rounded-lg flex items-center justify-center">
+                <Target size={24} className="text-white" />
+              </div>
+              <h3 class="font-heading font-semibold text-xl text-gray-900">Our Mission</h3>
+            </div>
+            <p class="text-gray-600 leading-relaxed">
+              To provide skilled, dependable workforce solutions that enable our clients to achieve their project goals safely, on time, and within budget.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="py-20 bg-gray-50">
+    <div class="container-custom mx-auto px-4 md:px-8 lg:px-16">
+      <div class="text-center mb-16">
+        <span class="text-secondary-400 font-semibold text-sm uppercase tracking-wider">What Drives Us</span>
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mt-2">
+          Our Values
+        </h2>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {values.map((value) => {
+          const Icon = value.icon;
+          return (
+            <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow">
+              <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center mb-6">
+                <Icon size={28} className="text-primary-500" />
+              </div>
+              <h3 class="font-heading font-semibold text-xl text-gray-900 mb-3">
+                {value.title}
+              </h3>
+              <p class="text-gray-600 leading-relaxed">
+                {value.description}
+              </p>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="py-20">
+    <div class="container-custom mx-auto px-4 md:px-8 lg:px-16">
+      <div class="text-center mb-16">
+        <span class="text-secondary-400 font-semibold text-sm uppercase tracking-wider">The Crompton Difference</span>
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mt-2">
+          Why Choose Us
+        </h2>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 bg-secondary-400 rounded-lg flex items-center justify-center flex-shrink-0">
+            <span class="text-white font-bold">1</span>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">Experienced Recruitment Professionals</h3>
+            <p class="text-gray-600 text-sm">Our team has deep expertise in sourcing and deploying workforce across Qatar.</p>
+          </div>
+        </div>
+        
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 bg-secondary-400 rounded-lg flex items-center justify-center flex-shrink-0">
+            <span class="text-white font-bold">2</span>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">Skilled and Dependable Workforce</h3>
+            <p class="text-gray-600 text-sm">Carefully screened and vetted workers who meet your project requirements.</p>
+          </div>
+        </div>
+        
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 bg-secondary-400 rounded-lg flex items-center justify-center flex-shrink-0">
+            <span class="text-white font-bold">3</span>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">Quick Mobilization</h3>
+            <p class="text-gray-600 text-sm">Fast deployment to meet your project timelines and deadlines.</p>
+          </div>
+        </div>
+        
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 bg-secondary-400 rounded-lg flex items-center justify-center flex-shrink-0">
+            <span class="text-white font-bold">4</span>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">Competitive Solutions</h3>
+            <p class="text-gray-600 text-sm">Cost-effective manpower solutions without compromising quality.</p>
+          </div>
+        </div>
+        
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 bg-secondary-400 rounded-lg flex items-center justify-center flex-shrink-0">
+            <span class="text-white font-bold">5</span>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">Safety-Conscious Workforce</h3>
+            <p class="text-gray-600 text-sm">All workers trained in safety protocols and Qatar regulations.</p>
+          </div>
+        </div>
+        
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 bg-secondary-400 rounded-lg flex items-center justify-center flex-shrink-0">
+            <span class="text-white font-bold">6</span>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-2">Dedicated Client Support</h3>
+            <p class="text-gray-600 text-sm">Responsive customer service and account management.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer lang="en" />
+  <WhatsAppButton lang="en" />
+</BaseLayout>

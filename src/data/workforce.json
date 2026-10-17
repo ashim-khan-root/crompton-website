@@ -1,0 +1,204 @@
+{
+  "whiteCollar": [
+    {
+      "category": "Project Managers",
+      "categoryAr": "مديرو المشاريع",
+      "description": "Experienced project managers for construction and infrastructure projects.",
+      "descriptionAr": "مديرو مشاريع ذوو خبرة في مشاريع البناء والبنية التحتية."
+    },
+    {
+      "category": "Civil Engineers",
+      "categoryAr": "مهندسو مدني",
+      "description": "Civil engineers for design, supervision, and project execution.",
+      "descriptionAr": "مهندسون مدنيون للتصميم والإشراف وتنفيذ المشاريع."
+    },
+    {
+      "category": "Mechanical Engineers",
+      "categoryAr": "مهندسو ميكانيكا",
+      "description": "Mechanical engineers for HVAC, plumbing, and mechanical systems.",
+      "descriptionAr": "مهندسو ميكانيكا لتكييف الهواء والسباكة والأنظمة الميكانيكية."
+    },
+    {
+      "category": "Electrical Engineers",
+      "categoryAr": "مهندسو كهرباء",
+      "description": "Electrical engineers for power systems, lighting, and electrical installations.",
+      "descriptionAr": "مهندسو كهرباء لأنظمة الطاقة والإضاءة والتركيبات الكهربائية."
+    },
+    {
+      "category": "Planning Engineers",
+      "categoryAr": "مهندسوا تخطيط",
+      "description": "Planning engineers for project scheduling and resource allocation.",
+      "descriptionAr": "مهندسوا تخطيط لجدولة المشاريع وتوزيع الموارد."
+    },
+    {
+      "category": "Quantity Surveyors",
+      "categoryAr": "م UTF-8 قيمون",
+      "description": "Quantity surveyors for cost estimation and contract management.",
+      "descriptionAr": "م UTF-8 قيمون لتقييم التكاليف وإدارة العقود."
+    },
+    {
+      "category": "QA/QC Engineers",
+      "categoryAr": "مهندسو جودة",
+      "description": "Quality assurance and quality control engineers for project compliance.",
+      "descriptionAr": "مهندسو ضمان الجودة ومراقبة الجودة لامتثال المشاريع."
+    },
+    {
+      "category": "HSE Engineers",
+      "categoryAr": "مهندسو صحة وسلامة",
+      "description": "Health, safety, and environment engineers for workplace safety.",
+      "descriptionAr": "مهندسو صحة وسلامة وبيئة لسلامة مكان العمل."
+    },
+    {
+      "category": "Supervisors",
+      "categoryAr": "مشرفون",
+      "description": "Site supervisors for construction and maintenance projects.",
+      "descriptionAr": "مشرفون في الموقع لمشاريع البناء والصيانة."
+    },
+    {
+      "category": "Procurement Officers",
+      "categoryAr": "ضباط المشتريات",
+      "description": "Procurement specialists for material sourcing and vendor management.",
+      "descriptionAr": "متخصصو مشتريات لتوريد المواد وإدارة الموردين."
+    },
+    {
+      "category": "HR Professionals",
+      "categoryAr": "محترفو موارد بشرية",
+      "description": "Human resources professionals for workforce management.",
+      "descriptionAr": "محترفو موارد بشرية لإدارة العمالة."
+    },
+    {
+      "category": "Accountants",
+      "categoryAr": "محاسبون",
+      "description": "Accountants for financial management and reporting.",
+      "descriptionAr": "محاسبون لإدارة التقارير المالية."
+    },
+    {
+      "category": "Document Controllers",
+      "categoryAr": "مسيطرو وثائق",
+      "description": "Document controllers for project documentation management.",
+      "descriptionAr": "مسيطرو وثائق لإدارة وثائق المشاريع."
+    },
+    {
+      "category": "Store Keepers",
+      "categoryAr": " أمين المخازن",
+      "description": "Store keepers for inventory and material management.",
+      "descriptionAr": " أمين المخازن لإدارة المخزون والمواد."
+    }
+  ],
+  "blueCollar": [
+    {
+      "category": "Electricians",
+      "categoryAr": "كهربائيون",
+      "description": "Skilled electricians for electrical installations and maintenance.",
+      "descriptionAr": "كهربائيون ماهر للتركيبات الكهربائية والصيانة."
+    },
+    {
+      "category": "Plumbers",
+      "categoryAr": "سبّاكون",
+      "description": "Plumbers for pipe installation and maintenance.",
+      "descriptionAr": "سبّاكون لتثبيت الأنابيب والصيانة."
+    },
+    {
+      "category": "Welders",
+      "categoryAr": "لحّامون",
+      "description": "Certified welders for structural and pipe welding.",
+      "descriptionAr": "لحّامون معتمدون للحام الهيكلي والأنابيب."
+    },
+    {
+      "category": "Pipe Fitters",
+      "categoryAr": "موصّلو أنابيب",
+      "description": "Pipe fitters for industrial and commercial piping systems.",
+      "descriptionAr": "موصّلو أنابيب لأنظمة الأنابيب الصناعية والتجارية."
+    },
+    {
+      "category": "Fabricators",
+      "categoryAr": "صانعون",
+      "description": "Metal fabricators for structural steel and metal works.",
+      "descriptionAr": "صانعون للمعدنية الهيكلية والأعمال المعدنية."
+    },
+    {
+      "category": "HVAC Technicians",
+      "categoryAr": "فنيو تكييف",
+      "description": "HVAC technicians for heating, ventilation, and air conditioning systems.",
+      "descriptionAr": "فنيو تكييف لأنظمة التدفئة والتهوية والتكييف."
+    },
+    {
+      "category": "AC Technicians",
+      "categoryAr": "فنيو مكيفات",
+      "description": "AC technicians for air conditioning installation and repair.",
+      "descriptionAr": "فنيو مكيفات لتثبيت وإصلاح مكيفات الهواء."
+    },
+    {
+      "category": "Instrument Technicians",
+      "categoryAr": "فنيو أجهزة",
+      "description": "Instrument technicians for calibration and maintenance of control systems.",
+      "descriptionAr": "فنيو أجهزة لمعايرة وصيانة أنظمة التحكم."
+    },
+    {
+      "category": "Mechanical Technicians",
+      "categoryAr": "فنيو ميكانيكا",
+      "description": "Mechanical technicians for machinery maintenance and repair.",
+      "descriptionAr": "فنيو ميكانيكا لصيانة وإصلاح الآلات."
+    },
+    {
+      "category": "Scaffolders",
+      "categoryAr": "بنّاؤو سقالات",
+      "description": "Scaffolders for safe access solutions at height.",
+      "descriptionAr": "بنّاؤو سقالات لحلول الوصول الآمنة على ارتفاع."
+    },
+    {
+      "category": "Steel Fixers",
+      "categoryAr": "مثبّتو حديد",
+      "description": "Steel fixers for reinforcement bar installation.",
+      "descriptionAr": "مثبّتو حديد لتثبيت قضبان التعزيز."
+    },
+    {
+      "category": "Carpenters",
+      "categoryAr": "نجّارون",
+      "description": "Carpenters for formwork, finishing, and wood works.",
+      "descriptionAr": "نجّارون لقوالب الخرسانة والتشطيبات والأعمال الخشبية."
+    },
+    {
+      "category": "Masons",
+      "categoryAr": "بنّاؤون",
+      "description": "Masons for brickwork, blockwork, and stone cladding.",
+      "descriptionAr": "بنّاؤون لأعمال الطوب وبلوكات البناء وتغليف الحجر."
+    },
+    {
+      "category": "Painters",
+      "categoryAr": "صبّاغون",
+      "description": "Painters for interior and exterior painting works.",
+      "descriptionAr": "صبّاغون لأعمال الطلاء الداخلي والخارجي."
+    },
+    {
+      "category": "Helpers",
+      "categoryAr": "مساعدون",
+      "description": "General helpers for construction and maintenance support.",
+      "descriptionAr": "مساعدون عامون لدعم البناء والصيانة."
+    },
+    {
+      "category": "Drivers",
+      "categoryAr": "سائقون",
+      "description": "Drivers for transportation and logistics operations.",
+      "descriptionAr": "سائقون لعمليات النقل واللوجستيات."
+    },
+    {
+      "category": "Riggers",
+      "categoryAr": "ربّاطجيون",
+      "description": "Riggers for lifting operations and crane work.",
+      "descriptionAr": "ربّاطجيون لعمليات الرفع وأعمال الرافعات."
+    },
+    {
+      "category": "Forklift Operators",
+      "categoryAr": "مشغّلو رافعات شوكية",
+      "description": "Certified forklift operators for warehouse and site operations.",
+      "descriptionAr": "مشغّلو رافعات شوكية معتمدون لعمليات المستودعات والمواقع."
+    },
+    {
+      "category": "Crane Operators",
+      "categoryAr": "مشغّلو رافعات",
+      "description": "Certified crane operators for heavy lifting operations.",
+      "descriptionAr": "مشغّلو رافعات معتمدون لعمليات الرفع الثقيلة."
+    }
+  ]
+}

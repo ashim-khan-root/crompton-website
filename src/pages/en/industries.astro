@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar.tsx';
+import Footer from '../../components/Footer.tsx';
+import WhatsAppButton from '../../components/WhatsAppButton.tsx';
+import industries from '../../data/industries.json';
+import { HardHat, Cog, Building2, Flame, Zap, Building, Factory, Truck, UtensilsCrossed, Briefcase, ShoppingBag, Heart } from 'lucide-react';
+
+const iconMap: Record<string, any> = {
+  HardHat, Cog, Building2, Flame, Zap, Building, Factory, Truck, UtensilsCrossed, Briefcase, ShoppingBag, Heart
+};
+---
+
+<BaseLayout
+  title="Industries We Serve"
+  description="Crompton International serves 12+ industries including construction, oil & gas, MEP, facility management, manufacturing, logistics, and more."
+>
+  <Navbar lang="en"  client:load />
+  
+  <!-- Hero -->
+  <section class="pt-32 pb-16 bg-gradient-to-br from-primary-900 to-primary-700">
+    <div class="container-custom mx-auto px-4 md:px-8 lg:px-16">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
+          Industries We Serve
+        </h1>
+        <p class="text-xl text-gray-300">
+          Supporting manpower requirements across diverse sectors in Qatar
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industries Grid -->
+  <section class="py-20">
+    <div class="container-custom mx-auto px-4 md:px-8 lg:px-16">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {industries.map((industry) => {
+          const Icon = iconMap[industry.icon] || Building;
+          return (
+            <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+              <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center mb-6">
+                <Icon size={28} className="text-primary-500" />
+              </div>
+              <h3 class="font-heading font-semibold text-xl text-gray-900 mb-3">
+                {industry.title}
+              </h3>
+              <p class="text-gray-600 leading-relaxed">
+                {industry.description}
+              </p>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-gray-50">
+    <div class="container-custom mx-auto px-4 md:px-8 lg:px-16 text-center">
+      <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
+        Industry-Specific Workforce Solutions
+      </h2>
+      <p class="text-gray-600 max-w-2xl mx-auto mb-8">
+        Each industry has unique requirements. Our team understands the specific needs of your sector and provides tailored workforce solutions.
+      </p>
+      <a
+        href="/en/contact"
+        class="inline-flex items-center gap-2 bg-primary-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary-600 transition-all duration-300"
+      >
+        Discuss Your Requirements
+      </a>
+    </div>
+  </section>
+
+  <Footer lang="en" />
+  <WhatsAppButton lang="en" />
+</BaseLayout>

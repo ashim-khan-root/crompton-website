@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "title": "Senior Civil Engineer",
+    "titleAr": "مهندس مدني أول",
+    "category": "White Collar",
+    "location": "Doha, Qatar",
+    "type": "Full-time",
+    "experience": "8+ years",
+    "description": "We are seeking an experienced Senior Civil Engineer to join our team for a major infrastructure project in Doha.",
+    "descriptionAr": "نبحث عن مهندس مدني أول ذي خبرة للانضمام إلى فريقنا لمشروع بنية تحتية رئيسي في الدوحة.",
+    "requirements": ["Bachelor's degree in Civil Engineering", "8+ years experience in construction", "Qatar experience preferred", "Strong leadership skills"]
+  },
+  {
+    "id": 2,
+    "title": "HVAC Technician",
+    "titleAr": "فني تكييف",
+    "category": "Blue Collar",
+    "location": "Doha, Qatar",
+    "type": "Full-time",
+    "experience": "3+ years",
+    "description": "Looking for skilled HVAC technicians for commercial building maintenance projects.",
+    "descriptionAr": "نبحث عن فني تكييف ماهر لمشاريع صيانة المباني التجارية.",
+    "requirements": ["3+ years HVAC experience", "ITI/Diploma in relevant field", "Valid Qatar driving license", "Experience with VRF systems preferred"]
+  },
+  {
+    "id": 3,
+    "title": "Project Manager",
+    "titleAr": "مدير مشروع",
+    "category": "White Collar",
+    "location": "Doha, Qatar",
+    "type": "Full-time",
+    "experience": "10+ years",
+    "description": "Seeking an experienced Project Manager to oversee large-scale construction projects.",
+    "descriptionAr": "نبحث عن مدير مشروع ذي خبرة للإشراف على مشاريع بناء واسعة النطاق.",
+    "requirements": ["Bachelor's/Master's in Engineering", "PMP certification preferred", "10+ years project management", "GCC experience required"]
+  },
+  {
+    "id": 4,
+    "title": "Welder (Certified)",
+    "titleAr": "لحّام (معتمد)",
+    "category": "Blue Collar",
+    "location": "Doha, Qatar",
+    "type": "Full-time",
+    "experience": "5+ years",
+    "description": "Certified welders needed for structural steel and pipe welding projects.",
+    "descriptionAr": "لحّامون معتمدون مطلوبون لمشاريع الحام الهيكلي والأنابيب.",
+    "requirements": ["AWS/CSWIP certification", "5+ years welding experience", "Experience with SS, CS, and alloy materials", "Ability to read welding drawings"]
+  },
+  {
+    "id": 5,
+    "title": "QA/QC Engineer",
+    "titleAr": "مهندس جودة",
+    "category": "White Collar",
+    "location": "Doha, Qatar",
+    "type": "Full-time",
+    "experience": "5+ years",
+    "description": "QA/QC Engineer to ensure quality standards across construction projects.",
+    "descriptionAr": "مهندس جودة لضمان معايير الجودة في مشاريع البناء.",
+    "requirements": ["Bachelor's in Engineering", "ISO 9001 lead auditor certification", "5+ years QA/QC experience", "Construction industry experience"]
+  }
+]

@@ -1,0 +1,154 @@
+{
+  "site": {
+    "title": "Crompton International Trading & Contracting",
+    "description": "Reliable Manpower Solutions for Qatar's Growing Industries"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "industries": "Industries",
+    "workforce": "Workforce",
+    "clients": "Clients",
+    "careers": "Careers",
+    "contact": "Contact",
+    "hse": "HSE",
+    "gallery": "Gallery",
+    "certificates": "Certificates",
+    "news": "News",
+    "requestManpower": "Request Manpower",
+    "callUs": "Call Us"
+  },
+  "hero": {
+    "title": "Reliable Manpower Solutions for Qatar's Growing Industries",
+    "subtitle": "Supplying Skilled White Collar and Blue Collar Professionals Across Qatar",
+    "description": "With over 800 skilled professionals, Crompton International Trading & Contracting & Services W.L.L. is a trusted manpower supply company headquartered in Doha, Qatar.",
+    "cta1": "Request Manpower",
+    "cta2": "Contact Us"
+  },
+  "stats": {
+    "workers": "Skilled Workers",
+    "clients": "Client Companies",
+    "experience": "Years Experience",
+    "industries": "Industries Served"
+  },
+  "about": {
+    "title": "Your Trusted Manpower Partner in Qatar",
+    "description": "Crompton International Trading & Contracting & Services W.L.L. is committed to delivering dependable manpower solutions that help businesses complete projects safely, efficiently, and on schedule.",
+    "vision": "Our Vision",
+    "visionText": "To be Qatar's most trusted and preferred manpower supply partner, recognized for quality, reliability, and safety.",
+    "mission": "Our Mission",
+    "missionText": "To provide skilled, dependable workforce solutions that enable our clients to achieve their project goals safely, on time, and within budget.",
+    "values": "Our Values",
+    "valuesText": "Safety First • Quality Workforce • Client Focus • Integrity • Long-term Partnerships"
+  },
+  "services": {
+    "title": "Comprehensive Workforce Solutions",
+    "subtitle": "Professional manpower supply services tailored to your project needs",
+    "whiteCollar": {
+      "title": "White Collar Staffing",
+      "description": "We provide qualified professionals for engineering, project management, administration, finance, procurement, planning, HSE, QA/QC, HR, document control, and other technical and management positions."
+    },
+    "blueCollar": {
+      "title": "Blue Collar Manpower Supply",
+      "description": "We supply experienced skilled, semi-skilled, and unskilled workers for construction, industrial operations, maintenance, logistics, MEP, and infrastructure projects."
+    },
+    "projectBased": {
+      "title": "Project-Based Workforce Solutions",
+      "description": "Whether you require manpower for short-term projects, shutdowns, maintenance work, or long-term contracts, our team delivers flexible workforce solutions tailored to your project requirements."
+    },
+    "recruitment": {
+      "title": "Recruitment & Mobilization",
+      "description": "Our recruitment specialists ensure timely sourcing, screening, documentation, deployment, and workforce management, enabling clients to maintain productivity while reducing recruitment challenges."
+    },
+    "outSourcing": {
+      "title": "Outsourcing Solutions",
+      "description": "Complete workforce outsourcing solutions including recruitment, payroll, accommodation, transportation, and end-to-end workforce management."
+    },
+    "payroll": {
+      "title": "Payroll Support",
+      "description": "Comprehensive payroll management services including salary processing, WPS compliance, end-of-service benefits, and government liaison."
+    }
+  },
+  "industries": {
+    "title": "Industries We Serve",
+    "subtitle": "Supporting manpower requirements across diverse sectors"
+  },
+  "workforce": {
+    "title": "Workforce Categories",
+    "subtitle": "Skilled professionals for every project need",
+    "whiteCollar": "White Collar Professionals",
+    "blueCollar": "Blue Collar Workforce",
+    "searchPlaceholder": "Search job categories..."
+  },
+  "clients": {
+    "title": "Trusted by Leading Companies in Qatar",
+    "subtitle": "We are proud to support workforce requirements for well-known organizations across Qatar"
+  },
+  "careers": {
+    "title": "Join Our Team",
+    "subtitle": "Explore career opportunities with Crompton International",
+    "applyNow": "Apply Now",
+    "uploadCV": "Upload CV",
+    "whatsAppApply": "Apply via WhatsApp",
+    "form": {
+      "name": "Full Name",
+      "phone": "Phone Number",
+      "email": "Email Address",
+      "nationality": "Nationality",
+      "category": "Job Category",
+      "cv": "Upload CV (PDF/DOC)",
+      "submit": "Submit Application",
+      "success": "Application submitted successfully!"
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch with our team",
+    "address": "Address",
+    "addressText": "P.O. Box: 37491, NBK-Msheireb Buildings, 4th Floor, Office #405 & 406, Doha, Qatar",
+    "phone": "Telephone",
+    "phoneText": "+974 4468 1414",
+    "whatsapp": "WhatsApp",
+    "whatsappText": "+974 5501 9646",
+    "email": "Email",
+    "form": {
+      "name": "Your Name",
+      "company": "Company Name",
+      "phone": "Phone Number",
+      "email": "Email Address",
+      "subject": "Subject",
+      "message": "Message",
+      "submit": "Send Message",
+      "success": "Message sent successfully!"
+    }
+  },
+  "hse": {
+    "title": "Health, Safety & Environment",
+    "subtitle": "Our commitment to safety standards and compliance"
+  },
+  "gallery": {
+    "title": "Gallery",
+    "subtitle": "Our workforce, facilities, and projects"
+  },
+  "certificates": {
+    "title": "Certificates & Licenses",
+    "subtitle": "Our accreditations and compliance documents"
+  },
+  "news": {
+    "title": "News & Updates",
+    "subtitle": "Company news and industry insights"
+  },
+  "cta": {
+    "title": "Looking for Reliable Manpower?",
+    "description": "Whether you require skilled engineers, experienced technicians, construction professionals, or project support staff, Crompton International is ready to provide dependable manpower solutions.",
+    "button": "Contact Us Today"
+  },
+  "footer": {
+    "description": "Trusted manpower supply company in Qatar, providing skilled white collar and blue collar professionals to construction, engineering, and industrial sectors.",
+    "quickLinks": "Quick Links",
+    "services": "Services",
+    "contactInfo": "Contact Info",
+    "copyright": "© 2026 Crompton International Trading & Contracting & Services W.L.L. All rights reserved."
+  }
+}

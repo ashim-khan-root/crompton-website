@@ -1,0 +1,141 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar.tsx';
+import Footer from '../../components/Footer.tsx';
+import WhatsAppButton from '../../components/WhatsAppButton.tsx';
+import services from '../../data/services.json';
+import { Briefcase, HardHat, Calendar, Users, Building, Calculator, ArrowRight } from 'lucide-react';
+
+const iconMap: Record<string, any> = {
+  Briefcase,
+  HardHat,
+  Calendar,
+  Users,
+  Building,
+  Calculator,
+};
+---
+
+<BaseLayout
+  title="Services"
+  description="Comprehensive workforce solutions - white collar staffing, blue collar manpower, project-based solutions, recruitment, outsourcing, and payroll support."
+>
+  <Navbar lang="en"  client:load />
+  
+  <!-- Hero -->
+  <section class="pt-32 pb-16 bg-gradient-to-br from-primary-900 to-primary-700">
+    <div class="container-custom mx-auto px-4 md:px-8 lg:px-16">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
+          Comprehensive Workforce Solutions
+        </h1>
+        <p class="text-xl text-gray-300">
+          Professional manpower supply services tailored to your project needs
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services List -->
+  <section class="py-20">
+    <div class="container-custom mx-auto px-4 md:px-8 lg:px-16">
+      <div class="space-y-16">
+        {services.map((service, index) => {
+          const Icon = iconMap[service.icon] || Briefcase;
+          const isEven = index % 2 === 0;
+          return (
+            <div
+              id={service.id}
+              class:list={[
+                "grid lg:grid-cols-2 gap-12 items-center",
+                !isEven && "lg:direction-rtl"
+              ]}
+            >
+              <div class:list={[!isEven && "lg:order-2"]}>
+                <div class="flex items-center gap-3 mb-4">
+                  <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center">
+                    <Icon size={24} className="text-primary-500" />
+                  </div>
+                  <span class="text-secondary-400 font-semibold text-sm uppercase tracking-wider">
+                    Service {String(index + 1).padStart(2, '0')}
+                  </span>
+                </div>
+                
+                <h2 class="text-3xl font-heading font-bold text-gray-900 mb-4">
+                  {service.title}
+                </h2>
+                
+                <p class="text-gray-600 leading-relaxed mb-6">
+                  {service.description}
+                </p>
+                
+                <div class="flex flex-wrap gap-2">
+                  {service.roles.slice(0, 8).map((role) => (
+                    <span class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-sm">
+                      {role}
+                    </span>
+                  ))}
+                  {service.roles.length > 8 && (
+                    <span class="bg-primary-100 text-primary-600 px-3 py-1.5 rounded-full text-sm font-medium">
+                      +{service.roles.length - 8} more
+                    </span>
+                  )}
+                </div>
+              </div>
+              
+              <div class:list={[!isEven && "lg:order-1"]}>
+                <div class="bg-gradient-to-br from-primary-500 to-primary-700 rounded-2xl p-8 text-white">
+                  <h3 class="font-heading font-semibold text-xl mb-4">
+                    {service.title}
+                  </h3>
+                  <p class="text-gray-200 mb-6">
+                    {service.description}
+                  </p>
+                  <a
+                    href="/en/contact"
+                    class="inline-flex items-center gap-2 bg-white text-primary-500 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+                  >
+                    Request This Service
+                    <ArrowRight size={18} />
+                  </a>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-gray-50">
+    <div class="container-custom mx-auto px-4 md:px-8 lg:px-16 text-center">
+      <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
+        Need a Custom Workforce Solution?
+      </h2>
+      <p class="text-gray-600 max-w-2xl mx-auto mb-8">
+        Contact us to discuss your specific requirements. Our team will design a tailored solution for your project.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/en/contact"
+          class="inline-flex items-center justify-center gap-2 bg-primary-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary-600 transition-all duration-300"
+        >
+          Contact Us
+          <ArrowRight size={20} />
+        </a>
+        <a
+          href="https://wa.me/97455019646"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center gap-2 bg-green-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-green-600 transition-all duration-300"
+        >
+          Chat on WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer lang="en" />
+  <WhatsAppButton lang="en" />
+</BaseLayout>

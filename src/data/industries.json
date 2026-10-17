@@ -1,0 +1,98 @@
+[
+  {
+    "id": "construction",
+    "title": "Construction",
+    "titleAr": "البناء",
+    "icon": "HardHat",
+    "description": "Skilled construction workers, engineers, and supervisors for building projects across Qatar.",
+    "descriptionAr": "عمالة بناء ماهرة ومهندسين ومشرفين لمشاريع البناء في جميع أنحاء قطر."
+  },
+  {
+    "id": "engineering",
+    "title": "Engineering",
+    "titleAr": "الهندسة",
+    "icon": "Cog",
+    "description": "Professional engineers for civil, mechanical, electrical, and structural projects.",
+    "descriptionAr": "مهندسو محترفون للمشاريع المدنية والميكانيكية الكهربائية والهيكليه."
+  },
+  {
+    "id": "infrastructure",
+    "title": "Infrastructure",
+    "titleAr": "البنية التحتية",
+    "icon": "Building2",
+    "description": "Workforce for roads, bridges, utilities, and public infrastructure projects.",
+    "descriptionAr": "عمالة للطرق والجسور والمرافق والمشاريع العامة للبنية التحتية."
+  },
+  {
+    "id": "oil-gas",
+    "title": "Oil & Gas Support Services",
+    "titleAr": "خدمات دعم النفط والغاز",
+    "icon": "Flame",
+    "description": "Specialized workforce for oil and gas operations, maintenance, and support services.",
+    "descriptionAr": "عمالة متخصصة لعمليات النفط والغاز والصيانة وخدمات الدعم."
+  },
+  {
+    "id": "mep",
+    "title": "Mechanical, Electrical & Plumbing (MEP)",
+    "titleAr": "السبك والكهرباء والسباكة",
+    "icon": "Zap",
+    "description": "MEP technicians, engineers, and workers for building systems installation and maintenance.",
+    "descriptionAr": "فنيي وم engineers وعمال السبك لتثبيت وصيانة أنظمة المباني."
+  },
+  {
+    "id": "facility-management",
+    "title": "Facility Management",
+    "titleAr": "إدارة المرافق",
+    "icon": "Building",
+    "description": "Comprehensive facility management workforce including maintenance, cleaning, and security.",
+    "descriptionAr": "عمالة شاملة لإدارة المرافق تشمل الصيانة والتنظيف والأمن."
+  },
+  {
+    "id": "manufacturing",
+    "title": "Manufacturing",
+    "titleAr": "التصنيع",
+    "icon": "Factory",
+    "description": "Production line workers, machine operators, and quality control personnel.",
+    "descriptionAr": "عمالة خطوط الإنتاج ومشغلي الآلات وال personnel المراقبة على الجودة."
+  },
+  {
+    "id": "logistics",
+    "title": "Logistics & Warehousing",
+    "titleAr": "اللوجستيات والمستودعات",
+    "icon": "Truck",
+    "description": "Warehouse workers, drivers, forklift operators, and logistics coordinators.",
+    "descriptionAr": "عمالة المستودعات والسائقين ومشغلي الرافعات ومنسقي اللوجستيات."
+  },
+  {
+    "id": "hospitality",
+    "title": "Hospitality",
+    "titleAr": "الضيافة",
+    "icon": "UtensilsCrossed",
+    "description": "Hotel staff, restaurant workers, and hospitality professionals.",
+    "descriptionAr": "موظفو الفنادق وعمالة المطاعم ومحترفو الضيافة."
+  },
+  {
+    "id": "corporate",
+    "title": "Corporate Offices",
+    "titleAr": "المكاتب الشركات",
+    "icon": "Briefcase",
+    "description": "Administrative staff, IT professionals, and corporate support personnel.",
+    "descriptionAr": "موظفو إداريون ومحترفو تكنولوجيا المعلومات و personnel الدعمorporate."
+  },
+  {
+    "id": "retail",
+    "title": "Retail",
+    "titleAr": "التجزئة",
+    "icon": "ShoppingBag",
+    "description": "Sales staff, store managers, and retail operations workforce.",
+    "descriptionAr": "موظفو المبيعات ومديرو المتاجر وعمالة عمليات التجزئة."
+  },
+  {
+    "id": "healthcare",
+    "title": "Healthcare Support",
+    "titleAr": "الدعم الصحي",
+    "icon": "Heart",
+    "description": "Healthcare support staff, medical assistants, and hospital maintenance workers.",
+    "descriptionAr": "موظفو الدعم الصحي ومساعدون طبيون وعمالة صيانة المستشفيات."
+  }
+]
