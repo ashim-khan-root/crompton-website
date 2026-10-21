@@ -29,7 +29,7 @@ const sorted = [...clients].sort((a, b) => a.name.localeCompare(b.name));
           <>
             <ul class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
               {sorted.map((client) => (
-                <li class="flex flex-col items-center justify-center gap-4 bg-white px-5 py-7">
+                <li class="flex items-center justify-center bg-white px-6 py-8">
                   <img
                     src={client.logo}
                     alt={`${client.name} logo`}
@@ -37,9 +37,6 @@ const sorted = [...clients].sort((a, b) => a.name.localeCompare(b.name));
                     decoding="async"
                     class="max-h-16 w-auto max-w-full object-contain"
                   />
-                  <span class="text-center text-[0.76rem] leading-snug text-ink-muted">
-                    {client.name}
-                  </span>
                 </li>
               ))}
             </ul>
