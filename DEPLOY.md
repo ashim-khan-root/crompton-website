@@ -1,60 +1,114 @@
-# Crompton International Website — Demo Deployment
+# Deploying
 
-Built with Astro 5 (static output). No build step needed on the server — `dist/` is the complete, ready-to-serve static site.
+Production is **`cromtongroup.com`** and **`www.cromtongroup.com`**, served by nginx on a
+single AlmaLinux VPS through a Cloudflare Tunnel. There is no other deployment target.
 
-## What's inside
+The built site is fully static. `npm run build` produces `dist/`, which is what gets served.
 
-- `dist/` — the fully built website (servable as-is)
-  - `/en/` — English site (12 pages)
-  - `/ar/` — Arabic (homepage; EN default for other pages)
-  - `/` — auto-redirects to `/en/`
-- `README-deploy.txt` — these instructions
+---
 
-## Deploy (pick one)
+## Where it runs
 
-### Option A — Any static file server (nginx / Caddy / Apache / Node)
-Point your web server's document root at the extracted `dist/` folder. Nothing else needed — every page is a real `index.html`, so folder-based routing (`/en/about` → `/en/about/index.html`) works out of the box.
+| Piece | Value |
+|---|---|
+| Document root | `/var/www/cromtongroup.com/html` (owner `nginx:nginx`, SELinux `httpd_sys_content_t`) |
+| nginx site file | `/etc/nginx/conf.d/cromtongroup.com.conf` (`server_name cromtongroup.com www.cromtongroup.com`) |
+| Edge | Cloudflare, TLS terminates there; nginx listens on `:80` only |
+| Tunnel | dashboard-managed `cloudflared`; carries all hostnames on the box |
+| Firewall | `firewalld`, SSH only — ports 80/443 stay closed at the origin |
 
-### Option B — nginx quick config
-```nginx
-server {
-    listen 80;
-    server_name your-domain.com;
-    root /var/www/crompton/dist;
-    index index.html;
+`cromptongroup.com` is a **parked lookalike owned by someone else** and `crompton-intl.com`
+was never registered. Neither is a deploy target, ever.
 
-    location / {
-        try_files $uri $uri/ /index.html;
-    }
+Do not add `listen 443`, Certbot, or `~/.cloudflared/config.yml`. See
+`dev-agency/docs/INFRASTRUCTURE.md` for the full contract.
 
-    gzip on;
-    gzip_types text/css text/javascript application/javascript application/json image/svg+xml;
-}
-```
+---
 
-### Option C — Python one-liner (quickest for a demo)
+## The deploy is a two-machine operation
+
+**1. On the workstation** — edit, build, commit, push:
+
 ```bash
-cd dist
-python3 -m http.server 8080
-# Open http://SERVER_IP:8080
+npm ci
+npm run build
+git add -A && git commit -m "<what changed>"
+git push
 ```
 
-## Verify before showing the company
-- Visit `/` → should redirect to `/en/`
-- Check all 12 English pages: `/en/about` `/en/services` `/en/industries` `/en/workforce` `/en/clients` `/en/careers` `/en/contact` `/en/hse` `/en/gallery` `/en/certificates` `/en/news`
-- Language switch in the top navbar (`عربي`) — note: only the **homepage** is in Arabic; other pages still show English (known limitation for this demo round)
-- Phone/WhatsApp numbers and forms use placeholder hooks — company feedback will refine them
+**2. On the VPS** — pull and rebuild:
 
-## If you want to modify pages before showing
-The project source lives in `/home/aiworker/Downloads/crompton-website/`.
 ```bash
-cd crompton-website
-npm install
-npm run build    # regenerates dist/
+cd /home/aiworker/Downloads/crompton-website
+git pull --ff-only
+npm ci            # only when package.json / package-lock.json changed
+npm run build
 ```
-Then re-zip `dist/`.
 
-## Contact details currently hardcoded
-- Phone: +974 4468 1414
-- WhatsApp: +974 5501 9646
-- Address: NBK-Msheireb Buildings, 4th Floor, Office #405 & 406, Doha, Qatar
+**3. The owner runs the deploy** (requires root; agents here have no passwordless sudo):
+
+```bash
+cd /home/aiworker/Downloads/dev-agency
+sudo ./deploy/scripts/deploy-static-site.sh cromtongroup.com \
+     /home/aiworker/Downloads/crompton-website/dist
+```
+
+That script provisions SELinux context, **deletes and replaces** the document root, rewrites
+the nginx site file from its template, runs `nginx -t`, and reloads nginx. It does not back
+up the previous build and does not touch DNS, the tunnel, firewalld or TLS.
+
+Because it rewrites the site file, any nginx directive added by hand in
+`/etc/nginx/conf.d/cromtongroup.com.conf` (gzip, cache headers, redirects) is lost on the next
+deploy. Add such changes to `dev-agency/deploy/nginx/cromtongroup.com.conf` instead.
+
+Suggested guard before deploying — take a backup first, since the script won't:
+
+```bash
+sudo mkdir -p /var/backups/cromtongroup
+sudo cp -a /var/www/cromtongroup.com/html \
+          /var/backups/cromtongroup/$(date +%Y%m%d-%H%M%S)
+```
+
+---
+
+## Verify after deploying
+
+```bash
+curl -I -H 'Host: cromtongroup.com' http://localhost        # expect 200
+curl -sI https://cromtongroup.com | head -1                 # expect 200 through Cloudflare
+```
+
+Then compare the served files against the build. Astro output is **not** byte-reproducible —
+hydrated islands carry random `uid="..."` — so normalise those before checksumming:
+
+```bash
+find /var/www/cromtongroup.com/html -type f | sort | xargs md5sum | md5sum
+```
+
+If a previous fingerprint is recorded in `dev-agency/tasks/CROMPTON-DEPLOY.md`, compare
+against it only after stripping `uid="..."` from HTML.
+
+Rollback is re-deploying the previous `dist/` (or restoring the backup above). nginx config
+rollback is restoring the previous `.conf` and `systemctl reload nginx`.
+
+---
+
+## Local preview only
+
+```bash
+npm run preview            # Astro's preview server
+# or, to serve the exact build output:
+cd dist && python3 -m http.server 8080
+```
+
+Neither is a deploy. Both are for looking at the site on your own machine.
+
+---
+
+## Not yet in place
+
+- No `404.html` — unknown paths return nginx's default 404.
+- No `robots.txt`; `sitemap-index.xml` is generated by `@astrojs/sitemap`.
+- No gzip and no `Cache-Control` headers from nginx.
+- No analytics, no uptime monitoring.
+- `www` is not redirected to the apex; both serve the same content.

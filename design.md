@@ -6,7 +6,7 @@ constraints; the config files are the implementation contract.
 
 ## Brand
 
-Crompton International — manpower supply, Doha. The visual language is corporate-industrial:
+Cromton Group — manpower supply, Doha. The visual language is corporate-industrial:
 deep navy carries authority, gold carries premium service, blue carries action.
 
 | Token | Value | Use |

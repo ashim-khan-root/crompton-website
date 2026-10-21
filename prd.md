@@ -1,6 +1,6 @@
 # Project Requirements Document
 
-Client: Crompton International — manpower supply and workforce solutions, Doha, Qatar
+Client: Cromton Group — manpower supply and workforce solutions, Doha, Qatar
 Project: `projects/crompton-website/`
 Status: usable demo, content-incomplete. Git repaired 2026-10-17 (prior .git had no objects/refs; full history starts at commit `7630f30`).
 
@@ -23,7 +23,7 @@ Secondary: job seekers looking for positions in Qatar.
 ## User Stories
 
 - As a procurement manager, I want to see service categories and industries covered at a glance,
-  so I can decide within 30 seconds whether Crompton supplies my requirement.
+  so I can decide within 30 seconds whether Cromton Group supplies my requirement.
 - As a client coordinator, I want to send a manpower request (role + quantity) directly from the
   site, so that I don't have to draft an email from scratch.
 - As a job seeker, I want to see open roles and apply, so that I know where to send my CV.

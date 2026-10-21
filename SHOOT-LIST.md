@@ -1,6 +1,6 @@
-# Crompton International — Photography & Brand Asset Brief
+# Cromton Group — Photography & Brand Asset Brief
 
-**For:** Crompton International (client) · **Prepared by:** website team · **Date:** 2026-10-17
+**For:** Cromton Group (client) · **Prepared by:** website team · **Date:** 2026-10-17
 
 This brief is what the website is waiting on. The site is built and works; it cannot look
 credible until it shows the operation. A manpower-supply company is judged on its people,
@@ -15,14 +15,14 @@ arrives.
 ## 1. Ground rules
 
 1. **Real photography only.** No stock images, no AI-generated images, no images pulled from
-   the internet. Every photo must be of Crompton's own people, sites, vehicles, housing or
+   the internet. Every photo must be of Cromton Group's own people, sites, vehicles, housing or
    offices — or an approved project with the contractor's permission.
 2. **People give consent.** Anyone identifiable must have agreed to appear on the company
    website. Where a client's site or equipment shows, confirm that client permits publication.
 3. **No safety violations on camera.** No missing PPE, no one standing under a load, no
    unguarded machinery. An HSE-conscious buyer will spot it, and it undermines the safety claim
    the whole section exists to make.
-4. **Rights.** Crompton owns the images outright, or holds a licence that covers commercial
+4. **Rights.** Cromton Group owns the images outright, or holds a licence that covers commercial
    website use indefinitely.
 5. **If a subject doesn't exist yet, say so.** A labelled placeholder is better than a
    substitute photo of something else.
@@ -97,7 +97,7 @@ One strong portrait or working shot per category, so the Services page can show 
 
 ### G. Projects & sites — 3–5 images
 
-Completed or in-progress work Crompton has staffed. *Only where the main contractor permits.*
+Completed or in-progress work Cromton Group has staffed. *Only where the main contractor permits.*
 
 ### H. Office & team — 2–3 images
 
@@ -172,14 +172,14 @@ Transportation · Projects · Training · Office.**
 
 ## 5. Claims we need confirmed before launch
 
-These appeared on the site from the original demo material and must be signed off by Crompton
+These appeared on the site from the original demo material and must be signed off by the client
 before they go back on. As of 2026-10-17 the unverified ones have been **taken off the pages**: the
 "100% Client Satisfaction" line, the client-stat band, and the HSE stat band are gone, and the
 news entries no longer assert a headcount or a certification. The items below are what we would
 need confirmed in order to put real, sourced numbers back.
 
 - [ ] **Skilled worker headcount** — the old "800+" was never verified and is no longer on the
-      site. If Crompton wants a headcount shown, we need the real current figure.
+      site. If the client wants a headcount shown, we need the real current figure.
 - [ ] **Client count / names** — the old "50+" is off the site. Are there names we're allowed to
       use, and in what form (logo, name only, sector only)?
 - [ ] **Founding year** / **"Trusted since 2010"** — removed pending confirmation.
