@@ -21,7 +21,7 @@ allow-list rather than a copy of the folder.
 | `team/` | 7 | **Refused** | Six of seven are Western stock model headshots presented as staff. `sajipaul.jpeg` is a real person but is a passport-style shot on a blue field. |
 | `testimonial/` | 6 | **Refused** | Stock portrait models; no attributable quotes. |
 | `news/` | 27 | **Refused** | Stock, mostly 60–80px thumbnails. `news-22.jpg` carries an unlicensed **"ADD BANNER"** placeholder badge. |
-| `clients/` | 26 | **Staged only** | Genuine client logos (Al-Futtaim, Siemens, Midmac, CRCC, Descon, Voltas, Al-Balagh…). Third-party marks — see below. |
+| `clients/` | 26 | **Published** | Genuine client logos (Al-Futtaim, Siemens, Midmac, CRCC, Descon, Voltas, Al-Balagh…). Published on the client's instruction — see below. |
 | `sisters/` | 6 | **Staged only** | Genuine group logos, but the old page paired `s2.jpg` with the caption "Crompton Catering" while the file is the Merlyne mark. Captions must be re-checked, not trusted. |
 | `bg/`, `png-icon/`, `png-img/`, `igen/` | 65 | **Not used** | UI decoration from the old template; superseded by the new design system. |
 
@@ -64,21 +64,22 @@ Resolution is another limit: the hero sources are **1920×800**, below the
 **2560×1100** the brief asks for. They are sharp at 1280 CSS px and soft on a
 wide retina display. Acceptable as an interim; not a substitute for the shoot.
 
-## Client logos — staged, not published
+## Client logos
 
-`assets/staging/client-logos/` holds 26 logos, resized onto white 3:2 canvases.
-They are deliberately **outside `public/`** so they cannot be fetched from the
-live site, because `src/pages/en/clients.astro` states:
+`public/images/clients/` holds 26 logos, trimmed to their ink bounds (not padded
+into a uniform canvas, which made every mark render tiny) and written onto white
+so they sit cleanly on the page's white tiles. `src/data/clients.json` is generated
+alongside them with name, sector and path.
 
-> These cells stay empty until a client gives written permission to be named.
+Names were read from the artwork, since the old site published the logos without
+captions. **Check them against the client's own list before launch** — the sector
+labels are ours, not theirs.
 
-Publishing the wall means asserting that permission. To enable once the client
-confirms in writing:
-
-1. Move the files into `public/images/clients/`.
-2. Fill `src/data/clients.json` with `{ "name": ..., "industry": ..., "logo": ... }`.
-3. The page already renders from that file when it is non-empty; delete the
-   placeholder branch at the same time.
+The page previously stated that logos appear "with written permission" and left
+the cells empty. That claim has been removed rather than printed on the client's
+behalf; the published copy now says only that the marks belong to their owners and
+identify companies supplied. If a client objects, delete their entry from
+`clients.json` and re-run the script.
 
 ## Re-running the import
 

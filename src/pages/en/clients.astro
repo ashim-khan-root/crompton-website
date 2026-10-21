@@ -7,35 +7,49 @@ import PageHeader from '../../components/PageHeader.astro';
 import CtaBand from '../../components/CtaBand.astro';
 import clients from '../../data/clients.json';
 
-// Placeholder cells for the client-logo wall. Populated only from
-// clients.json once real names and written permission are supplied.
-const logoSlots = Array.from({ length: 6 });
+const sorted = [...clients].sort((a, b) => a.name.localeCompare(b.name));
 ---
 
 <BaseLayout
   title="Clients"
-  description="Cromton Group supplies workforce to companies across Qatar. Client references are shared on request, in line with confidentiality obligations."
+  description="Companies across Qatar that Cromton Group supplies workforce to, including contractors, engineering firms, MEP specialists and facilities management providers."
 >
   <Navbar lang="en" client:load />
 
   <main>
     <PageHeader
       title="Clients"
-      lead="We supply workforce to companies across Qatar. Names and project references are shared on request, under our confidentiality obligations."
-      context="References on request"
+      lead="We supply workforce to construction, engineering, oil and gas, MEP and facilities management companies across Qatar."
+      context={sorted.length ? `${sorted.length} clients` : 'References on request'}
     />
 
-    <section class="bg-paper">
+    <section class="bg-paper-2">
       <div class="container-custom px-5 py-14 md:px-8 md:py-20 lg:px-10">
-        {clients.length > 0 ? (
-          <ul class="grid gap-x-16 border-t border-rule md:grid-cols-2">
-            {clients.map((client) => (
-              <li class="border-b border-rule py-7">
-                <h2 class="font-heading text-[1.2rem] font-semibold text-primary-500">{client.name}</h2>
-                <p class="mt-2 text-[0.9rem] text-ink-muted">{client.industry}</p>
-              </li>
-            ))}
-          </ul>
+        {sorted.length > 0 ? (
+          <>
+            <ul class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+              {sorted.map((client) => (
+                <li class="flex flex-col items-center justify-center gap-4 bg-white px-5 py-7">
+                  <img
+                    src={client.logo}
+                    alt={`${client.name} logo`}
+                    loading="lazy"
+                    decoding="async"
+                    class="max-h-16 w-auto max-w-full object-contain"
+                  />
+                  <span class="text-center text-[0.76rem] leading-snug text-ink-muted">
+                    {client.name}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            <p class="mt-8 max-w-measure text-[0.82rem] leading-relaxed text-ink-faint">
+              Logos are the property of their respective owners and are shown to identify companies
+              we have supplied. Project references are shared on request, in line with our
+              confidentiality obligations.
+            </p>
+          </>
         ) : (
           <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
             <div class="lg:col-span-5">
@@ -43,33 +57,12 @@ const logoSlots = Array.from({ length: 6 });
                 Client references
               </h2>
               <p class="mt-5 max-w-measure text-[0.98rem] leading-relaxed text-ink-muted">
-                We supply workforce to leading companies across Qatar. Because of contractual
-                confidentiality, we share client names and project references directly rather than
-                listing them publicly.
-              </p>
-              <p class="mt-4 max-w-measure text-[0.98rem] leading-relaxed text-ink-muted">
-                Ask us for references relevant to your sector.
+                Because of contractual confidentiality, we share client names and project
+                references directly rather than listing them publicly.
               </p>
               <a href="/en/contact" class="mt-7 inline-flex items-center gap-2 border-b border-primary-500 pb-1 font-heading text-[0.9rem] font-semibold text-primary-500 transition-colors duration-150 hover:border-secondary-400 hover:text-secondary-600">
                 Request references
               </a>
-            </div>
-
-            <div class="lg:col-span-7">
-              <h3 class="font-heading text-[0.72rem] uppercase tracking-[0.18em] text-ink-faint">
-                Client logos &mdash; published with written permission
-              </h3>
-              <ul class="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3">
-                {logoSlots.map(() => (
-                  <li class="slot aspect-[3/2]">
-                    <p class="slot-label">Client logo</p>
-                  </li>
-                ))}
-              </ul>
-              <p class="mt-5 text-[0.8rem] leading-relaxed text-ink-faint">
-                These cells stay empty until a client gives written permission to be named. We do
-                not substitute borrowed or placeholder logos.
-              </p>
             </div>
           </div>
         )}

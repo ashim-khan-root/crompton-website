@@ -1,1 +1,132 @@
-[]
+[
+  {
+    "name": "Al Bader Construction & Steel Works",
+    "industry": "Construction",
+    "logo": "/images/clients/al-bader-construction-steel-works.webp"
+  },
+  {
+    "name": "Al Kaabi Contracting & Trading",
+    "industry": "Contracting",
+    "logo": "/images/clients/al-kaabi-contracting-trading.webp"
+  },
+  {
+    "name": "Al-Balagh Trading & Contracting",
+    "industry": "Contracting",
+    "logo": "/images/clients/al-balagh-trading-contracting.webp"
+  },
+  {
+    "name": "Al-Futtaim",
+    "industry": "Trading & services",
+    "logo": "/images/clients/al-futtaim.webp"
+  },
+  {
+    "name": "Altrad",
+    "industry": "Industrial services",
+    "logo": "/images/clients/altrad.webp"
+  },
+  {
+    "name": "Amana Contracting",
+    "industry": "Contracting",
+    "logo": "/images/clients/amana-contracting.webp"
+  },
+  {
+    "name": "APC — Advanced Pipes & Casts",
+    "industry": "Manufacturing",
+    "logo": "/images/clients/apc-advanced-pipes-casts.webp"
+  },
+  {
+    "name": "Bojamhoor Mechanical & Electrical",
+    "industry": "MEP",
+    "logo": "/images/clients/bojamhoor-mechanical-electrical.webp"
+  },
+  {
+    "name": "Como Facilities Management",
+    "industry": "Facilities management",
+    "logo": "/images/clients/como-facilities-management.webp"
+  },
+  {
+    "name": "CRCC",
+    "industry": "Construction",
+    "logo": "/images/clients/crcc.webp"
+  },
+  {
+    "name": "Delta",
+    "industry": "Contracting",
+    "logo": "/images/clients/delta.webp"
+  },
+  {
+    "name": "Descon",
+    "industry": "Engineering & construction",
+    "logo": "/images/clients/descon.webp"
+  },
+  {
+    "name": "DOPET — Doha Petroleum Construction",
+    "industry": "Oil & gas",
+    "logo": "/images/clients/dopet-doha-petroleum-construction.webp"
+  },
+  {
+    "name": "Electro Watt",
+    "industry": "Electrical",
+    "logo": "/images/clients/electro-watt.webp"
+  },
+  {
+    "name": "EMEC — Electro Mechanical Enterprises",
+    "industry": "MEP",
+    "logo": "/images/clients/emec-electro-mechanical-enterprises.webp"
+  },
+  {
+    "name": "Eric & Sons Contracting and Trading",
+    "industry": "Contracting",
+    "logo": "/images/clients/eric-sons-contracting-and-trading.webp"
+  },
+  {
+    "name": "GET — Generic Engineering Technologies",
+    "industry": "Engineering",
+    "logo": "/images/clients/get-generic-engineering-technologies.webp"
+  },
+  {
+    "name": "Harinsa Qatar",
+    "industry": "Construction",
+    "logo": "/images/clients/harinsa-qatar.webp"
+  },
+  {
+    "name": "Midmac Contracting",
+    "industry": "Contracting",
+    "logo": "/images/clients/midmac-contracting.webp"
+  },
+  {
+    "name": "Qatar Tennis Federation",
+    "industry": "Sports body",
+    "logo": "/images/clients/qatar-tennis-federation.webp"
+  },
+  {
+    "name": "Secure Electric",
+    "industry": "Electrical",
+    "logo": "/images/clients/secure-electric.webp"
+  },
+  {
+    "name": "Siemens",
+    "industry": "Technology",
+    "logo": "/images/clients/siemens.webp"
+  },
+  {
+    "name": "Sterling & Wilson",
+    "industry": "Engineering",
+    "logo": "/images/clients/sterling-wilson.webp"
+  },
+  {
+    "name": "Takyeef Electromechanical",
+    "industry": "MEP",
+    "logo": "/images/clients/takyeef-electromechanical.webp"
+  },
+  {
+    "name": "Talal Trading & Contracting",
+    "industry": "Contracting",
+    "logo": "/images/clients/talal-trading-contracting.webp"
+  },
+  {
+    "name": "Voltas",
+    "industry": "Engineering",
+    "logo": "/images/clients/voltas.webp"
+  }
+]

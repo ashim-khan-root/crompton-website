@@ -15,9 +15,9 @@ Usage:
     python3 scripts/import-legacy-assets.py --source ... --clients   # logo wall
 
 Outputs:
-    public/images/<group>/<name>.webp      (published)
+    public/images/<group>/<name>.webp
     public/images/manifest.json
-    assets/staging/client-logos/           (NOT published — pending permission)
+    src/data/clients.json                  (only with --clients)
 """
 
 from __future__ import annotations
@@ -124,7 +124,43 @@ PHOTOS = [
 ]
 
 # Logos are padded, never cropped: cropping a wordmark cuts the company name.
-LOGOS = "assets/img/clients"
+# Names read from the artwork itself; the old site listed them without captions.
+CLIENT_LOGOS = [
+    ("c1.jpg", "Al Kaabi Contracting & Trading", "Contracting"),
+    ("c2.jpg", "Al Bader Construction & Steel Works", "Construction"),
+    ("c3.jpg", "Al-Balagh Trading & Contracting", "Contracting"),
+    ("c4.jpg", "Al-Futtaim", "Trading & services"),
+    ("c5.jpg", "Amana Contracting", "Contracting"),
+    ("c6.jpg", "APC — Advanced Pipes & Casts", "Manufacturing"),
+    ("c7.jpg", "Bojamhoor Mechanical & Electrical", "MEP"),
+    ("c8.jpg", "Altrad", "Industrial services"),
+    ("c9.jpg", "Como Facilities Management", "Facilities management"),
+    ("c10.jpg", "CRCC", "Construction"),
+    ("c11.jpg", "Delta", "Contracting"),
+    ("c12.jpg", "Descon", "Engineering & construction"),
+    ("c13.jpg", "DOPET — Doha Petroleum Construction", "Oil & gas"),
+    ("c14.jpg", "Electro Watt", "Electrical"),
+    ("c15.jpg", "EMEC — Electro Mechanical Enterprises", "MEP"),
+    ("c16.jpg", "Eric & Sons Contracting and Trading", "Contracting"),
+    ("c17.jpg", "GET — Generic Engineering Technologies", "Engineering"),
+    ("c18.jpg", "Harinsa Qatar", "Construction"),
+    ("c19.jpg", "Midmac Contracting", "Contracting"),
+    ("c20.jpg", "Qatar Tennis Federation", "Sports body"),
+    ("c21.jpg", "Secure Electric", "Electrical"),
+    ("c22.jpg", "Siemens", "Technology"),
+    ("c23.jpg", "Sterling & Wilson", "Engineering"),
+    ("c24.jpg", "Takyeef Electromechanical", "MEP"),
+    ("c25.jpg", "Talal Trading & Contracting", "Contracting"),
+    ("c26.jpg", "Voltas", "Engineering"),
+]
+
+
+def slugify(text: str) -> str:
+    keep = [c.lower() if c.isalnum() else "-" for c in text]
+    out = "".join(keep)
+    while "--" in out:
+        out = out.replace("--", "-")
+    return out.strip("-")
 
 
 def cover_crop(im: Image.Image, aspect: tuple[int, int], focal: tuple[float, float]) -> Image.Image:
@@ -196,31 +232,49 @@ def main() -> int:
         print(f"  {dest:38s} {src_size[0]}x{src_size[1]} -> {manifest[-1]['size'][0]}x{manifest[-1]['size'][1]}")
 
     if args.clients:
-        logos = sorted((src / LOGOS).glob("*.jpg"))
-        for i, p in enumerate(logos, 1):
+        rows = []
+        for i, (fname, name, industry) in enumerate(CLIENT_LOGOS, 1):
+            p = src / "assets" / "img" / "clients" / fname
+            if not p.is_file():
+                missing.append(f"assets/img/clients/{fname}")
+                continue
             im = Image.open(p).convert("RGB")
-            # pad onto a 3:2 white canvas so no wordmark is cut
-            # fit inside 3:2 with 8% margin
-            canvas = Image.new("RGB", (1200, 800), "white")
-            im.thumbnail((int(1200 * 0.84), int(800 * 0.84)), Image.LANCZOS)
-            canvas.paste(im, ((1200 - im.width) // 2, (800 - im.height) // 2))
-            dest = STAGING / f"client-{i:02d}.webp"
+            src_size = im.size
+            # Trim the white margin so the mark itself fills the frame. Without
+            # this every logo sits tiny inside a 3:2 canvas and the wall reads as
+            # 26 blank tiles.
+            grey = im.convert("L").point(lambda v: 0 if v > 245 else 255)
+            box = grey.getbbox()
+            if box:
+                im = im.crop(box)
+            pad = int(max(im.size) * 0.06)
+            canvas = Image.new("RGB", (im.width + 2 * pad, im.height + 2 * pad), "white")
+            canvas.paste(im, (pad, pad))
+            if canvas.width > 900:  # keep tiles light
+                h = int(canvas.height * 900 / canvas.width)
+                canvas = canvas.resize((900, h), Image.LANCZOS)
+            rel = f"clients/{slugify(name)}.webp"
+            dest = OUT / rel
             dest.parent.mkdir(parents=True, exist_ok=True)
             save(canvas, dest)
             manifest.append(
                 {
-                    "path": f"(staged) assets/staging/client-logos/client-{i:02d}.webp",
-                    "source": f"{LOGOS}/{p.name}",
-                    "source_size": list(Image.open(p).size),
-                    "size": [1200, 800],
+                    "path": f"/images/{rel}",
+                    "source": f"assets/img/clients/{fname}",
+                    "source_size": list(src_size),
+                    "size": list(canvas.size),
                     "bytes": dest.stat().st_size,
                     "sha": sha(dest),
-                    "alt": "Client logo",
+                    "alt": f"{name} logo",
                     "provenance": "legacy-site",
-                    "note": "third-party logo — needs written permission before publication",
+                    "note": "third-party logo — publication approved by the client",
                 }
             )
-        print(f"  client logos: {len(logos)}")
+            rows.append({"name": name, "industry": industry, "logo": f"/images/{rel}"})
+        rows.sort(key=lambda r: r["name"].lower())
+        data = ROOT / "src" / "data" / "clients.json"
+        data.write_text(json.dumps(rows, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        print(f"  client logos: {len(rows)} -> {data.relative_to(ROOT)}")
 
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")

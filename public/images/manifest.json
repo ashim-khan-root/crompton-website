@@ -192,445 +192,445 @@
     "provenance": "legacy-site"
   },
   {
-    "path": "(staged) assets/staging/client-logos/client-01.webp",
+    "path": "/images/clients/al-kaabi-contracting-trading.webp",
     "source": "assets/img/clients/c1.jpg",
     "source_size": [
       300,
       250
     ],
     "size": [
-      1200,
-      800
+      311,
+      149
     ],
-    "bytes": 8928,
-    "sha": "d8019d02ab279657",
-    "alt": "Client logo",
+    "bytes": 7110,
+    "sha": "773b75f2fc4d2df2",
+    "alt": "Al Kaabi Contracting & Trading logo",
     "provenance": "legacy-site",
-    "note": "third-party logo \u2014 needs written permission before publication"
+    "note": "third-party logo \u2014 publication approved by the client"
   },
   {
-    "path": "(staged) assets/staging/client-logos/client-02.webp",
-    "source": "assets/img/clients/c10.jpg",
-    "source_size": [
-      300,
-      250
-    ],
-    "size": [
-      1200,
-      800
-    ],
-    "bytes": 10198,
-    "sha": "a33c6fbd399a525f",
-    "alt": "Client logo",
-    "provenance": "legacy-site",
-    "note": "third-party logo \u2014 needs written permission before publication"
-  },
-  {
-    "path": "(staged) assets/staging/client-logos/client-03.webp",
-    "source": "assets/img/clients/c11.jpg",
-    "source_size": [
-      300,
-      250
-    ],
-    "size": [
-      1200,
-      800
-    ],
-    "bytes": 5556,
-    "sha": "098a5804fea95831",
-    "alt": "Client logo",
-    "provenance": "legacy-site",
-    "note": "third-party logo \u2014 needs written permission before publication"
-  },
-  {
-    "path": "(staged) assets/staging/client-logos/client-04.webp",
-    "source": "assets/img/clients/c12.jpg",
-    "source_size": [
-      300,
-      250
-    ],
-    "size": [
-      1200,
-      800
-    ],
-    "bytes": 6412,
-    "sha": "4320876691020491",
-    "alt": "Client logo",
-    "provenance": "legacy-site",
-    "note": "third-party logo \u2014 needs written permission before publication"
-  },
-  {
-    "path": "(staged) assets/staging/client-logos/client-05.webp",
-    "source": "assets/img/clients/c13.jpg",
-    "source_size": [
-      300,
-      250
-    ],
-    "size": [
-      1200,
-      800
-    ],
-    "bytes": 8316,
-    "sha": "bca1127533d8d495",
-    "alt": "Client logo",
-    "provenance": "legacy-site",
-    "note": "third-party logo \u2014 needs written permission before publication"
-  },
-  {
-    "path": "(staged) assets/staging/client-logos/client-06.webp",
-    "source": "assets/img/clients/c14.jpg",
-    "source_size": [
-      300,
-      250
-    ],
-    "size": [
-      1200,
-      800
-    ],
-    "bytes": 5554,
-    "sha": "792d4bdff4de6753",
-    "alt": "Client logo",
-    "provenance": "legacy-site",
-    "note": "third-party logo \u2014 needs written permission before publication"
-  },
-  {
-    "path": "(staged) assets/staging/client-logos/client-07.webp",
-    "source": "assets/img/clients/c15.jpg",
-    "source_size": [
-      300,
-      250
-    ],
-    "size": [
-      1200,
-      800
-    ],
-    "bytes": 7660,
-    "sha": "99063b9aea1912fa",
-    "alt": "Client logo",
-    "provenance": "legacy-site",
-    "note": "third-party logo \u2014 needs written permission before publication"
-  },
-  {
-    "path": "(staged) assets/staging/client-logos/client-08.webp",
-    "source": "assets/img/clients/c16.jpg",
-    "source_size": [
-      300,
-      250
-    ],
-    "size": [
-      1200,
-      800
-    ],
-    "bytes": 16522,
-    "sha": "b341fb93fa438601",
-    "alt": "Client logo",
-    "provenance": "legacy-site",
-    "note": "third-party logo \u2014 needs written permission before publication"
-  },
-  {
-    "path": "(staged) assets/staging/client-logos/client-09.webp",
-    "source": "assets/img/clients/c17.jpg",
-    "source_size": [
-      300,
-      250
-    ],
-    "size": [
-      1200,
-      800
-    ],
-    "bytes": 5766,
-    "sha": "fb60ff0a9f50ae69",
-    "alt": "Client logo",
-    "provenance": "legacy-site",
-    "note": "third-party logo \u2014 needs written permission before publication"
-  },
-  {
-    "path": "(staged) assets/staging/client-logos/client-10.webp",
-    "source": "assets/img/clients/c18.jpg",
-    "source_size": [
-      300,
-      250
-    ],
-    "size": [
-      1200,
-      800
-    ],
-    "bytes": 7948,
-    "sha": "0dcfaab08818b670",
-    "alt": "Client logo",
-    "provenance": "legacy-site",
-    "note": "third-party logo \u2014 needs written permission before publication"
-  },
-  {
-    "path": "(staged) assets/staging/client-logos/client-11.webp",
-    "source": "assets/img/clients/c19.jpg",
-    "source_size": [
-      300,
-      250
-    ],
-    "size": [
-      1200,
-      800
-    ],
-    "bytes": 4486,
-    "sha": "f8490dd8fdac04b6",
-    "alt": "Client logo",
-    "provenance": "legacy-site",
-    "note": "third-party logo \u2014 needs written permission before publication"
-  },
-  {
-    "path": "(staged) assets/staging/client-logos/client-12.webp",
+    "path": "/images/clients/al-bader-construction-steel-works.webp",
     "source": "assets/img/clients/c2.jpg",
     "source_size": [
       300,
       250
     ],
     "size": [
-      1200,
-      800
+      293,
+      158
     ],
-    "bytes": 7036,
-    "sha": "a0f792ae7cecc073",
-    "alt": "Client logo",
+    "bytes": 5426,
+    "sha": "b700c14fe29f295a",
+    "alt": "Al Bader Construction & Steel Works logo",
     "provenance": "legacy-site",
-    "note": "third-party logo \u2014 needs written permission before publication"
+    "note": "third-party logo \u2014 publication approved by the client"
   },
   {
-    "path": "(staged) assets/staging/client-logos/client-13.webp",
-    "source": "assets/img/clients/c20.jpg",
-    "source_size": [
-      300,
-      250
-    ],
-    "size": [
-      1200,
-      800
-    ],
-    "bytes": 5948,
-    "sha": "45bb61a261213663",
-    "alt": "Client logo",
-    "provenance": "legacy-site",
-    "note": "third-party logo \u2014 needs written permission before publication"
-  },
-  {
-    "path": "(staged) assets/staging/client-logos/client-14.webp",
-    "source": "assets/img/clients/c21.jpg",
-    "source_size": [
-      300,
-      250
-    ],
-    "size": [
-      1200,
-      800
-    ],
-    "bytes": 5258,
-    "sha": "cd139b41829b7a30",
-    "alt": "Client logo",
-    "provenance": "legacy-site",
-    "note": "third-party logo \u2014 needs written permission before publication"
-  },
-  {
-    "path": "(staged) assets/staging/client-logos/client-15.webp",
-    "source": "assets/img/clients/c22.jpg",
-    "source_size": [
-      300,
-      250
-    ],
-    "size": [
-      1200,
-      800
-    ],
-    "bytes": 5358,
-    "sha": "5655012ed82fe4b0",
-    "alt": "Client logo",
-    "provenance": "legacy-site",
-    "note": "third-party logo \u2014 needs written permission before publication"
-  },
-  {
-    "path": "(staged) assets/staging/client-logos/client-16.webp",
-    "source": "assets/img/clients/c23.jpg",
-    "source_size": [
-      300,
-      250
-    ],
-    "size": [
-      1200,
-      800
-    ],
-    "bytes": 4502,
-    "sha": "656b9e88b870db2e",
-    "alt": "Client logo",
-    "provenance": "legacy-site",
-    "note": "third-party logo \u2014 needs written permission before publication"
-  },
-  {
-    "path": "(staged) assets/staging/client-logos/client-17.webp",
-    "source": "assets/img/clients/c24.jpg",
-    "source_size": [
-      300,
-      250
-    ],
-    "size": [
-      1200,
-      800
-    ],
-    "bytes": 4426,
-    "sha": "f9c60060a0c5858f",
-    "alt": "Client logo",
-    "provenance": "legacy-site",
-    "note": "third-party logo \u2014 needs written permission before publication"
-  },
-  {
-    "path": "(staged) assets/staging/client-logos/client-18.webp",
-    "source": "assets/img/clients/c25.jpg",
-    "source_size": [
-      300,
-      250
-    ],
-    "size": [
-      1200,
-      800
-    ],
-    "bytes": 5660,
-    "sha": "493a0b253c5b7f3c",
-    "alt": "Client logo",
-    "provenance": "legacy-site",
-    "note": "third-party logo \u2014 needs written permission before publication"
-  },
-  {
-    "path": "(staged) assets/staging/client-logos/client-19.webp",
-    "source": "assets/img/clients/c26.jpg",
-    "source_size": [
-      300,
-      250
-    ],
-    "size": [
-      1200,
-      800
-    ],
-    "bytes": 7360,
-    "sha": "511bb52bc6aa07fc",
-    "alt": "Client logo",
-    "provenance": "legacy-site",
-    "note": "third-party logo \u2014 needs written permission before publication"
-  },
-  {
-    "path": "(staged) assets/staging/client-logos/client-20.webp",
+    "path": "/images/clients/al-balagh-trading-contracting.webp",
     "source": "assets/img/clients/c3.jpg",
     "source_size": [
       300,
       250
     ],
     "size": [
-      1200,
-      800
+      274,
+      190
     ],
-    "bytes": 6806,
-    "sha": "5c8f29c8fc8e495c",
-    "alt": "Client logo",
+    "bytes": 4824,
+    "sha": "c3a4ab5fd6b62310",
+    "alt": "Al-Balagh Trading & Contracting logo",
     "provenance": "legacy-site",
-    "note": "third-party logo \u2014 needs written permission before publication"
+    "note": "third-party logo \u2014 publication approved by the client"
   },
   {
-    "path": "(staged) assets/staging/client-logos/client-21.webp",
+    "path": "/images/clients/al-futtaim.webp",
     "source": "assets/img/clients/c4.jpg",
     "source_size": [
       300,
       250
     ],
     "size": [
-      1200,
-      800
+      262,
+      164
     ],
-    "bytes": 5132,
-    "sha": "5dd10f2d4b4f96c0",
-    "alt": "Client logo",
+    "bytes": 3340,
+    "sha": "2b625ecc19966061",
+    "alt": "Al-Futtaim logo",
     "provenance": "legacy-site",
-    "note": "third-party logo \u2014 needs written permission before publication"
+    "note": "third-party logo \u2014 publication approved by the client"
   },
   {
-    "path": "(staged) assets/staging/client-logos/client-22.webp",
+    "path": "/images/clients/amana-contracting.webp",
     "source": "assets/img/clients/c5.jpg",
     "source_size": [
       300,
       250
     ],
     "size": [
-      1200,
-      800
+      320,
+      115
     ],
-    "bytes": 7122,
-    "sha": "c41c0067d65bd013",
-    "alt": "Client logo",
+    "bytes": 5516,
+    "sha": "60395478b1677bd4",
+    "alt": "Amana Contracting logo",
     "provenance": "legacy-site",
-    "note": "third-party logo \u2014 needs written permission before publication"
+    "note": "third-party logo \u2014 publication approved by the client"
   },
   {
-    "path": "(staged) assets/staging/client-logos/client-23.webp",
+    "path": "/images/clients/apc-advanced-pipes-casts.webp",
     "source": "assets/img/clients/c6.jpg",
     "source_size": [
       300,
       250
     ],
     "size": [
-      1200,
-      800
+      301,
+      190
     ],
-    "bytes": 6082,
-    "sha": "0938b9b0a23f22c5",
-    "alt": "Client logo",
+    "bytes": 4580,
+    "sha": "36f7a57b179fb6a1",
+    "alt": "APC \u2014 Advanced Pipes & Casts logo",
     "provenance": "legacy-site",
-    "note": "third-party logo \u2014 needs written permission before publication"
+    "note": "third-party logo \u2014 publication approved by the client"
   },
   {
-    "path": "(staged) assets/staging/client-logos/client-24.webp",
+    "path": "/images/clients/bojamhoor-mechanical-electrical.webp",
     "source": "assets/img/clients/c7.jpg",
     "source_size": [
       300,
       250
     ],
     "size": [
-      1200,
-      800
+      293,
+      168
     ],
-    "bytes": 6924,
-    "sha": "92cf19e305384519",
-    "alt": "Client logo",
+    "bytes": 5728,
+    "sha": "7b1d543ede1c4de8",
+    "alt": "Bojamhoor Mechanical & Electrical logo",
     "provenance": "legacy-site",
-    "note": "third-party logo \u2014 needs written permission before publication"
+    "note": "third-party logo \u2014 publication approved by the client"
   },
   {
-    "path": "(staged) assets/staging/client-logos/client-25.webp",
+    "path": "/images/clients/altrad.webp",
     "source": "assets/img/clients/c8.jpg",
     "source_size": [
       300,
       250
     ],
     "size": [
-      1200,
-      800
+      306,
+      198
     ],
-    "bytes": 6074,
-    "sha": "90e5094fbfe77578",
-    "alt": "Client logo",
+    "bytes": 4352,
+    "sha": "e1b96de0ebc93643",
+    "alt": "Altrad logo",
     "provenance": "legacy-site",
-    "note": "third-party logo \u2014 needs written permission before publication"
+    "note": "third-party logo \u2014 publication approved by the client"
   },
   {
-    "path": "(staged) assets/staging/client-logos/client-26.webp",
+    "path": "/images/clients/como-facilities-management.webp",
     "source": "assets/img/clients/c9.jpg",
     "source_size": [
       300,
       250
     ],
     "size": [
-      1200,
-      800
+      300,
+      136
     ],
-    "bytes": 5984,
-    "sha": "3cbe2d8183549f82",
-    "alt": "Client logo",
+    "bytes": 4266,
+    "sha": "13f0067c342aa5ea",
+    "alt": "Como Facilities Management logo",
     "provenance": "legacy-site",
-    "note": "third-party logo \u2014 needs written permission before publication"
+    "note": "third-party logo \u2014 publication approved by the client"
+  },
+  {
+    "path": "/images/clients/crcc.webp",
+    "source": "assets/img/clients/c10.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      221,
+      187
+    ],
+    "bytes": 8784,
+    "sha": "c515494752dea82a",
+    "alt": "CRCC logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 publication approved by the client"
+  },
+  {
+    "path": "/images/clients/delta.webp",
+    "source": "assets/img/clients/c11.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      205,
+      226
+    ],
+    "bytes": 3864,
+    "sha": "ae8c00059017b61f",
+    "alt": "Delta logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 publication approved by the client"
+  },
+  {
+    "path": "/images/clients/descon.webp",
+    "source": "assets/img/clients/c12.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      232,
+      225
+    ],
+    "bytes": 4780,
+    "sha": "ff1da6f2f47c8ed3",
+    "alt": "Descon logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 publication approved by the client"
+  },
+  {
+    "path": "/images/clients/dopet-doha-petroleum-construction.webp",
+    "source": "assets/img/clients/c13.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      284,
+      168
+    ],
+    "bytes": 6446,
+    "sha": "bbe8dc17381625fa",
+    "alt": "DOPET \u2014 Doha Petroleum Construction logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 publication approved by the client"
+  },
+  {
+    "path": "/images/clients/electro-watt.webp",
+    "source": "assets/img/clients/c14.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      320,
+      121
+    ],
+    "bytes": 4006,
+    "sha": "a9b5cb89ee6e24aa",
+    "alt": "Electro Watt logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 publication approved by the client"
+  },
+  {
+    "path": "/images/clients/emec-electro-mechanical-enterprises.webp",
+    "source": "assets/img/clients/c15.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      320,
+      126
+    ],
+    "bytes": 6272,
+    "sha": "808f3d6d1fea7b21",
+    "alt": "EMEC \u2014 Electro Mechanical Enterprises logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 publication approved by the client"
+  },
+  {
+    "path": "/images/clients/eric-sons-contracting-and-trading.webp",
+    "source": "assets/img/clients/c16.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      329,
+      236
+    ],
+    "bytes": 14494,
+    "sha": "371c1931205b28f8",
+    "alt": "Eric & Sons Contracting and Trading logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 publication approved by the client"
+  },
+  {
+    "path": "/images/clients/get-generic-engineering-technologies.webp",
+    "source": "assets/img/clients/c17.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      323,
+      144
+    ],
+    "bytes": 4180,
+    "sha": "8e6b48be35b25db1",
+    "alt": "GET \u2014 Generic Engineering Technologies logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 publication approved by the client"
+  },
+  {
+    "path": "/images/clients/harinsa-qatar.webp",
+    "source": "assets/img/clients/c18.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      238,
+      175
+    ],
+    "bytes": 6612,
+    "sha": "dcfdd1636c511d2f",
+    "alt": "Harinsa Qatar logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 publication approved by the client"
+  },
+  {
+    "path": "/images/clients/midmac-contracting.webp",
+    "source": "assets/img/clients/c19.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      292,
+      129
+    ],
+    "bytes": 2898,
+    "sha": "b56a41df52901737",
+    "alt": "Midmac Contracting logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 publication approved by the client"
+  },
+  {
+    "path": "/images/clients/qatar-tennis-federation.webp",
+    "source": "assets/img/clients/c20.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      124,
+      239
+    ],
+    "bytes": 4552,
+    "sha": "c7eab0da88cfb53c",
+    "alt": "Qatar Tennis Federation logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 publication approved by the client"
+  },
+  {
+    "path": "/images/clients/secure-electric.webp",
+    "source": "assets/img/clients/c21.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      287,
+      120
+    ],
+    "bytes": 3718,
+    "sha": "34799914d5c5dfac",
+    "alt": "Secure Electric logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 publication approved by the client"
+  },
+  {
+    "path": "/images/clients/siemens.webp",
+    "source": "assets/img/clients/c22.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      283,
+      118
+    ],
+    "bytes": 3832,
+    "sha": "201b0d8cca80e880",
+    "alt": "Siemens logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 publication approved by the client"
+  },
+  {
+    "path": "/images/clients/sterling-wilson.webp",
+    "source": "assets/img/clients/c23.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      322,
+      101
+    ],
+    "bytes": 2966,
+    "sha": "f58855bcbb333b00",
+    "alt": "Sterling & Wilson logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 publication approved by the client"
+  },
+  {
+    "path": "/images/clients/takyeef-electromechanical.webp",
+    "source": "assets/img/clients/c24.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      247,
+      164
+    ],
+    "bytes": 2888,
+    "sha": "05a61430354af31d",
+    "alt": "Takyeef Electromechanical logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 publication approved by the client"
+  },
+  {
+    "path": "/images/clients/talal-trading-contracting.webp",
+    "source": "assets/img/clients/c25.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      203,
+      178
+    ],
+    "bytes": 3938,
+    "sha": "573bb683618ab97a",
+    "alt": "Talal Trading & Contracting logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 publication approved by the client"
+  },
+  {
+    "path": "/images/clients/voltas.webp",
+    "source": "assets/img/clients/c26.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      276,
+      119
+    ],
+    "bytes": 5492,
+    "sha": "aefd997cb2fb7ef6",
+    "alt": "Voltas logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 publication approved by the client"
   }
 ]
