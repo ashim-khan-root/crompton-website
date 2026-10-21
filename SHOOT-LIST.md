@@ -14,9 +14,11 @@ arrives.
 
 ## 1. Ground rules
 
-1. **Real photography only.** No stock images, no AI-generated images, no images pulled from
-   the internet. Every photo must be of Cromton Group's own people, sites, vehicles, housing or
-   offices — or an approved project with the contractor's permission.
+1. **Real photography first.** No stock images, nothing pulled from the internet. AI-generated
+   imagery is approved by the client (2026-10-21) **only** for staff-free operational and
+   atmosphere scenes that make no factual claim — brief and prompts in `AI-IMAGE-BRIEF.md`.
+   People, certificates, client logos, and anything captioned as a specific project or employee
+   must be real.
 2. **People give consent.** Anyone identifiable must have agreed to appear on the company
    website. Where a client's site or equipment shows, confirm that client permits publication.
 3. **No safety violations on camera.** No missing PPE, no one standing under a load, no
