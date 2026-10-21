@@ -5,7 +5,25 @@ import Footer from '../../components/Footer.tsx';
 import WhatsAppButton from '../../components/WhatsAppButton.tsx';
 import PageHeader from '../../components/PageHeader.astro';
 import CtaBand from '../../components/CtaBand.astro';
+import Photo from '../../components/Photo.astro';
 import services from '../../data/services.json';
+
+// Photographs exist for three of the six services. The rest keep their labelled
+// placeholder rather than borrowing an image of something else.
+const serviceImages: Record<string, { src: string; alt: string }> = {
+  'blue-collar': {
+    src: '/images/services/blue-collar.webp',
+    alt: 'Skilled worker using an angle grinder with full protective equipment',
+  },
+  'project-based': {
+    src: '/images/services/project-based.webp',
+    alt: 'Steel fixers working on a reinforcement deck',
+  },
+  outsourcing: {
+    src: '/images/services/outsourcing.webp',
+    alt: 'Plasterer finishing an internal wall',
+  },
+};
 ---
 
 <BaseLayout
@@ -55,12 +73,12 @@ import services from '../../data/services.json';
             </div>
 
             <div class="lg:col-span-4">
-              <div class="slot aspect-[4/3]">
-                <p class="slot-label">
-                  Photograph — {service.title}<br />
-                  <span class="normal-case tracking-normal">1600 × 1200 · SHOOT-LIST.md</span>
-                </p>
-              </div>
+              <Photo
+                src={serviceImages[service.id]?.src}
+                alt={serviceImages[service.id]?.alt}
+                label={`Photograph — ${service.title} · SHOOT-LIST.md`}
+                class="aspect-[4/3]"
+              />
             </div>
           </article>
         ))}

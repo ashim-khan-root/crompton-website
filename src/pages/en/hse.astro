@@ -5,6 +5,7 @@ import Footer from '../../components/Footer.tsx';
 import WhatsAppButton from '../../components/WhatsAppButton.tsx';
 import PageHeader from '../../components/PageHeader.astro';
 import CtaBand from '../../components/CtaBand.astro';
+import Photo from '../../components/Photo.astro';
 import { Shield, HardHat, ClipboardCheck, AlertTriangle, BookOpen, Award } from 'lucide-react';
 
 const commitments = [
@@ -71,12 +72,11 @@ const commitments = [
           </div>
 
           <div class="lg:col-span-5">
-            <div class="slot aspect-[4/3]">
-              <p class="slot-label">
-                Photograph — toolbox talk or safety briefing<br />
-                <span class="normal-case tracking-normal">1600 × 1200 · SHOOT-LIST.md §F</span>
-              </p>
-            </div>
+            <Photo
+              src="/images/hse/ppe.webp"
+              alt="Welders wearing helmets, gloves and eye protection on site"
+              class="aspect-[4/3]"
+            />
           </div>
         </div>
       </div>

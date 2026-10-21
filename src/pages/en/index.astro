@@ -4,6 +4,7 @@ import Navbar from '../../components/Navbar.tsx';
 import Footer from '../../components/Footer.tsx';
 import WhatsAppButton from '../../components/WhatsAppButton.tsx';
 import services from '../../data/services.json';
+import Photo from '../../components/Photo.astro';
 import industries from '../../data/industries.json';
 import { ArrowRight, Phone, ShieldCheck, Truck, GraduationCap, BedDouble } from 'lucide-react';
 
@@ -23,6 +24,8 @@ const operations = [
     title: 'Transportation',
     description: 'Dedicated fleet for daily mobilization and site rotation.',
     slot: 'Photograph — transport fleet, on site. 1200 × 900',
+    image: '/images/gallery/transportation.webp',
+    alt: 'Workers boarding a Cromton Group bus for site mobilisation in Doha',
     span: 'lg:col-span-5',
   },
   {
@@ -125,12 +128,11 @@ const operations = [
          Hero photograph — full-bleed slot. Drop the approved image in.
          ============================================================ -->
     <section class="bg-paper-2">
-      <div class="slot aspect-[16/9] w-full sm:aspect-[21/9]">
-        <p class="slot-label">
-          Hero photograph &mdash; your crew on site, Qatar<br />
-          <span class="normal-case tracking-normal">2560 &times; 1100 &middot; see SHOOT-LIST.md</span>
-        </p>
-      </div>
+      <Photo
+        src="/images/hero/crew-site.webp"
+        alt="Cromton Group workforce in company uniform lined up before deployment"
+        class="aspect-[16/9] w-full sm:aspect-[21/9]"
+      />
     </section>
 
     <!-- ============================================================
@@ -202,9 +204,12 @@ const operations = [
             const Icon = op.icon;
             return (
               <figure class={`${op.span} flex flex-col`}>
-                <div class="slot min-h-[220px] flex-1 aspect-[4/3]">
-                  <p class="slot-label">{op.slot}</p>
-                </div>
+                <Photo
+                  src={op.image}
+                  alt={op.alt}
+                  label={op.slot}
+                  class="min-h-[220px] flex-1 aspect-[4/3]"
+                />
                 <figcaption class="mt-5 flex items-start gap-3">
                   <Icon size={20} className="mt-0.5 shrink-0 text-secondary-500" aria-hidden="true" />
                   <span>

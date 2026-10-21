@@ -1,0 +1,41 @@
+---
+/**
+ * A photograph filling one of the site's planned slots.
+ *
+ * Every image comes from public/images and is listed in public/images/manifest.json
+ * with its source and alt text. Slots that have no approved photograph keep the
+ * labelled placeholder — a placeholder is honest, a substitute photo is not.
+ *
+ *   <Photo src="/images/gallery/workers.webp" alt="..." class="aspect-[4/3]" />
+ *
+ * The aspect utility is passed whole rather than assembled from a prop, because
+ * Tailwind only generates classes it can find as literal text in the source.
+ */
+interface Props {
+  src?: string;
+  alt?: string;
+  /** Tailwind classes applied to the frame, e.g. "aspect-[4/3]" or "aspect-[21/9] w-full". */
+  class?: string;
+  /** Placeholder text shown when src is omitted. */
+  label?: string;
+  /** Set only for above-the-fold images; everything else lazy-loads. */
+  priority?: boolean;
+}
+
+const { src, alt = '', class: cls = 'aspect-[4/3]', label, priority = false } = Astro.props;
+---
+
+{src ? (
+  <img
+    src={src}
+    alt={alt}
+    class={`w-full object-cover ${cls}`}
+    loading={priority ? 'eager' : 'lazy'}
+    decoding={priority ? 'sync' : 'async'}
+    fetchpriority={priority ? 'high' : 'auto'}
+  />
+) : (
+  <div class={`slot ${cls}`}>
+    <p class="slot-label">{label ?? 'Photograph — pending'}</p>
+  </div>
+)}

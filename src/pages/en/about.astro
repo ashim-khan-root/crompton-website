@@ -5,6 +5,7 @@ import Footer from '../../components/Footer.tsx';
 import WhatsAppButton from '../../components/WhatsAppButton.tsx';
 import PageHeader from '../../components/PageHeader.astro';
 import CtaBand from '../../components/CtaBand.astro';
+import Photo from '../../components/Photo.astro';
 import { Target, Eye, Shield, Award, Users, Heart, Handshake, Clock } from 'lucide-react';
 
 const values = [
@@ -65,12 +66,11 @@ const reasons = [
           </div>
 
           <div class="lg:col-span-5">
-            <div class="slot aspect-[4/3] lg:aspect-[5/4]">
-              <p class="slot-label">
-                Photograph — office reception or recruitment team at work<br />
-                <span class="normal-case tracking-normal">1600 × 2000 · SHOOT-LIST.md §H</span>
-              </p>
-            </div>
+            <Photo
+              src="/images/about/crew-mobilisation.webp"
+              alt="Cromton Group workers boarding company transport for site mobilisation in Doha"
+              class="aspect-[4/3] lg:aspect-[5/4]"
+            />
           </div>
         </div>
       </div>

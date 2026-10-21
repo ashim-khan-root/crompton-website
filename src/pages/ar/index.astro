@@ -4,6 +4,7 @@ import Navbar from '../../components/Navbar.tsx';
 import Footer from '../../components/Footer.tsx';
 import WhatsAppButton from '../../components/WhatsAppButton.tsx';
 import services from '../../data/services.json';
+import Photo from '../../components/Photo.astro';
 import industries from '../../data/industries.json';
 import { ArrowRight, Phone, ShieldCheck, Truck, GraduationCap, BedDouble } from 'lucide-react';
 
@@ -118,12 +119,11 @@ const operations = [
 
     <!-- Hero photograph -->
     <section class="bg-paper-2">
-      <div class="slot aspect-[16/9] w-full sm:aspect-[21/9]">
-        <p class="slot-label">
-          صورة رئيسية — فريق العمل في موقع بقطر<br />
-          <span class="normal-case tracking-normal" dir="ltr">2560 × 1100 &middot; SHOOT-LIST.md</span>
-        </p>
-      </div>
+      <Photo
+        src="/images/hero/crew-site.webp"
+        alt="فريق عمل كرومتون جروب بالزي الرسمي قبل التوزيع على المواقع"
+        class="aspect-[16/9] w-full sm:aspect-[21/9]"
+      />
     </section>
 
     <!-- Capabilities -->

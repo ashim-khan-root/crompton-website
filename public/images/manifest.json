@@ -1,0 +1,636 @@
+[
+  {
+    "path": "/images/hero/crew-site.webp",
+    "source": "assets/img/hero/hero-05.jpg",
+    "source_size": [
+      1920,
+      800
+    ],
+    "size": [
+      1867,
+      800
+    ],
+    "bytes": 110018,
+    "sha": "fae17ed4fb74fcb9",
+    "alt": "Cromton Group workforce lined up in company uniform before deployment",
+    "provenance": "legacy-site"
+  },
+  {
+    "path": "/images/hero/site-works.webp",
+    "source": "assets/img/hero/hero-03.jpg",
+    "source_size": [
+      1920,
+      800
+    ],
+    "size": [
+      1867,
+      800
+    ],
+    "bytes": 98222,
+    "sha": "b0b1f2d3d07bda2f",
+    "alt": "Construction works under a tower crane in Qatar",
+    "provenance": "legacy-site"
+  },
+  {
+    "path": "/images/about/crew-mobilisation.webp",
+    "source": "assets/img/about/lab.jpg",
+    "source_size": [
+      846,
+      733
+    ],
+    "size": [
+      846,
+      677
+    ],
+    "bytes": 109326,
+    "sha": "f5d3ad3aea2f4699",
+    "alt": "Workers boarding a company bus for site mobilisation in Doha",
+    "provenance": "legacy-site"
+  },
+  {
+    "path": "/images/about/mep-worker.webp",
+    "source": "assets/img/about/labc.jpg",
+    "source_size": [
+      846,
+      733
+    ],
+    "size": [
+      846,
+      677
+    ],
+    "bytes": 42292,
+    "sha": "458fa34f006a6b29",
+    "alt": "Electro-mechanical technician at work",
+    "provenance": "legacy-site"
+  },
+  {
+    "path": "/images/gallery/workers.webp",
+    "source": "assets/img/hero/hero-08.jpg",
+    "source_size": [
+      1920,
+      800
+    ],
+    "size": [
+      1067,
+      800
+    ],
+    "bytes": 102784,
+    "sha": "ca682226f4f098b5",
+    "alt": "Electrician terminating wiring in a distribution board",
+    "provenance": "legacy-site"
+  },
+  {
+    "path": "/images/gallery/transportation.webp",
+    "source": "assets/img/about/lab.jpg",
+    "source_size": [
+      846,
+      733
+    ],
+    "size": [
+      846,
+      634
+    ],
+    "bytes": 104668,
+    "sha": "5c2467226ff0daa8",
+    "alt": "Company transport collecting workers for site rotation",
+    "provenance": "legacy-site"
+  },
+  {
+    "path": "/images/gallery/works.webp",
+    "source": "assets/img/hero/hero-03.jpg",
+    "source_size": [
+      1920,
+      800
+    ],
+    "size": [
+      1067,
+      800
+    ],
+    "bytes": 64830,
+    "sha": "6b69df8f22593aa9",
+    "alt": "Building under construction, tower crane overhead",
+    "provenance": "legacy-site"
+  },
+  {
+    "path": "/images/services/blue-collar.webp",
+    "source": "assets/img/hero/hero-01.jpg",
+    "source_size": [
+      1920,
+      800
+    ],
+    "size": [
+      1067,
+      800
+    ],
+    "bytes": 30182,
+    "sha": "3f1c619c1ac78cb5",
+    "alt": "Skilled worker using an angle grinder with full PPE",
+    "provenance": "legacy-site"
+  },
+  {
+    "path": "/images/services/project-based.webp",
+    "source": "assets/img/hero/hero-10.jpg",
+    "source_size": [
+      1920,
+      800
+    ],
+    "size": [
+      1067,
+      800
+    ],
+    "bytes": 98024,
+    "sha": "117e93e7d90ebba7",
+    "alt": "Steel fixers working on a reinforcement deck",
+    "provenance": "legacy-site"
+  },
+  {
+    "path": "/images/services/outsourcing.webp",
+    "source": "assets/img/hero/hero-09.jpg",
+    "source_size": [
+      1920,
+      800
+    ],
+    "size": [
+      1067,
+      800
+    ],
+    "bytes": 34708,
+    "sha": "83b8269e90a84bad",
+    "alt": "Plasterer finishing an internal wall",
+    "provenance": "legacy-site"
+  },
+  {
+    "path": "/images/industries/site.webp",
+    "source": "assets/img/hero/hero-03.jpg",
+    "source_size": [
+      1920,
+      800
+    ],
+    "size": [
+      1867,
+      800
+    ],
+    "bytes": 98222,
+    "sha": "b0b1f2d3d07bda2f",
+    "alt": "Construction site in Qatar",
+    "provenance": "legacy-site"
+  },
+  {
+    "path": "/images/hse/ppe.webp",
+    "source": "assets/img/hero/hero-07.jpg",
+    "source_size": [
+      1920,
+      800
+    ],
+    "size": [
+      1067,
+      800
+    ],
+    "bytes": 46214,
+    "sha": "c835bdd0a1214f48",
+    "alt": "Welders wearing helmets, gloves and eye protection",
+    "provenance": "legacy-site"
+  },
+  {
+    "path": "(staged) assets/staging/client-logos/client-01.webp",
+    "source": "assets/img/clients/c1.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      1200,
+      800
+    ],
+    "bytes": 8928,
+    "sha": "d8019d02ab279657",
+    "alt": "Client logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 needs written permission before publication"
+  },
+  {
+    "path": "(staged) assets/staging/client-logos/client-02.webp",
+    "source": "assets/img/clients/c10.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      1200,
+      800
+    ],
+    "bytes": 10198,
+    "sha": "a33c6fbd399a525f",
+    "alt": "Client logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 needs written permission before publication"
+  },
+  {
+    "path": "(staged) assets/staging/client-logos/client-03.webp",
+    "source": "assets/img/clients/c11.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      1200,
+      800
+    ],
+    "bytes": 5556,
+    "sha": "098a5804fea95831",
+    "alt": "Client logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 needs written permission before publication"
+  },
+  {
+    "path": "(staged) assets/staging/client-logos/client-04.webp",
+    "source": "assets/img/clients/c12.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      1200,
+      800
+    ],
+    "bytes": 6412,
+    "sha": "4320876691020491",
+    "alt": "Client logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 needs written permission before publication"
+  },
+  {
+    "path": "(staged) assets/staging/client-logos/client-05.webp",
+    "source": "assets/img/clients/c13.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      1200,
+      800
+    ],
+    "bytes": 8316,
+    "sha": "bca1127533d8d495",
+    "alt": "Client logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 needs written permission before publication"
+  },
+  {
+    "path": "(staged) assets/staging/client-logos/client-06.webp",
+    "source": "assets/img/clients/c14.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      1200,
+      800
+    ],
+    "bytes": 5554,
+    "sha": "792d4bdff4de6753",
+    "alt": "Client logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 needs written permission before publication"
+  },
+  {
+    "path": "(staged) assets/staging/client-logos/client-07.webp",
+    "source": "assets/img/clients/c15.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      1200,
+      800
+    ],
+    "bytes": 7660,
+    "sha": "99063b9aea1912fa",
+    "alt": "Client logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 needs written permission before publication"
+  },
+  {
+    "path": "(staged) assets/staging/client-logos/client-08.webp",
+    "source": "assets/img/clients/c16.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      1200,
+      800
+    ],
+    "bytes": 16522,
+    "sha": "b341fb93fa438601",
+    "alt": "Client logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 needs written permission before publication"
+  },
+  {
+    "path": "(staged) assets/staging/client-logos/client-09.webp",
+    "source": "assets/img/clients/c17.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      1200,
+      800
+    ],
+    "bytes": 5766,
+    "sha": "fb60ff0a9f50ae69",
+    "alt": "Client logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 needs written permission before publication"
+  },
+  {
+    "path": "(staged) assets/staging/client-logos/client-10.webp",
+    "source": "assets/img/clients/c18.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      1200,
+      800
+    ],
+    "bytes": 7948,
+    "sha": "0dcfaab08818b670",
+    "alt": "Client logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 needs written permission before publication"
+  },
+  {
+    "path": "(staged) assets/staging/client-logos/client-11.webp",
+    "source": "assets/img/clients/c19.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      1200,
+      800
+    ],
+    "bytes": 4486,
+    "sha": "f8490dd8fdac04b6",
+    "alt": "Client logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 needs written permission before publication"
+  },
+  {
+    "path": "(staged) assets/staging/client-logos/client-12.webp",
+    "source": "assets/img/clients/c2.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      1200,
+      800
+    ],
+    "bytes": 7036,
+    "sha": "a0f792ae7cecc073",
+    "alt": "Client logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 needs written permission before publication"
+  },
+  {
+    "path": "(staged) assets/staging/client-logos/client-13.webp",
+    "source": "assets/img/clients/c20.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      1200,
+      800
+    ],
+    "bytes": 5948,
+    "sha": "45bb61a261213663",
+    "alt": "Client logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 needs written permission before publication"
+  },
+  {
+    "path": "(staged) assets/staging/client-logos/client-14.webp",
+    "source": "assets/img/clients/c21.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      1200,
+      800
+    ],
+    "bytes": 5258,
+    "sha": "cd139b41829b7a30",
+    "alt": "Client logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 needs written permission before publication"
+  },
+  {
+    "path": "(staged) assets/staging/client-logos/client-15.webp",
+    "source": "assets/img/clients/c22.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      1200,
+      800
+    ],
+    "bytes": 5358,
+    "sha": "5655012ed82fe4b0",
+    "alt": "Client logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 needs written permission before publication"
+  },
+  {
+    "path": "(staged) assets/staging/client-logos/client-16.webp",
+    "source": "assets/img/clients/c23.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      1200,
+      800
+    ],
+    "bytes": 4502,
+    "sha": "656b9e88b870db2e",
+    "alt": "Client logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 needs written permission before publication"
+  },
+  {
+    "path": "(staged) assets/staging/client-logos/client-17.webp",
+    "source": "assets/img/clients/c24.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      1200,
+      800
+    ],
+    "bytes": 4426,
+    "sha": "f9c60060a0c5858f",
+    "alt": "Client logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 needs written permission before publication"
+  },
+  {
+    "path": "(staged) assets/staging/client-logos/client-18.webp",
+    "source": "assets/img/clients/c25.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      1200,
+      800
+    ],
+    "bytes": 5660,
+    "sha": "493a0b253c5b7f3c",
+    "alt": "Client logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 needs written permission before publication"
+  },
+  {
+    "path": "(staged) assets/staging/client-logos/client-19.webp",
+    "source": "assets/img/clients/c26.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      1200,
+      800
+    ],
+    "bytes": 7360,
+    "sha": "511bb52bc6aa07fc",
+    "alt": "Client logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 needs written permission before publication"
+  },
+  {
+    "path": "(staged) assets/staging/client-logos/client-20.webp",
+    "source": "assets/img/clients/c3.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      1200,
+      800
+    ],
+    "bytes": 6806,
+    "sha": "5c8f29c8fc8e495c",
+    "alt": "Client logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 needs written permission before publication"
+  },
+  {
+    "path": "(staged) assets/staging/client-logos/client-21.webp",
+    "source": "assets/img/clients/c4.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      1200,
+      800
+    ],
+    "bytes": 5132,
+    "sha": "5dd10f2d4b4f96c0",
+    "alt": "Client logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 needs written permission before publication"
+  },
+  {
+    "path": "(staged) assets/staging/client-logos/client-22.webp",
+    "source": "assets/img/clients/c5.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      1200,
+      800
+    ],
+    "bytes": 7122,
+    "sha": "c41c0067d65bd013",
+    "alt": "Client logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 needs written permission before publication"
+  },
+  {
+    "path": "(staged) assets/staging/client-logos/client-23.webp",
+    "source": "assets/img/clients/c6.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      1200,
+      800
+    ],
+    "bytes": 6082,
+    "sha": "0938b9b0a23f22c5",
+    "alt": "Client logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 needs written permission before publication"
+  },
+  {
+    "path": "(staged) assets/staging/client-logos/client-24.webp",
+    "source": "assets/img/clients/c7.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      1200,
+      800
+    ],
+    "bytes": 6924,
+    "sha": "92cf19e305384519",
+    "alt": "Client logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 needs written permission before publication"
+  },
+  {
+    "path": "(staged) assets/staging/client-logos/client-25.webp",
+    "source": "assets/img/clients/c8.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      1200,
+      800
+    ],
+    "bytes": 6074,
+    "sha": "90e5094fbfe77578",
+    "alt": "Client logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 needs written permission before publication"
+  },
+  {
+    "path": "(staged) assets/staging/client-logos/client-26.webp",
+    "source": "assets/img/clients/c9.jpg",
+    "source_size": [
+      300,
+      250
+    ],
+    "size": [
+      1200,
+      800
+    ],
+    "bytes": 5984,
+    "sha": "3cbe2d8183549f82",
+    "alt": "Client logo",
+    "provenance": "legacy-site",
+    "note": "third-party logo \u2014 needs written permission before publication"
+  }
+]

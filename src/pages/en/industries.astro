@@ -5,6 +5,7 @@ import Footer from '../../components/Footer.tsx';
 import WhatsAppButton from '../../components/WhatsAppButton.tsx';
 import PageHeader from '../../components/PageHeader.astro';
 import CtaBand from '../../components/CtaBand.astro';
+import Photo from '../../components/Photo.astro';
 import industries from '../../data/industries.json';
 ---
 
@@ -39,12 +40,11 @@ import industries from '../../data/industries.json';
     </section>
 
     <section class="bg-paper-2">
-      <div class="slot aspect-[16/9] w-full sm:aspect-[21/9]">
-        <p class="slot-label">
-          Photograph — project site or completed works, Qatar<br />
-          <span class="normal-case tracking-normal">2560 × 1100 · SHOOT-LIST.md §G</span>
-        </p>
-      </div>
+      <Photo
+        src="/images/industries/site.webp"
+        alt="Construction site in Qatar with tower crane and scaffolding"
+        class="aspect-[16/9] w-full sm:aspect-[21/9]"
+      />
     </section>
 
     <CtaBand

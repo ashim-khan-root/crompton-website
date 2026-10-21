@@ -119,15 +119,19 @@
   /* ---- Image slot ----
      A labelled placeholder that holds the exact layout an approved
      photograph will occupy. Replaced by <img> when assets arrive. */
+  /* No flex here: aspect-ratio is ignored on flex containers, which collapsed
+     placeholders to the height of their label next to real photographs. The
+     label is centred absolutely instead. */
   .slot {
-    @apply relative flex items-center justify-center overflow-hidden
+    @apply relative overflow-hidden
            border border-dashed border-rule bg-paper-2 text-ink-faint/80;
   }
   .slot-dark {
     @apply border-dashed border-white/15 bg-white/[0.03] text-white/45;
   }
   .slot-label {
-    @apply text-[0.7rem] uppercase tracking-[0.14em] text-center leading-relaxed px-4;
+    @apply absolute inset-0 flex items-center justify-center text-center
+           text-[0.7rem] uppercase tracking-[0.14em] leading-relaxed px-4;
   }
 
   /* ---- Engineered grid texture for dark grounds ---- */
