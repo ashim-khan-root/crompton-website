@@ -187,10 +187,9 @@ need confirmed in order to put real, sourced numbers back.
 - [ ] **Licensed by Qatar Ministry of Labour** — licence number and validity?
 - [ ] **ISO 9001 / 14001 / 45001** — held, and current?
 - [ ] **Qatar Civil Defence certificate** — held?
-- [ ] **phone +974 4468 1414, WhatsApp +974 5501 9646, info@crompton-intl.com** — correct?
+- [ ] **phone +974 4468 1414, WhatsApp +974 5501 9646, info@cromtongroup.com** — correct?
 - [ ] **Address**: P.O. Box 37491, NBK-Msheireb Buildings, 4th Floor, Office 405 & 406 — correct?
-- [ ] **Domain** — `crompton-intl.com` is unregistered. The site cannot go live until a domain
-      is chosen and registered.
+- [x] **Domain** — `cromtongroup.com` (registered, DNS moving to Cloudflare 2026-10-20). `crompton-intl.com` was never registered.
 - [ ] **Arabic copy — native review required.** The Arabic content files contained machine-
       translation damage (stray Chinese and French words, English tokens, one corrupted string that
       had destroyed a job title). That damage has been repaired, but **repaired is not the same as

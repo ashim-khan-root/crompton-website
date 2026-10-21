@@ -46,7 +46,7 @@ python3 -m http.server 8080
 - Phone/WhatsApp numbers and forms use placeholder hooks — company feedback will refine them
 
 ## If you want to modify pages before showing
-The project source lives in `/home/aiworker/ai-worker/crompton-website/`.
+The project source lives in `/home/aiworker/Downloads/crompton-website/`.
 ```bash
 cd crompton-website
 npm install

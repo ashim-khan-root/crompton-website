@@ -28,7 +28,7 @@ crompton-website/
 ├── public/                static assets — favicon.svg only today
 ├── DEPLOY.md              demo deployment instructions (stale ai-worker path inside)
 ├── prd.md, architecture.md, rules.md, phases.md, design.md, memory.md
-└── astro.config.mjs       site=crompton-intl.com, i18n en+ar prefixDefaultLocale
+└── astro.config.mjs       site=cromtongroup.com, i18n en+ar prefixDefaultLocale
 ```
 
 ## Data Flow

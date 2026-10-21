@@ -1,4 +1,5 @@
 import { Phone, Mail, MapPin, MessageCircle, ArrowRight } from 'lucide-react';
+import Logo from './Logo';
 
 interface FooterProps {
   lang?: string;
@@ -34,6 +35,7 @@ export default function Footer({ lang = 'en' }: FooterProps) {
         {/* Closing statement */}
         <div className="grid gap-10 border-b border-white/12 py-16 lg:grid-cols-12 lg:gap-16 lg:py-20">
           <div className="lg:col-span-7">
+            <Logo tone="dark" href={isAr ? '/ar' : '/en'} className="mb-8" />
             <h2 className="max-w-[24ch] font-heading text-3xl font-bold leading-[1.15] text-white md:text-[2.6rem]">
               {isAr
                 ? 'قوة عمل موثوقة لمشاريع قطر.'
@@ -82,11 +84,11 @@ export default function Footer({ lang = 'en' }: FooterProps) {
               </li>
               <li>
                 <a
-                  href="mailto:info@crompton-intl.com"
+                  href="mailto:info@cromtongroup.com"
                   className="group inline-flex items-start gap-3 text-white/70 transition-colors duration-150 hover:text-white"
                 >
                   <Mail size={17} className="mt-0.5 shrink-0 text-secondary-400" aria-hidden="true" />
-                  <span>info@crompton-intl.com</span>
+                  <span>info@cromtongroup.com</span>
                 </a>
               </li>
               <li className="flex items-start gap-3 text-white/70">
@@ -140,7 +142,7 @@ export default function Footer({ lang = 'en' }: FooterProps) {
         {/* Legal */}
         <div className="flex flex-col gap-3 py-7 text-[0.78rem] text-white/45 md:flex-row md:items-center md:justify-between">
           <p>
-            © {new Date().getFullYear()} Crompton International Trading &amp; Contracting &amp;
+            © {new Date().getFullYear()} Cromton Group Trading &amp; Contracting &amp;
             Services W.L.L.
           </p>
           <p className="md:text-right">

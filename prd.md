@@ -54,7 +54,7 @@ Secondary: job seekers looking for positions in Qatar.
 
 - Performance: static output, no server round trips for content; Google Fonts via CDN with
   `display=swap`. Target LCP < 2.5s on 4G. Images are the known risk once real photography lands.
-- SEO: per-page title/description, OG tags, sitemap, `https://crompton-intl.com` canonical base.
+- SEO: per-page title/description, OG tags, sitemap, `https://cromtongroup.com` canonical base.
   hreflang alternates are missing (see Known blockers).
 - Accessibility: semantic landmarks, labelled form fields, focus styles via Tailwind defaults.
   No automated a11y test yet.

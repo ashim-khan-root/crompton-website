@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Menu, X, Phone, Mail, MessageCircle } from 'lucide-react';
+import Logo from './Logo';
 
 interface NavbarProps {
   lang?: string;
@@ -37,11 +38,11 @@ export default function Navbar({ lang = 'en' }: NavbarProps) {
               <span className="tnum">+974 4468 1414</span>
             </a>
             <a
-              href="mailto:info@crompton-intl.com"
+              href="mailto:info@cromtongroup.com"
               className="hidden items-center gap-1.5 transition-colors duration-150 hover:text-white sm:inline-flex"
             >
               <Mail size={13} aria-hidden="true" />
-              info@crompton-intl.com
+              info@cromtongroup.com
             </a>
           </div>
           <div className="flex items-center gap-4">
@@ -67,19 +68,7 @@ export default function Navbar({ lang = 'en' }: NavbarProps) {
           aria-label="Primary"
         >
           {/* Wordmark — visible at every width */}
-          <a href={homePath} className="flex shrink-0 items-center gap-3">
-            <span className="flex h-10 w-10 items-center justify-center bg-primary-500 font-heading text-lg font-bold text-white">
-              C
-            </span>
-            <span className="leading-none">
-              <span className="block font-heading text-[1.05rem] font-bold tracking-tight text-primary-500">
-                CROMPTON
-              </span>
-              <span className="mt-0.5 block text-[0.62rem] uppercase tracking-[0.22em] text-ink-faint">
-                International
-              </span>
-            </span>
-          </a>
+          <Logo href={homePath} />
 
           {/* Desktop nav */}
           <div className="hidden items-center gap-x-7 lg:flex">
