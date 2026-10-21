@@ -4,7 +4,7 @@ import Navbar from '../../components/Navbar.tsx';
 import Footer from '../../components/Footer.tsx';
 import WhatsAppButton from '../../components/WhatsAppButton.tsx';
 import services from '../../data/services.json';
-import Photo from '../../components/Photo.astro';
+import HeroCarousel from '../../components/HeroCarousel.astro';
 import industries from '../../data/industries.json';
 import { ArrowRight, Phone, ShieldCheck, Truck, GraduationCap, BedDouble } from 'lucide-react';
 
@@ -118,13 +118,7 @@ const operations = [
     </section>
 
     <!-- Hero photograph -->
-    <section class="bg-paper-2">
-      <Photo
-        src="/images/hero/crew-site.webp"
-        alt="فريق عمل كرومتون جروب بالزي الرسمي قبل التوزيع على المواقع"
-        class="aspect-[16/9] w-full sm:aspect-[21/9]"
-      />
-    </section>
+    <HeroCarousel lang="ar" />
 
     <!-- Capabilities -->
     <section class="section-padding bg-paper">

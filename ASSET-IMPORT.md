@@ -32,8 +32,7 @@ slot each one fills, converted to WebP (q84), metadata stripped.
 
 | Output | Source | Page / slot |
 |---|---|---|
-| `hero/crew-site.webp` | `hero/hero-05.jpg` | Home (EN + AR) full-bleed hero |
-| `hero/site-works.webp` | `hero/hero-03.jpg` | Reserved |
+| `hero/slide-01…06.webp` | `hero-05`, `hero-03`, `hero-10`, `lab`, `hero-07`, `hero-01` | Home hero carousel (EN + AR) |
 | `about/crew-mobilisation.webp` | `about/lab.jpg` | About — portrait slot |
 | `about/mep-worker.webp` | `about/labc.jpg` | Reserved |
 | `gallery/workers.webp` | `hero/hero-08.jpg` | Gallery — Workers |
@@ -45,12 +44,18 @@ slot each one fills, converted to WebP (q84), metadata stripped.
 | `industries/site.webp` | `hero/hero-03.jpg` | Industries — banner |
 | `hse/ppe.webp` | `hero/hero-07.jpg` | HSE — PPE in use |
 
-Total 12 published images, ~1 MB. Every one carries real alt text; `public/images/manifest.json`
+Total 17 published images, ~1.4 MB. Every one carries real alt text; `public/images/manifest.json`
 records source, dimensions, hash and provenance.
 
 Slots with no honest photograph keep their labelled placeholder: accommodation,
 training, office, docal-role services, client wall. A placeholder is honest; a
 substitute photo is not.
+
+The hero is a six-frame cross-fade carousel (`src/components/HeroCarousel.astro`),
+the equivalent of the Owl Carousel on the old site. It advances every 6s, pauses on
+hover or focus, stops in a background tab, and does not autoplay when the reader
+prefers reduced motion. Slide 4 (the bus) is a 846×363 native crop, so it is softer
+than the rest at full width — the shoot replaces it.
 
 ## Provenance caveat — read before go-live
 

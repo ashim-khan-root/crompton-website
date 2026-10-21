@@ -5,6 +5,7 @@ import Footer from '../../components/Footer.tsx';
 import WhatsAppButton from '../../components/WhatsAppButton.tsx';
 import services from '../../data/services.json';
 import Photo from '../../components/Photo.astro';
+import HeroCarousel from '../../components/HeroCarousel.astro';
 import industries from '../../data/industries.json';
 import { ArrowRight, Phone, ShieldCheck, Truck, GraduationCap, BedDouble } from 'lucide-react';
 
@@ -127,13 +128,7 @@ const operations = [
     <!-- ============================================================
          Hero photograph — full-bleed slot. Drop the approved image in.
          ============================================================ -->
-    <section class="bg-paper-2">
-      <Photo
-        src="/images/hero/crew-site.webp"
-        alt="Cromton Group workforce in company uniform lined up before deployment"
-        class="aspect-[16/9] w-full sm:aspect-[21/9]"
-      />
-    </section>
+    <HeroCarousel lang="en" />
 
     <!-- ============================================================
          Capabilities — asymmetric ledger, not a card grid

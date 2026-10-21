@@ -1,0 +1,177 @@
+---
+/**
+ * Full-bleed hero carousel.
+ *
+ * The legacy site used an Owl Carousel with a caption per slide. This keeps the
+ * rotation but not the posters: the headline sits above, so the photographs are
+ * the whole message.
+ *
+ * Behaviour: cross-fade every 6s, paused on hover or focus, stopped in a
+ * background tab, and never autoplaying when the reader prefers reduced motion.
+ * Without JavaScript the first slide simply stays put.
+ */
+import slides from '../data/hero-slides.json';
+
+interface Props {
+  lang?: 'en' | 'ar';
+}
+
+const { lang = 'en' } = Astro.props;
+
+const copy = {
+  en: {
+    region: 'Photographs of our operation',
+    prev: 'Previous photograph',
+    next: 'Next photograph',
+    go: (n: number) => `Show photograph ${n}`,
+  },
+  ar: {
+    region: 'صور من عملياتنا',
+    prev: 'الصورة السابقة',
+    next: 'الصورة التالية',
+    go: (n: number) => `عرض الصورة ${n}`,
+  },
+}[lang];
+---
+
+<section
+  class="bg-paper-2"
+  data-carousel
+  role="region"
+  aria-roledescription="carousel"
+  aria-label={copy.region}
+>
+  <div class="relative aspect-[16/9] w-full overflow-hidden sm:aspect-[21/9]">
+    {
+      slides.map((slide, i) => (
+        <img
+          src={slide.src}
+          alt={slide[lang]}
+          data-slide={i}
+          aria-hidden={i === 0 ? 'false' : 'true'}
+          class:list={[
+            'absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ease-out',
+            i === 0 ? 'opacity-100' : 'opacity-0',
+          ]}
+          loading={i === 0 ? 'eager' : 'lazy'}
+          fetchpriority={i === 0 ? 'high' : 'auto'}
+          decoding={i === 0 ? 'sync' : 'async'}
+        />
+      ))
+    }
+
+    <div class="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/50 to-transparent"></div>
+
+    <div class="absolute inset-x-0 bottom-0 flex items-end justify-between px-5 pb-5 md:px-8">
+      <div class="flex items-center gap-2">
+        {
+          slides.map((_, i) => (
+            <button
+              type="button"
+              data-dot={i}
+              aria-label={copy.go(i + 1)}
+              aria-current={i === 0 ? 'true' : 'false'}
+              class="h-1 w-7 cursor-pointer border-0 bg-white/40 p-0 transition-colors duration-300 hover:bg-white/70 aria-[current=true]:bg-white"
+            />
+          ))
+        }
+      </div>
+
+      <div class="flex gap-2">
+        <button
+          type="button"
+          data-prev
+          aria-label={copy.prev}
+          class="flex h-9 w-9 cursor-pointer items-center justify-center border border-white/40 bg-black/20 text-white backdrop-blur-sm transition-colors duration-150 hover:border-white hover:bg-black/40"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+        <button
+          type="button"
+          data-next
+          aria-label={copy.next}
+          class="flex h-9 w-9 cursor-pointer items-center justify-center border border-white/40 bg-black/20 text-white backdrop-blur-sm transition-colors duration-150 hover:border-white hover:bg-black/40"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @media (prefers-reduced-motion: reduce) {
+    [data-carousel] img {
+      transition: none !important;
+    }
+  }
+</style>
+
+<script>
+  const AUTOPLAY_MS = 6000;
+
+  document.querySelectorAll<HTMLElement>('[data-carousel]').forEach((root) => {
+    const slides = Array.from(root.querySelectorAll<HTMLImageElement>('[data-slide]'));
+    const dots = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-dot]'));
+    if (slides.length < 2) return;
+
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let index = 0;
+    let timer: number | null = null;
+
+    const show = (next: number) => {
+      index = (next + slides.length) % slides.length;
+      slides.forEach((slide, i) => {
+        const active = i === index;
+        slide.classList.toggle('opacity-100', active);
+        slide.classList.toggle('opacity-0', !active);
+        slide.setAttribute('aria-hidden', String(!active));
+      });
+      dots.forEach((dot, i) => dot.setAttribute('aria-current', String(i === index)));
+    };
+
+    const stop = () => {
+      if (timer !== null) {
+        window.clearInterval(timer);
+        timer = null;
+      }
+    };
+
+    const start = () => {
+      if (reduced || timer !== null || document.hidden) return;
+      timer = window.setInterval(() => show(index + 1), AUTOPLAY_MS);
+    };
+
+    const step = (delta: number) => {
+      stop();
+      show(index + delta);
+      start();
+    };
+
+    root.querySelector('[data-next]')?.addEventListener('click', () => step(1));
+    root.querySelector('[data-prev]')?.addEventListener('click', () => step(-1));
+    dots.forEach((dot, i) =>
+      dot.addEventListener('click', () => {
+        stop();
+        show(i);
+        start();
+      })
+    );
+
+    root.addEventListener('mouseenter', stop);
+    root.addEventListener('mouseleave', start);
+    root.addEventListener('focusin', stop);
+    root.addEventListener('focusout', start);
+    root.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowRight') step(1);
+      if (event.key === 'ArrowLeft') step(-1);
+    });
+    document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()));
+
+    start();
+  });
+</script>

@@ -1,6 +1,6 @@
 [
   {
-    "path": "/images/hero/crew-site.webp",
+    "path": "/images/hero/slide-01.webp",
     "source": "assets/img/hero/hero-05.jpg",
     "source_size": [
       1920,
@@ -12,11 +12,11 @@
     ],
     "bytes": 110018,
     "sha": "fae17ed4fb74fcb9",
-    "alt": "Cromton Group workforce lined up in company uniform before deployment",
+    "alt": "Cromton Group workforce in company uniform lined up before deployment",
     "provenance": "legacy-site"
   },
   {
-    "path": "/images/hero/site-works.webp",
+    "path": "/images/hero/slide-02.webp",
     "source": "assets/img/hero/hero-03.jpg",
     "source_size": [
       1920,
@@ -28,7 +28,71 @@
     ],
     "bytes": 98222,
     "sha": "b0b1f2d3d07bda2f",
-    "alt": "Construction works under a tower crane in Qatar",
+    "alt": "Building under construction with a tower crane overhead",
+    "provenance": "legacy-site"
+  },
+  {
+    "path": "/images/hero/slide-03.webp",
+    "source": "assets/img/hero/hero-10.jpg",
+    "source_size": [
+      1920,
+      800
+    ],
+    "size": [
+      1867,
+      800
+    ],
+    "bytes": 186968,
+    "sha": "154fabc6810e2994",
+    "alt": "Steel fixers working on a reinforcement deck",
+    "provenance": "legacy-site"
+  },
+  {
+    "path": "/images/hero/slide-04.webp",
+    "source": "assets/img/about/lab.jpg",
+    "source_size": [
+      846,
+      733
+    ],
+    "size": [
+      846,
+      363
+    ],
+    "bytes": 59776,
+    "sha": "0bff45eb190c5438",
+    "alt": "Workers boarding company transport for site mobilisation in Doha",
+    "provenance": "legacy-site"
+  },
+  {
+    "path": "/images/hero/slide-05.webp",
+    "source": "assets/img/hero/hero-07.jpg",
+    "source_size": [
+      1920,
+      800
+    ],
+    "size": [
+      1867,
+      800
+    ],
+    "bytes": 78192,
+    "sha": "99eaf78c04e6c943",
+    "alt": "Welders in helmets, gloves and eye protection at work",
+    "provenance": "legacy-site"
+  },
+  {
+    "path": "/images/hero/slide-06.webp",
+    "source": "assets/img/hero/hero-01.jpg",
+    "source_size": [
+      1920,
+      800
+    ],
+    "size": [
+      1867,
+      800
+    ],
+    "bytes": 46362,
+    "sha": "615ddbec88d910e0",
+    "alt": "Skilled worker using an angle grinder with full protective equipment",
     "provenance": "legacy-site"
   },
   {

@@ -38,18 +38,46 @@ STAGING = ROOT / "assets" / "staging" / "client-logos"
 # destination, source (relative to --source), aspect (w, h), focal point, alt text
 PHOTOS = [
     (
-        "hero/crew-site.webp",
+        "hero/slide-01.webp",
         "assets/img/hero/hero-05.jpg",
         (21, 9),
         (0.5, 0.5),
-        "Cromton Group workforce lined up in company uniform before deployment",
+        "Cromton Group workforce in company uniform lined up before deployment",
     ),
     (
-        "hero/site-works.webp",
+        "hero/slide-02.webp",
         "assets/img/hero/hero-03.jpg",
         (21, 9),
         (0.5, 0.5),
-        "Construction works under a tower crane in Qatar",
+        "Building under construction with a tower crane overhead",
+    ),
+    (
+        "hero/slide-03.webp",
+        "assets/img/hero/hero-10.jpg",
+        (21, 9),
+        (0.5, 0.5),
+        "Steel fixers working on a reinforcement deck",
+    ),
+    (
+        "hero/slide-04.webp",
+        "assets/img/about/lab.jpg",
+        (21, 9),
+        (0.55, 0.5),
+        "Workers boarding company transport for site mobilisation in Doha",
+    ),
+    (
+        "hero/slide-05.webp",
+        "assets/img/hero/hero-07.jpg",
+        (21, 9),
+        (0.55, 0.5),
+        "Welders in helmets, gloves and eye protection at work",
+    ),
+    (
+        "hero/slide-06.webp",
+        "assets/img/hero/hero-01.jpg",
+        (21, 9),
+        (0.62, 0.45),
+        "Skilled worker using an angle grinder with full protective equipment",
     ),
     (
         "about/crew-mobilisation.webp",
