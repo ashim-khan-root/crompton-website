@@ -17,7 +17,7 @@ import path from 'node:path';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DIST = path.join(ROOT, 'dist');
-const SITE = 'https://cromtongroup.com';
+const SITE = 'https://cromptonqatar.com';
 
 const failures = [];
 const notes = [];
@@ -89,7 +89,7 @@ else {
 
 // ----------------------------------------------------------------- HTML pages
 const pages = (await walk(DIST)).filter((f) => f.endsWith('.html'));
-const ogImagePath = path.join(DIST, 'images', 'og', 'og-cromton-group.jpg');
+const ogImagePath = path.join(DIST, 'images', 'og', 'og-crompton-international.jpg');
 
 for (const file of pages) {
   const rel = `/${path.relative(DIST, file)}`;
@@ -125,7 +125,7 @@ for (const file of pages) {
     if (!html.includes(`property="${tag}"`)) fail('social card', `${rel} has no ${tag}`);
   }
   if (!html.includes('name="twitter:card"')) fail('social card', `${rel} has no twitter:card`);
-  if (html.includes('property="og:image"') && !html.includes('/images/og/og-cromton-group.jpg')) {
+  if (html.includes('property="og:image"') && !html.includes('/images/og/og-crompton-international.jpg')) {
     fail('social card', `${rel} og:image does not point at the generated card`);
   }
 
@@ -155,7 +155,7 @@ if (/fonts\.(googleapis|gstatic)\.com/.test(css)) fail('fonts', 'built CSS still
 if (!failures.some((f) => f.startsWith('fonts'))) ok(`${fontRefs.length} self-hosted font files resolve`);
 
 // ------------------------------------------------------------- the share card
-if (!existsSync(ogImagePath)) fail('og image', 'dist/images/og/og-cromton-group.jpg is missing');
+if (!existsSync(ogImagePath)) fail('og image', 'dist/images/og/og-crompton-international.jpg is missing');
 else {
   const size = jpegSize(await readFile(ogImagePath));
   const bytes = (await stat(ogImagePath)).size;
@@ -164,6 +164,108 @@ else {
     fail('og image', `is ${size.width}x${size.height}, expected 1200x630`);
   } else if (bytes > 300 * 1024) fail('og image', `is ${(bytes / 1024).toFixed(0)} KiB, over the 300 KiB budget`);
   else ok(`og image 1200x630, ${(bytes / 1024).toFixed(0)} KiB`);
+}
+
+// ------------------------------------------------------------------ brand assets
+/** Width/height straight from a PNG's IHDR chunk. */
+function pngSize(buf) {
+  if (buf.length < 24 || buf.readUInt32BE(0) !== 0x89504e47) return null;
+  return { width: buf.readUInt32BE(16), height: buf.readUInt32BE(20) };
+}
+
+const BRAND = {
+  'brand/lockup.png': [680, 118],
+  'brand/lockup-white.png': [680, 118],
+  'brand/mark.png': [640, 451],
+  'brand/mark-white.png': [640, 451],
+  'brand/favicon-32.png': [32, 32],
+  'brand/apple-touch-icon.png': [180, 180],
+};
+
+for (const [rel, [w, h]] of Object.entries(BRAND)) {
+  const file = path.join(DIST, rel);
+  if (!existsSync(file)) {
+    fail('brand', `${rel} is missing — run scripts/prepare-brand.py`);
+    continue;
+  }
+  const size = pngSize(await readFile(file));
+  if (!size) fail('brand', `${rel} is not a readable PNG`);
+  else if (size.width !== w || size.height !== h) {
+    fail('brand', `${rel} is ${size.width}x${size.height}, expected ${w}x${h}`);
+  }
+}
+if (!failures.some((f) => f.startsWith('brand'))) ok(`${Object.keys(BRAND).length} brand assets present at the expected sizes`);
+
+// The header lockup is the one image every page must carry; a page that lost it
+// renders a bar with no logo at all, which no build error would catch.
+for (const file of pages) {
+  const rel = `/${path.relative(DIST, file)}`;
+  const html = await readFile(file, 'utf8');
+  if (/http-equiv="refresh"/.test(html)) continue;
+  if (!html.includes('/brand/lockup.png')) fail('brand', `${rel} does not render the header lockup`);
+  if (html.includes('/favicon.svg')) fail('brand', `${rel} still points at the retired favicon.svg`);
+  if (!html.includes('content="#0c0b61"')) fail('brand', `${rel} theme-color is not the brand indigo`);
+}
+if (!failures.some((f) => f.startsWith('brand'))) ok('every page renders the lockup, no retired icon, brand theme-color');
+
+// ------------------------------------------------------------ palette contrast
+// The palette is four client colours plus derived shades. Whether the pairs the site
+// actually puts text on survive AA is arithmetic, not opinion — so assert it here
+// rather than trusting whoever picked the tint.
+const { default: tw } = await import(path.join(ROOT, 'tailwind.config.js'));
+const C = tw.theme.extend.colors;
+
+const lum = (hex) => {
+  const [r, g, b] = [1, 3, 5].map((i) => {
+    const c = parseInt(hex.slice(i, i + 2), 16) / 255;
+    return c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
+  });
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+};
+const contrast = (a, b) => {
+  const [hi, lo] = [lum(a), lum(b)].sort((x, y) => y - x);
+  return (hi + 0.05) / (lo + 0.05);
+};
+
+const TEXT = 4.5; // AA for body-size text
+const PAIRS = [
+  ['ink on paper', C.ink.DEFAULT, C.paper.DEFAULT, TEXT],
+  ['ink-muted on paper', C.ink.muted, C.paper.DEFAULT, TEXT],
+  ['ink-faint on paper', C.ink.faint, C.paper.DEFAULT, TEXT],
+  ['ink-muted on paper-2', C.ink.muted, C.paper[2], TEXT],
+  ['ink-faint on paper-2', C.ink.faint, C.paper[2], TEXT],
+  ['primary on paper', C.primary[500], C.paper.DEFAULT, TEXT],
+  ['secondary-600 on paper', C.secondary[600], C.paper.DEFAULT, TEXT],
+  ['secondary-700 on paper', C.secondary[700], C.paper.DEFAULT, TEXT],
+  ['accent on paper', C.accent, C.paper.DEFAULT, TEXT],
+  ['white on primary-500', '#ffffff', C.primary[500], TEXT],
+  ['white on primary-700', '#ffffff', C.primary[700], TEXT],
+  ['white on primary-900', '#ffffff', C.primary[900], TEXT],
+  ['white on secondary-500 (button)', '#ffffff', C.secondary[500], TEXT],
+  ['white on ground', '#ffffff', C.ground, TEXT],
+  ['secondary-300 on ground (labels)', C.secondary[300], C.ground, TEXT],
+];
+
+for (const [name, a, b, min] of PAIRS) {
+  const ratio = contrast(a, b);
+  if (ratio < min) fail('contrast', `${name} is ${ratio.toFixed(2)}:1, needs ${min}:1`);
+}
+if (!failures.some((f) => f.startsWith('contrast'))) {
+  ok(`${PAIRS.length} text pairs meet AA (lowest ${Math.min(...PAIRS.map(([, a, b]) => contrast(a, b))).toFixed(2)}:1)`);
+}
+
+// The brand red on white is 4.31:1 — fine for the mark, rules and large type, not for
+// body copy. Assert it stays below the body threshold, so nobody quietly uses it for a
+// paragraph on the assumption that "brand colour" means "safe everywhere".
+const brandRedOnWhite = contrast(C.secondary[400], C.paper.DEFAULT);
+if (brandRedOnWhite >= TEXT) {
+  notes.push(`  note #f40410 clears AA on its own (${brandRedOnWhite.toFixed(2)}:1) — the action shade could be collapsed`);
+}
+// Same red on the navy ground is only 3.94:1: fine for the big stat numerals and
+// for icons, not for the uppercase labels that sit beside them. Those use the 300
+// tint, which the pair list above holds to 4.5:1.
+if (contrast(C.secondary[400], C.ground) >= TEXT) {
+  notes.push('  note #f40410 clears AA on the navy ground too — the label tint is now redundant');
 }
 
 // --------------------------------------------------------------------- report

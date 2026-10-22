@@ -1,9 +1,10 @@
-# Cromton Group website
+# Crompton International website
 
-Marketing site for **Cromton Group Trading & Contracting & Services W.L.L.**, a manpower
+Marketing site for **Crompton International Trading & Contracting Company W.L.L.**, a manpower
 supply and contracting company in Doha, Qatar. Bilingual: English (default) and Arabic.
 
-Live at **`cromtongroup.com`** (and `www`) behind a Cloudflare Tunnel on a single AlmaLinux VPS.
+Production domain is **`cromptonqatar.com`** (see rule 2 — the site was first deployed to the
+wrong host). Static build behind a Cloudflare Tunnel on a single AlmaLinux VPS.
 
 This file is the entry point. Read it before touching anything; the other `.md` files here
 are deeper references, and two of them are older than the current brand.
@@ -12,15 +13,24 @@ are deeper references, and two of them are older than the current brand.
 
 ## Ground rules
 
-1. **The brand is `Cromton Group`** — no "p". The full string used on the site is
-   `Cromton Group Trading & Contracting & Services W.L.L.`; Arabic is `كرومتون جروب`.
-   The legal entity name and its licence/ISO particulars are **not yet confirmed by the
-   client** — don't restate them in contracts or formal documents until they are.
-   The repo directory, `package.json` name and git history still say `crompton-website`.
-   That is historical, not a bug. Do not mass-rename it without the owner's decision.
-2. **Domain trap.** `cromtongroup.com` is production. `cromptongroup.com` is a parked
-   lookalike owned by someone else, and `crompton-intl.com` was never registered. Never
-   point DNS, nginx or a deploy at either of them.
+1. **The brand is `Crompton International`** — with the "p". The full string used on the site
+   is `Crompton International Trading & Contracting Company W.L.L.`; Arabic is
+   `كرومبتون إنترناشونال للتجارة والمقاولات ش.م.م`. This reverses the 2026-10 earlier rename to
+   "Cromton Group", which came from a misreading of the logo: the client's own artwork says
+   Crompton, and the owner confirmed on 2026-10-22 that the artwork is right and the site
+   should follow it. If you find "Cromton" anywhere in code, it is stale.
+   The licence/ISO particulars are **not yet confirmed by the client** — don't restate them in
+   contracts or formal documents. The repo directory, `package.json` name and git history say
+   `crompton-website`; that is historical, not a bug. Do not mass-rename them.
+2. **Domain trap.** Production is **`cromptonqatar.com`**. `cromtongroup.com` was also
+   registered and is where the first deploy went by mistake — it currently serves the
+   pre-2026-10-22 build and must not be treated as canonical. `cromptongroup.com` is a parked
+   lookalike owned by someone else, and `crompton-intl.com` was never registered. Never point
+   DNS, nginx or a deploy at either of those two.
+   **`cromptonqatar.com` is on GoDaddy nameservers with Zoho Mail live on it** (`mx.zoho.com`,
+   `mx2`, `mx3`, SPF `include:zohomail.com`, `www` CNAME to `zhs.zohosites.com`). Moving the
+   site there means repointing DNS — which will break email if the Zoho MX/TXT records are not
+   recreated. That is an owner-run change, not something a build can do.
 3. **Never invent numbers or credentials.** No headcount, project count, ISO number or
    certification goes on the page unless the client supplied it. This has already bitten:
    invented stat bands and unverifiable cert claims were deliberately removed. See `rules.md`.
@@ -39,6 +49,7 @@ Verified on the VPS, 2026-10-21: **Node v24.21.0, npm 11.19.0, lockfileVersion 3
 npm ci                 # install from package-lock.json (use this, not `npm install`)
 npm run build          # → dist/  (14 pages + 404, ~7s)
 npm run check:build    # asserts the output: canonical, og, hreflang, fonts, robots, sitemap
+python3 scripts/prepare-brand.py   # rebuild public/brand/ from assets/staging/brand/
 npm run dev            # local dev server
 npm run preview        # serve the built dist/
 node scripts/vendor-fonts.mjs   # re-download self-hosted fonts + regenerate fonts.css
@@ -67,13 +78,15 @@ src/
   pages/index.astro     / → redirect to /en/
   components/           React 19 islands: Navbar, Footer, ContactForm, Logo,
                         ClientCarousel, StatsCounter, WhatsAppButton
+                        Logo.tsx renders /brand/lockup.png (or the -white variant) — the
+                        client's own raster lockup, not a drawn SVG
   data/*.json           services, industries, workforce, jobs, clients — real content
   i18n/{en,ar}.json     ⚠ DEAD CODE — imported nowhere. Do not add strings here.
   layouts/BaseLayout.astro   head/meta/canonical/og/hreflang + Organization JSON-LD
   styles/global.css     tokens + component classes
   styles/fonts.css      GENERATED @font-face rules — see scripts/vendor-fonts.mjs
   pages/404.astro       → dist/404.html (needs `error_page 404 /404.html;` in nginx)
-public/                 favicon.svg, robots.txt, fonts/*.woff2, images/ (hero, clients,
+public/                 brand/ (logo assets + icons), robots.txt, fonts/*.woff2, images/ (hero, clients,
                         gallery, og card), images/manifest.json
 scripts/                vendor-fonts.mjs, make-og-image.py, check-build.mjs,
                         import-legacy-assets.py, deploy helpers
@@ -99,7 +112,7 @@ Editing and shipping are split across two machines, by design:
    `https://github.com/ashim-khan-root/crompton-website` (public).
 2. **VPS.** `git pull --ff-only` → `npm ci` if `package.json`/lock changed → `npm run build`.
 3. **Owner runs the deploy** (needs root; agents on the VPS have no passwordless sudo):
-   `sudo ./deploy-static-site.sh cromtongroup.com <path>/dist` from the separate
+   `sudo ./deploy-static-site.sh cromptonqatar.com <path>/dist` from the separate
    `dev-agency` repo, which also holds the nginx site template.
 4. Verify live: `curl -I -H 'Host: cromtongroup.com' http://localhost` and a public `curl`.
 
@@ -127,6 +140,11 @@ or the next deploy silently drops them.
   fonts.googleapis.com `@import`. `check:build` fails on the latter.
 - **`dist/404.html` is only served if nginx says so.** The site file needs
   `error_page 404 /404.html;` — it lives in the `dev-agency` nginx template, not here.
+- **The logo is a raster with the old brand name in it.** `public/brand/lockup.png` is the
+  client's artwork and its wordmark says "Crompton International"; the site says Cromton Group.
+  That is the owner's call, recorded in `design.md` → Logo. Regenerate assets with
+  `scripts/prepare-brand.py` (never hand-edit the PNGs), and never place the colour lockup on a
+  dark ground — use `lockup-white.png`, or the navy globe disappears.
 - **`hreflang` covers the homepage pair only**, because only the homepage has an Arabic
   version. If Arabic sub-pages land (Phase 4), extend the `alternates` block in
   `BaseLayout.astro` at the same time, or the AR pages will be orphans.
@@ -140,6 +158,11 @@ particulars, real careers and news copy, Arabic review.
 
 Done 2026-10-22, needs a redeploy to go live: canonical, og:image + og:url + twitter card,
 `robots.txt`, `404.html`, self-hosted fonts, sitemap filtered, Organization `@id`.
+
+Done 2026-10-22, also undeployed: the client's own logo in the header/footer/favicon/OG card,
+and a full palette swap to the four colours sampled from it — brand indigo `#0c0b61` grounds and
+headings, brand red `#f40410` accents (with AA-safe shades for buttons and small text), true
+white paper and black ink. Gold is gone site-wide.
 
 Still not blocked: gzip + cache headers, `www` → apex redirect, `error_page 404` in nginx,
 analytics, uptime monitoring. The first three are nginx-template changes in `dev-agency`.

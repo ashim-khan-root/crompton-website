@@ -151,6 +151,72 @@ rendered as a bare URL. No client input was needed, so none of it waited on the 
 - **Built, not deployed.** Production still serves the earlier build until the owner runs the
   nginx deploy.
 
+## 2026-10-22 — The client's own logo and its palette (Phase 1.7)
+
+- **The site had been wearing a mark nobody drew for the client** — a geometric arc and a gold
+  keystone in `Logo.tsx`. The real logo was in the ZIP of the old PHP site all along:
+  `assets/img/logo/logo.png` (350×60, the lockup used in `navbar.php`) and
+  `assets/img/png-icon/logo-element.png` (1193×839, the globe alone, real alpha).
+- **Owner's colours verified against pixels, not taken on trust**: the artwork holds `#f40814`
+  and `#0b0a60`; the owner specified `#f40410` and `#0c0b61`. Tokens use the owner's values.
+- **`scripts/prepare-brand.py`** is the only writer of `public/brand/`. It converts the white
+  ground to real alpha, snaps every pixel to the four brand colours, cuts a 2× retina lockup,
+  derives white variants for dark grounds, and emits the favicon pair. It refuses to write if
+  the cleaned asset drifts more than 12/255 from the source (measured 0.6/255) — the only check
+  that proves cleaning did not alter the logo.
+- **Brand-name conflict, decided by the owner, not silently fixed.** The lockup's wordmark reads
+  *Crompton International — Trading & Contracting Company WLL*; the site says *Cromton Group*.
+  (Corrected later the same day — the site follows the artwork now. See below.)
+  The option of using the globe alone with a newly typeset wordmark was put in writing and
+  declined. Recorded in `design.md` → Logo and in `AGENTS.md` ground rule 1, so the next agent
+  does not "correct" it.
+- **Palette replaced, not tinted.** Gold (`#d69e2e`) is gone from the whole site; the old rule
+  "gold on dark grounds, navy on light grounds" is now "red on dark, indigo on light". Dark
+  sections moved from near-black `#05042c` to a new `ground` token that *is* the brand indigo
+  `#0c0b61`, so the hero, page headers and footer read as the client's colour.
+- **Contrast arithmetic drove three reds.** Brand red is 4.31:1 on white and 3.94:1 on navy:
+  correct for the mark, rules and 40px stat numerals; an AA failure for a 15px button label or
+  an 11px eyebrow. Fills use `#d4030f` (5.50:1), small light-ground text `#b80210` (6.23:1),
+  small dark-ground labels `#ff4b52` (5.15:1). The footer's uppercase labels were exactly this
+  bug for one build — caught by looking at the rendered footer, then computed.
+- **`check:build` gained two gates**, both proven by injecting their fault: brand assets present
+  at exact pixel sizes with the lockup on every page, and 15 text/background pairs imported live
+  from `tailwind.config.js` held to AA (deleted `lockup.png` → fail; `ink-muted` lightened to
+  `#9a9aa8` → 2.78:1 fail).
+- **Rendered, not assumed.** Chromium at 1440 / 1024 / 390 and on the RTL page: the lockup loads
+  at 680×118, no 4xx resources, fonts `loaded`, no console errors on EN, AR or 404. The nav still
+  fits with a 233px-wide logo at the 1024px breakpoint.
+- **Built, not deployed.** Production still serves the pre-2026-10-22 build.
+
+## 2026-10-22 (later) — The name and the domain were both wrong
+
+Two corrections landed the same day, both from the owner, both reversing something this repo
+had been confidently asserting.
+
+- **The brand is `Crompton International`, with the "p".** The 2026-10 earlier rename to
+  "Cromton Group" was a misreading of the client's own artwork. With the real logo now in the
+  header, the mismatch was visible on every page: the logo said Crompton, the copy said Cromton.
+  The owner confirmed the artwork is right. Whole site renamed: headings, descriptions, alt text,
+  JSON-LD, footer legal line (`Crompton International Trading & Contracting Company W.L.L.`),
+  Arabic (`كرومبتون إنترناشونال للتجارة والمقاولات ش.م.م`), page titles, and the Arabic `<title>`
+  suffix, which now uses the Arabic name rather than the Latin one.
+- **Production is `cromptonqatar.com`, not `cromtongroup.com`.** The 2026-10-22 deploy went to
+  the wrong host, which is why `cromtongroup.com` answers with the pre-theme build.
+  Canonical, `og:url`, hreflang, sitemap, robots, the JSON-LD `@id`/`url` and every `info@`
+  address were repointed to `cromptonqatar.com`.
+- **`cromptonqatar.com` cannot serve the site yet.** It is on GoDaddy nameservers with Zoho
+  Sites on `www` (404, unpublished) and **live Zoho Mail on the MX** (`mx.zoho.com` 10,
+  `mx2` 20, `mx3` 50, SPF `include:zohomail.com`). Moving it to the tunnel requires recreating
+  those records at the same time — otherwise the company's email dies with the DNS change. That
+  is owner-run; written up in `DEPLOY.md` → *Moving the domain*.
+- **Share card rebuilt** to paste the client's real lockup instead of re-typesetting the name in
+  Plus Jakarta. A set wordmark in a different face was a second, slightly wrong logo. Output is
+  now `og-crompton-international.jpg` (62 KiB) and the old `og-cromton-group.jpg` is deleted.
+- **Unverified and flagged:** whether `info@cromptonqatar.com` is a live mailbox. The domain has
+  Zoho MX so it plausibly is, but nothing on this machine can prove it. It is now on every page.
+- `src/i18n/*.json` still contains the old name — it is dead code (imported nowhere) and was
+  deliberately left alone rather than half-renamed. Delete it wholesale or leave it dead.
+
 ## Open items (see phases.md for the ordered list)
 
 1. Client decision: where leads land (inbox vs WhatsApp-only) — blocks Phase 2, highest value

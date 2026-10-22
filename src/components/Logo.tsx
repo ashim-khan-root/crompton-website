@@ -1,9 +1,14 @@
 /**
- * Brand lockup: geometric "C" + wordmark.
+ * Brand lockup — the client's own logo art, not a redraw.
  *
- * The gold keystone sits in the C's opening — the gap filled is the brand idea
- * (the right people for the gap in a project). Geometry is drawn, not set, so it
- * stays crisp at favicon size. Wordmark uses the heading font at two weights.
+ * Source: the legacy site's `assets/img/png-icon/logo-element.png` (1193x839) for the
+ * globe, and `assets/img/logo/logo.png` (350x60) for the full lockup with the wordmark
+ * baked in. `scripts/prepare-brand.py` cleans them: every pixel snapped to the four
+ * brand colours, the white ground turned into real transparency, and a 2x asset cut
+ * for retina. Nothing here is redrawn, so the mark is exactly the one the client uses.
+ *
+ * `tone="dark"` swaps to the recoloured asset (all ink -> white, red swoosh kept),
+ * because the globe's navy half and the black wordmark disappear on a navy ground.
  */
 interface LogoProps {
   href?: string;
@@ -11,55 +16,31 @@ interface LogoProps {
   className?: string;
 }
 
+/* 680x118 — the aspect ratio the layout must reserve, so the header never jumps. */
+const W = 680;
+const H = 118;
+
 export default function Logo({ href, tone = 'light', className = '' }: LogoProps) {
-  const mark = tone === 'dark' ? '#ffffff' : '#1a365d';
-  const word = tone === 'dark' ? 'text-white' : 'text-primary-500';
-  const sub = tone === 'dark' ? 'text-white/55' : 'text-ink-faint';
-
-  const content = (
-    <>
-      <svg
-        className="h-8 w-8 shrink-0"
-        viewBox="0 0 48 48"
-        fill="none"
-        aria-hidden="true"
-        focusable="false"
-      >
-        <path
-          d="M36.30 32.60 A15 15 0 1 1 36.99 16.50"
-          stroke={mark}
-          strokeWidth="6.5"
-          strokeLinecap="round"
-        />
-        <rect x="30.5" y="20.75" width="7.5" height="6.5" rx="1.5" fill="#d69e2e" />
-      </svg>
-
-      <span className="flex flex-col leading-none">
-        <span
-          className={`font-heading text-[1.05rem] font-extrabold leading-none tracking-[-0.015em] ${word}`}
-        >
-          CROMTON
-        </span>
-        <span
-          className={`mt-[0.34em] text-[0.6rem] font-semibold uppercase leading-none tracking-[0.3em] ${sub}`}
-        >
-          Group
-        </span>
-      </span>
-    </>
+  const img = (
+    <img
+      src={tone === 'dark' ? '/brand/lockup-white.png' : '/brand/lockup.png'}
+      alt="Crompton International — Trading & Contracting Company WLL"
+      width={W}
+      height={H}
+      decoding="async"
+      /* Height only: the width follows the ratio, so the lockup scales down on
+         narrow bars instead of overflowing them. */
+      className={`h-8 w-auto shrink-0 md:h-10 ${className}`}
+    />
   );
 
   if (href) {
     return (
-      <a
-        href={href}
-        aria-label="Cromton Group — home"
-        className={`inline-flex shrink-0 items-center gap-2.5 ${className}`}
-      >
-        {content}
+      <a href={href} aria-label="Crompton International — home" className="inline-flex shrink-0 items-center">
+        {img}
       </a>
     );
   }
 
-  return <span className={`inline-flex shrink-0 items-center gap-2.5 ${className}`}>{content}</span>;
+  return <span className="inline-flex shrink-0 items-center">{img}</span>;
 }

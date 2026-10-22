@@ -1,7 +1,7 @@
-# Cromton Group — what we need from you to finish the website
+# Crompton International — what we need from you to finish the website
 
-**For:** Cromton Group · **Prepared by:** web team · **Date:** 2026-10-20
-**Live site:** https://cromtongroup.com
+**For:** Crompton International · **Prepared by:** web team · **Date:** 2026-10-20
+**Live site:** https://cromptonqatar.com
 
 The site is live and branded. What remains is content and proof: the things only you
 can supply. Nothing below needs a developer — it needs decisions, documents and photos.
@@ -20,8 +20,8 @@ can supply. Nothing below needs a developer — it needs decisions, documents an
 
 | # | Question | Why it matters | Our recommendation |
 |---|---|---|---|
-| 1.1 🔴 | **Is the new logo approved?** We designed a mark (geometric C + gold keystone) and wordmark "CROMTON / GROUP". Do you have an official logo instead? | If you have brand artwork, the site should use it, not ours | Send vector files if they exist; otherwise approve ours in writing |
-| 1.2 🔴 | **`cromtongroup.com` or `www.cromtongroup.com`?** Both currently serve the site | Duplicate content in Google; split analytics | Make the bare domain canonical, 301 the `www` |
+| 1.1 🟠 | **Send a vector logo if one exists.** We have only the 350×60 raster from your old site, so the header logo softens on high-density screens. The name is no longer in question — the site now says **Crompton International** everywhere, matching the logo | Raster scales badly; a vector fixes the header, the share card and print at once | Ask the designer for `.ai` / `.svg` / `.eps`, or the largest PNG you have |
+| 1.2 🔴 | **Confirm `cromptonqatar.com` is the domain to keep, and that we may move it off Zoho Sites.** Today the domain sits on GoDaddy nameservers: `www` points at an unpublished Zoho Sites page, and email runs on Zoho Mail | Serving the site there requires a DNS change, which breaks email unless the Zoho MX/TXT records are recreated first | Bare `cromptonqatar.com` canonical, `www` 301 to it, Zoho Mail left untouched |
 | 1.3 🔴 | **Where should enquiries go?** Today the form builds a WhatsApp message. Where must leads land? | No lead record, no follow-up trail | One inbox (e.g. `info@`) + WhatsApp + optional CRM |
 
 ---
@@ -33,7 +33,7 @@ Every line below is either on the site now or was removed pending your confirmat
 
 | # | Item | On the site today | Your answer |
 |---|---|---|---|
-| 2.1 🔴 | Registered legal name | **Cromton Group Trading & Contracting & Services W.L.L.** | |
+| 2.1 🔴 | Registered legal name | **Crompton International Trading & Contracting Company W.L.L.** | |
 | 2.2 🔴 | Commercial Registration (Qatar Chamber) number | not shown | |
 | 2.3 🔴 | Ministry of Labour manpower-supply licence number **and expiry** | **"Licensed by Qatar Ministry of Labour"** (no number) | |
 | 2.4 🟠 | Founding year | not shown (removed, unverified) | |
@@ -44,7 +44,7 @@ Every line below is either on the site now or was removed pending your confirmat
 | 2.9 🔴 | Office address & P.O. Box | **P.O. Box 37491, NBK-Msheireb Buildings, 4th Floor, Office 405 & 406, Doha** | |
 | 2.10 🔴 | Phone | **+974 4468 1414** | |
 | 2.11 🔴 | WhatsApp | **+974 5501 9646** | |
-| 2.12 🔴 | Email | **info@cromtongroup.com** | |
+| 2.12 🔴 | Email | **info@cromptonqatar.com** | |
 | 2.13 🟠 | Working hours | **"Sun–Thu"** | |
 | 2.14 ⚪ | Social profiles (LinkedIn / Instagram / X / Facebook) | none linked | |
 
@@ -87,7 +87,7 @@ noted. Naming: `section-subject-01.jpg`.
 
 **Rules:** real photography only (no stock, no AI); written consent from anyone
 identifiable; no safety violations visible (missing PPE will undermine the HSE page);
-Cromton must own the images or hold an indefinite commercial licence.
+Crompton must own the images or hold an indefinite commercial licence.
 
 ---
 
@@ -169,7 +169,7 @@ sub-page. Two decisions:
       damage but has never been read by a fluent speaker. Gulf business Arabic, please.
 - [ ] 🟠 **Translate the 11 sub-pages?** (about, services, industries, workforce, clients,
       careers, contact, HSE, gallery, certificates, news) — this is a content cost, not a build cost.
-- [ ] 🟠 **Approved terms:** company name in Arabic (`كرومتون جروب`), job titles, licence names.
+- [ ] 🟠 **Approved terms:** company name in Arabic (`كرومبتون إنترناشونال`), job titles, licence names.
 
 Until Arabic sub-pages exist, we recommend hiding the language switch on sub-pages so
 visitors are not dropped on an unexpected page.
@@ -187,7 +187,7 @@ visitors are not dropped on an unexpected page.
 
 ## 12. Access & accounts
 
-- [ ] 🟠 Confirm who owns the **registrar** account for `cromtongroup.com`
+- [ ] 🟠 Confirm who owns the **registrar** account for `cromptonqatar.com`
 - [ ] 🟠 Confirm who owns the **Cloudflare** account (DNS + tunnel)
 - [ ] 🟠 **Zoho mail** admin — who manages `info@` and any aliases
 - [ ] ⚪ Google Business Profile (address, hours, photos) — claimed?

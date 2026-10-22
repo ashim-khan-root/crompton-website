@@ -27,7 +27,7 @@ export default function Navbar({ lang = 'en' }: NavbarProps) {
     <header className="fixed inset-x-0 top-0 z-50">
       {/* Utility strip — the corporate signal. Contact + language live here so
           the main bar stays uncrowded. */}
-      <div className="bg-primary-900 text-white/70">
+      <div className="bg-ground text-white/70">
         <div className="container-custom flex h-9 items-center justify-between px-5 text-[0.76rem] md:px-8 lg:px-10">
           <div className="flex items-center gap-5">
             <a
@@ -38,11 +38,11 @@ export default function Navbar({ lang = 'en' }: NavbarProps) {
               <span className="tnum">+974 4468 1414</span>
             </a>
             <a
-              href="mailto:info@cromtongroup.com"
+              href="mailto:info@cromptonqatar.com"
               className="hidden items-center gap-1.5 transition-colors duration-150 hover:text-white sm:inline-flex"
             >
               <Mail size={13} aria-hidden="true" />
-              info@cromtongroup.com
+              info@cromptonqatar.com
             </a>
           </div>
           <div className="flex items-center gap-4">

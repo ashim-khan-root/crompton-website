@@ -1,6 +1,6 @@
-# Cromton Group — Photography & Brand Asset Brief
+# Crompton International — Photography & Brand Asset Brief
 
-**For:** Cromton Group (client) · **Prepared by:** website team · **Date:** 2026-10-17
+**For:** Crompton International (client) · **Prepared by:** website team · **Date:** 2026-10-17
 
 This brief is what the website is waiting on. The site is built and works; it cannot look
 credible until it shows the operation. A manpower-supply company is judged on its people,
@@ -24,7 +24,7 @@ arrives.
 3. **No safety violations on camera.** No missing PPE, no one standing under a load, no
    unguarded machinery. An HSE-conscious buyer will spot it, and it undermines the safety claim
    the whole section exists to make.
-4. **Rights.** Cromton Group owns the images outright, or holds a licence that covers commercial
+4. **Rights.** Crompton International owns the images outright, or holds a licence that covers commercial
    website use indefinitely.
 5. **If a subject doesn't exist yet, say so.** A labelled placeholder is better than a
    substitute photo of something else.
@@ -99,7 +99,7 @@ One strong portrait or working shot per category, so the Services page can show 
 
 ### G. Projects & sites — 3–5 images
 
-Completed or in-progress work Cromton Group has staffed. *Only where the main contractor permits.*
+Completed or in-progress work Crompton International has staffed. *Only where the main contractor permits.*
 
 ### H. Office & team — 2–3 images
 
@@ -189,9 +189,11 @@ need confirmed in order to put real, sourced numbers back.
 - [ ] **Licensed by Qatar Ministry of Labour** — licence number and validity?
 - [ ] **ISO 9001 / 14001 / 45001** — held, and current?
 - [ ] **Qatar Civil Defence certificate** — held?
-- [ ] **phone +974 4468 1414, WhatsApp +974 5501 9646, info@cromtongroup.com** — correct?
+- [ ] **phone +974 4468 1414, WhatsApp +974 5501 9646, info@cromptonqatar.com** — correct?
 - [ ] **Address**: P.O. Box 37491, NBK-Msheireb Buildings, 4th Floor, Office 405 & 406 — correct?
-- [x] **Domain** — `cromtongroup.com` (registered, DNS moving to Cloudflare 2026-10-20). `crompton-intl.com` was never registered.
+- [ ] **Domain** — `cromptonqatar.com` is the intended domain but is still on GoDaddy + Zoho Sites
+      (the first deploy went to `cromtongroup.com` by mistake). Moving it means recreating the
+      Zoho Mail MX/SPF records; owner action, tracked in `DEPLOY.md`.
 - [ ] **Arabic copy — native review required.** The Arabic content files contained machine-
       translation damage (stray Chinese and French words, English tokens, one corrupted string that
       had destroyed a job title). That damage has been repaired, but **repaired is not the same as

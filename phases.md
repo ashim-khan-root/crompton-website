@@ -119,6 +119,43 @@ canonical to work from.
       `document.fonts.check`, every woff2 returns 200, zero console errors on EN, AR and 404.
 - Not done here, and still open: the four unused deps and the dead `src/i18n/` files below.
 
+## Phase 1.7: The client's own logo, and the palette it carries [Status: DONE — 2026-10-22]
+
+The site had been wearing a mark nobody drew for the client: a geometric arc and a gold
+keystone. The real logo existed the whole time, in the ZIP of the old PHP site.
+
+- [x] **Found the real artwork.** `assets/img/logo/logo.png` (350×60) is the header lockup from
+      the old site's `navbar.php`; `assets/img/png-icon/logo-element.png` (1193×839) is the globe
+      alone with a real alpha channel. No vector exists anywhere, so the raster is the source of
+      truth — not a redraw, not a trace.
+- [x] **Palette sampled, not guessed.** The logo is four colours: indigo `#0c0b61`, red
+      `#f40410`, black, white. The owner's hexes were checked against the pixels (the artwork
+      actually holds `#f40814` / `#0b0a60`; the owner's values are used as tokens, a 1–2 unit
+      difference nobody can see).
+- [x] **`scripts/prepare-brand.py`** builds `public/brand/`: white ground → real alpha, every
+      pixel snapped to the four colours, 2× lockup for retina, white variants for dark grounds,
+      favicon + apple-touch-icon. It aborts if the cleaned asset drifts from the source
+      (0.6/255 measured), which is the only honest check that cleaning did not redraw the logo.
+- [x] **Header/footer/OG/favicon** all carry the real lockup. The footer uses the derived white
+      variant because the navy globe and black wordmark vanish on the navy ground.
+- [x] **Full palette swap.** Indigo `#0c0b61` for headings and every dark ground (`bg-ground`),
+      brand red for accents, white paper, black ink; gold removed everywhere. The old rule
+      "gold on dark, navy on light" became "red on dark, indigo on light".
+- [x] **Three reds, for a measured reason.** Brand red is 4.31:1 on white and 3.94:1 on navy —
+      fine for marks and 40px numerals, an AA failure for a button label or an 11px eyebrow.
+      Buttons use `#d4030f` (5.50:1), small red text on light uses `#b80210`, small labels on
+      navy use the `#ff4b52` tint (5.15:1).
+- [x] **`check:build` grew two gates:** brand assets exist at their exact pixel sizes and every
+      page renders the lockup; and 15 text/background pairs imported live from
+      `tailwind.config.js` are held to AA. Both were proven by injecting the fault (deleted
+      `lockup.png`; lightened `ink-muted` to `#9a9aa8`) and watching them fail.
+- [x] Verified in a browser at 1440, 1024, 390 and in RTL: lockup loads at its natural 680×118,
+      no 4xx resources, fonts `loaded`, no console errors on EN, AR or 404.
+- **The lockup's name won.** With the real logo in the header, "Cromton Group" in the copy
+  became an obvious mismatch rather than a subtle one. The owner confirmed the artwork is
+  correct, so the whole site was renamed to **Crompton International** the same day — see the
+  correction entry in `memory.md`.
+
 ## Phase 2: Fix the lead path [Status: PENDING — next up]
 
 The one phase that changes the site's business value. Everything else is polish by comparison.
@@ -185,8 +222,11 @@ Three threads now run in parallel:
   the built output (Phase 1.6).
 - **Assets** — `SHOOT-LIST.md` went to the client 2026-10-17; Phase 3 is blocked on it. Every image
   slot on every page is still waiting on the same shoot.
-- **Design** — Phase 1.5 done. The system is consistent site-wide, so further design work is
-  refinement rather than rollout.
+- **Design** — Phase 1.5 and 1.7 done. The system is consistent site-wide and now wears the
+  client's own logo and colours, so further design work is refinement rather than rollout. The
+  open design question is not ours: whether the header should keep the legacy wordmark
+  ("Crompton International") or switch to a lockup typeset with the current name. The owner
+  chose the legacy lockup on 2026-10-22; it stays until the client says otherwise.
 
 Outstanding from the design round, for whoever picks it up next:
 - The Arabic site is still homepage-only (`/ar/` has one page); navbar and footer links from the

@@ -25,10 +25,10 @@ crompton-website/
 │   │   └── index.astro    / → redirects to /en/
 │   └── styles/global.css  tokens, fonts, component classes
 ├── dist/                  build output (gitignored, servable as-is)
-├── public/                static assets — favicon.svg only today
+├── public/                static assets — brand/ (logo + icons), fonts/, images/
 ├── DEPLOY.md              production deploy path, rollback and verification
 ├── prd.md, architecture.md, rules.md, phases.md, design.md, memory.md
-└── astro.config.mjs       site=cromtongroup.com, i18n en+ar prefixDefaultLocale
+└── astro.config.mjs       site=cromptonqatar.com, i18n en+ar prefixDefaultLocale
 ```
 
 ## Data Flow
@@ -72,7 +72,7 @@ static site POSTs JSON/FormData, service emails the inbox. Access key is public 
   `astro check` needs `@astrojs/check` + `typescript`, which are not installed. Add that before
   treating "build passes" as "content is verified"
 - Deploy & rollback: `deploy/scripts/deploy-static-site.sh` (lives in the `dev-agency` repo)
-  replaces `/var/www/cromtongroup.com/html`, rewrites the nginx site file and reloads nginx.
+  replaces `/var/www/cromptonqatar.com/html`, rewrites the nginx site file and reloads nginx.
   Rollback = re-deploy the previous `dist/` or restore a backup; see `DEPLOY.md`
 - Monitoring: none. For a static marketing site, uptime monitoring on the host is enough
 

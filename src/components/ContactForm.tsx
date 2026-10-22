@@ -16,7 +16,7 @@ export default function ContactForm({ lang = 'en', type = 'contact' }: ContactFo
     const form = e.currentTarget;
     const data = Object.fromEntries(new FormData(form).entries());
 
-    let message = `${type === 'manpower' ? 'Manpower Request' : 'Enquiry'} — cromtongroup.com\n\n`;
+    let message = `${type === 'manpower' ? 'Manpower Request' : 'Enquiry'} — cromptonqatar.com\n\n`;
     message += `Name: ${data.name}\n`;
     if (data.company) message += `Company: ${data.company}\n`;
     message += `Phone: ${data.phone}\n`;

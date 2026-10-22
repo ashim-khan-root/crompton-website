@@ -6,22 +6,62 @@ constraints; the config files are the implementation contract.
 
 ## Brand
 
-Cromton Group — manpower supply, Doha. The visual language is corporate-industrial:
-deep navy carries authority, gold carries premium service, blue carries action.
+Crompton International — manpower supply, Doha. The visual language is corporate-industrial and
+is taken from the client's own logo rather than chosen for taste: deep indigo grounds, a single
+red accent, black text on white paper. The name, the mark and the palette all come from that one
+file, which is why the header no longer argues with the rest of the page.
 
 | Token | Value | Use |
 |---|---|---|
-| `primary.500` | `#1a365d` navy | headings, nav, hero grounds, primary buttons |
-| `primary.600-900` | `#1e3a5f` → `#0a1929` | gradients (hero: `from-primary-900 to-primary-700`) |
-| `secondary.400` | `#d69e2e` gold | accents, icons, highlights |
-| `accent` | `#2563eb` blue | links, active states |
-| background | `#ffffff` / `#f8fafc` | page / alt sections |
-| text | `#1e293b` body, `#64748b` muted | — |
+| `primary.500` | `#0c0b61` indigo | headings, nav, primary buttons (16.99:1 on white) |
+| `ground` | `#0c0b61` indigo | every full-bleed dark section: utility strip, hero, page headers, footer |
+| `primary.600-900` | `#0a0952` → `#05042c` | insets and depth *inside* a dark ground |
+| `secondary.400` | `#f40410` red | the brand red — marks, rules, big stat numerals, icons. Graphics and large type only |
+| `secondary.500` | `#d4030f` | button fills (white text = 5.50:1) |
+| `secondary.600/700` | `#b80210` / `#9c020c` | small red text on light grounds |
+| `secondary.300` | `#ff4b52` | small labels and icons on dark grounds (5.15:1) |
+| `accent` | `#b80210` | links |
+| `paper` / `paper-2` | `#ffffff` / `#f4f4f8` | page / inset surface |
+| `ink` / `ink-muted` / `ink-faint` | `#000000` / `#4b4b5a` / `#6b6b7a` | body / secondary / labels |
+| `rule` | `#e2e2ea` | hairlines |
 
-Note the intentional scale quirk: `primary.400` (`#60a5fa`, light blue) is *lighter* than
-`primary.500` (`#1a365d`, navy) — the scale is not a monotonically darkening blue ramp. The
-navy ramp runs 500→900, and 50–400 are decorative tints. Get new colors from the existing ramp
-rather than inventing hexes.
+**Why three reds.** The red sampled from the logo is `4.31:1` on white and `3.94:1` on the
+navy ground: correct for the mark, rules and 40px numerals, and a WCAG AA failure for a 15px
+button label or an 11px uppercase eyebrow. So `secondary.400` is the brand value and never
+carries small text; `500` fills buttons, `600/700` set small text on light grounds, and `300`
+tints the labels that sit on dark grounds. `npm run check:build` imports this config and
+fails if any of those pairs drops below 4.5:1, so a future tint cannot quietly break it.
+
+There is one deliberate scale quirk: `primary.50-300` are light indigo *tints* for UI, while
+`500` is the brand value and `600-900` run darker. It is not a monotonically lightening ramp —
+take new colours from the existing values rather than inventing hexes.
+
+Gold is gone. The old rule "gold on dark grounds, navy on light grounds" is now **red on dark
+grounds, indigo on light grounds**: a light-ground page uses `.btn-primary` (indigo) and the
+navy footer below it uses `.btn-accent` (red), so a page never ends with two identical buttons
+stacked.
+
+## Logo
+
+- The header lockup is the **client's own artwork**, not a redraw: `assets/img/logo/logo.png`
+  (350×60) from the legacy site's ZIP, with the globe alone available at 1193×839 in
+  `assets/img/png-icon/logo-element.png`.
+- `python3 scripts/prepare-brand.py --source <extracted legacy site>` regenerates everything in
+  `public/brand/`: the white ground is turned into real alpha, every pixel is snapped to the
+  four brand colours, the lockup is cut at 2× for retina, and the script aborts if the cleaned
+  result drifts more than 12/255 from the source (it currently sits at 0.6/255).
+- `lockup-white.png` / `mark-white.png` are **derived** variants for dark grounds — all ink
+  becomes white with the red swoosh kept, because the globe's navy half and the black wordmark
+  disappear on navy. Using the colour asset on a dark ground is a bug, not a variant.
+- Sizing: 40px tall on desktop, 32px on mobile, from a 680×118 asset. There is no vector
+  source, so do not display it much above ~1.5× its natural size.
+- **Settled 2026-10-22: the lockup's name is the company's name.** For a day the site carried
+  "Cromton Group" (a misreading of the artwork, "no p") while the logo said *Crompton
+  International — Trading & Contracting Company WLL*. The owner confirmed the artwork is
+  correct, so the whole site now follows it: `Crompton International`, legal form
+  `Crompton International Trading & Contracting Company W.L.L.`, Arabic
+  `كرومبتون إنترناشونال للتجارة والمقاولات ش.م.م`. A "Cromton" in code is stale, not a style.
+
 
 ## Typography
 
@@ -44,8 +84,9 @@ CSS rather than being written by hand. The site previously used a render-blockin
   `[dir="rtl"]`, and layout must be checked mirrored (nav order, form alignment, icon positions)
 - Every English content string needs an `*Ar` sibling key in the same data file — half-filled
   bilingual content is what produced the dead `src/i18n/` files
-- Arabic只有在真翻译到位时才上线: no machine translation ships unreviewed (the 2026-10-17
-  contamination audit found Chinese/French tokens embedded in Arabic strings)
+- Arabic ships only once a native reviewer has signed off: no machine translation goes live
+  unreviewed (the 2026-10-17 contamination audit found Chinese/French tokens embedded in
+  Arabic strings)
 
 ## Components
 
@@ -56,8 +97,10 @@ CSS rather than being written by hand. The site previously used a render-blockin
 - `ClientCarousel.tsx` — renders only when `clients.json` is non-empty (deliberate)
 - `StatsCounter.tsx` — animated counters; values must satisfy the content-truth rules
 - `WhatsAppButton.tsx` — floating CTA, bottom corner
-- Reusable classes in `global.css`: `.btn-primary`, `.container-custom`, gradient section
-  pattern (`pt-32 pb-16 bg-gradient-to-br from-primary-900 to-primary-700` + `max-w-3xl` hero)
+- Reusable classes in `global.css`: `.btn-primary` (indigo), `.btn-accent` (red), `.btn-ghost`,
+  `.btn-outline`, `.container-custom`, `.rule`, `.slot` / `.slot-dark` (labelled placeholders)
+- Dark sections are flat `bg-ground` with a faint grid texture, not a gradient — depth comes
+  from `primary-800/900` insets and hairlines, never from a second accent colour
 
 ## Imagery
 

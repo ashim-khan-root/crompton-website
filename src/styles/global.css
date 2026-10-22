@@ -9,14 +9,14 @@
 
 @layer base {
   :root {
-    --color-primary: #1a365d;
-    --color-secondary: #d69e2e;
-    --color-accent: #2563eb;
-    --color-paper: #fbfaf7;
-    --color-paper-2: #f4f1ea;
-    --color-ink: #141c29;
-    --color-ink-muted: #4a5568;
-    --color-rule: #e3ded2;
+    --color-primary: #0c0b61;
+    --color-secondary: #f40410;
+    --color-accent: #b80210;
+    --color-paper: #ffffff;
+    --color-paper-2: #f4f4f8;
+    --color-ink: #000000;
+    --color-ink-muted: #4b4b5a;
+    --color-rule: #e2e2ea;
     --font-heading: 'Plus Jakarta Sans', sans-serif;
     --font-body: 'Inter', sans-serif;
     --font-arabic: 'Noto Sans Arabic', sans-serif;
@@ -80,8 +80,10 @@
     transform: translateY(1px);
   }
 
-  .btn-gold {
-    @apply btn bg-secondary-400 text-primary-900 hover:bg-secondary-300;
+  /* The one accent button. White on secondary-500 (#d4030f) is 5.50:1 — the brand
+     red at 400 is only 4.31:1 and would fail AA at this text size. */
+  .btn-accent {
+    @apply btn bg-secondary-500 text-white hover:bg-secondary-600;
   }
 
   .btn-ghost {
@@ -94,7 +96,7 @@
 
   /* Legacy aliases kept so existing pages keep building unchanged. */
   .btn-primary { @apply btn-navy; }
-  .btn-secondary { @apply btn-gold; }
+  .btn-secondary { @apply btn-accent; }
   .btn-outline {
     @apply btn border border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white;
   }

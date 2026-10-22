@@ -6,8 +6,8 @@ interface WhatsAppButtonProps {
 
 export default function WhatsAppButton({ lang = 'en' }: WhatsAppButtonProps) {
   const message = lang === 'ar'
-    ? 'مرحباً، أنا مهتم بخدمات توريد العمالة من كرومتون جروب'
-    : 'Hello Cromton Group, I am interested in your manpower services';
+    ? 'مرحباً، أنا مهتم بخدمات توريد العمالة من كرومبتون إنترناشونال'
+    : 'Hello Crompton International, I am interested in your manpower services';
 
   const whatsappUrl = `https://wa.me/97455019646?text=${encodeURIComponent(message)}`;
 

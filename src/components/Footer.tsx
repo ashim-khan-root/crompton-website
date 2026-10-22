@@ -28,7 +28,7 @@ export default function Footer({ lang = 'en' }: FooterProps) {
   const isAr = lang === 'ar';
 
   return (
-    <footer className="relative overflow-hidden bg-primary-900 text-white">
+    <footer className="relative overflow-hidden bg-ground text-white">
       <div className="grain absolute inset-0 grid-tex opacity-60" aria-hidden="true" />
 
       <div className="container-custom relative px-5 md:px-8 lg:px-10">
@@ -48,7 +48,7 @@ export default function Footer({ lang = 'en' }: FooterProps) {
             </p>
           </div>
           <div className="flex items-start lg:col-span-5 lg:justify-end">
-            <a href="/en/contact" className="btn-gold">
+            <a href="/en/contact" className="btn-accent">
               {isAr ? 'طلب عمالة' : 'Request Manpower'}
               <ArrowRight size={18} aria-hidden="true" />
             </a>
@@ -58,7 +58,7 @@ export default function Footer({ lang = 'en' }: FooterProps) {
         {/* Contact + navigation */}
         <div className="grid gap-10 border-b border-white/12 py-14 md:grid-cols-2 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
-            <h3 className="font-heading text-[0.72rem] uppercase tracking-[0.2em] text-secondary-400">
+            <h3 className="font-heading text-[0.72rem] uppercase tracking-[0.2em] text-secondary-300">
               {isAr ? 'تواصل معنا' : 'Reach us'}
             </h3>
             <ul className="mt-6 space-y-4 text-[0.9rem]">
@@ -67,7 +67,7 @@ export default function Footer({ lang = 'en' }: FooterProps) {
                   href="tel:+97444681414"
                   className="group inline-flex items-start gap-3 text-white/70 transition-colors duration-150 hover:text-white"
                 >
-                  <Phone size={17} className="mt-0.5 shrink-0 text-secondary-400" aria-hidden="true" />
+                  <Phone size={17} className="mt-0.5 shrink-0 text-secondary-300" aria-hidden="true" />
                   <span className="tnum">+974 4468 1414</span>
                 </a>
               </li>
@@ -78,21 +78,21 @@ export default function Footer({ lang = 'en' }: FooterProps) {
                   rel="noopener noreferrer"
                   className="group inline-flex items-start gap-3 text-white/70 transition-colors duration-150 hover:text-white"
                 >
-                  <MessageCircle size={17} className="mt-0.5 shrink-0 text-secondary-400" aria-hidden="true" />
+                  <MessageCircle size={17} className="mt-0.5 shrink-0 text-secondary-300" aria-hidden="true" />
                   <span className="tnum">+974 5501 9646</span>
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:info@cromtongroup.com"
+                  href="mailto:info@cromptonqatar.com"
                   className="group inline-flex items-start gap-3 text-white/70 transition-colors duration-150 hover:text-white"
                 >
-                  <Mail size={17} className="mt-0.5 shrink-0 text-secondary-400" aria-hidden="true" />
-                  <span>info@cromtongroup.com</span>
+                  <Mail size={17} className="mt-0.5 shrink-0 text-secondary-300" aria-hidden="true" />
+                  <span>info@cromptonqatar.com</span>
                 </a>
               </li>
               <li className="flex items-start gap-3 text-white/70">
-                <MapPin size={17} className="mt-0.5 shrink-0 text-secondary-400" aria-hidden="true" />
+                <MapPin size={17} className="mt-0.5 shrink-0 text-secondary-300" aria-hidden="true" />
                 <span className="max-w-[30ch] leading-relaxed">
                   {isAr
                     ? 'ص.ب 37491، مباني بنك الكويت الوطني – المسيرة، الطابق الرابع، مكتب 405 و406، الدوحة، قطر'
@@ -103,7 +103,7 @@ export default function Footer({ lang = 'en' }: FooterProps) {
           </div>
 
           <nav className="lg:col-span-3" aria-label="Company">
-            <h3 className="font-heading text-[0.72rem] uppercase tracking-[0.2em] text-secondary-400">
+            <h3 className="font-heading text-[0.72rem] uppercase tracking-[0.2em] text-secondary-300">
               {isAr ? 'الشركة' : 'Company'}
             </h3>
             <ul className="mt-6 space-y-3 text-[0.9rem]">
@@ -121,7 +121,7 @@ export default function Footer({ lang = 'en' }: FooterProps) {
           </nav>
 
           <nav className="lg:col-span-4" aria-label="Services">
-            <h3 className="font-heading text-[0.72rem] uppercase tracking-[0.2em] text-secondary-400">
+            <h3 className="font-heading text-[0.72rem] uppercase tracking-[0.2em] text-secondary-300">
               {isAr ? 'الخدمات' : 'Services'}
             </h3>
             <ul className="mt-6 space-y-3 text-[0.9rem]">
@@ -142,8 +142,7 @@ export default function Footer({ lang = 'en' }: FooterProps) {
         {/* Legal */}
         <div className="flex flex-col gap-3 py-7 text-[0.78rem] text-white/45 md:flex-row md:items-center md:justify-between">
           <p>
-            © {new Date().getFullYear()} Cromton Group Trading &amp; Contracting &amp;
-            Services W.L.L.
+            © {new Date().getFullYear()} Crompton International Trading &amp; Contracting Company W.L.L.
           </p>
           <p className="md:text-right">
             {isAr ? 'مسجلة في دولة قطر' : 'Registered in the State of Qatar'}

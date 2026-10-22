@@ -4,7 +4,7 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://cromtongroup.com',
+  site: 'https://cromptonqatar.com',
   integrations: [
     react(),
     tailwind(),

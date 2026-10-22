@@ -42,7 +42,7 @@ PHOTOS = [
         "assets/img/hero/hero-05.jpg",
         (21, 9),
         (0.5, 0.5),
-        "Cromton Group workforce in company uniform lined up before deployment",
+        "Crompton International workforce in company uniform lined up before deployment",
     ),
     (
         "hero/slide-02.webp",

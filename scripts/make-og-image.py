@@ -1,15 +1,18 @@
 #!/usr/bin/env python3
 """
-Build the social share card: public/images/og/og-cromton-group.jpg (1200x630).
+Build the social share card: public/images/og/og-crompton-international.jpg (1200x630).
 
 Why this exists: the head has an og:image tag, and WhatsApp/LinkedIn are the two
-places a Cromton link actually gets looked at. A missing og:image renders as a bare
+places a Crompton link actually gets looked at. A missing og:image renders as a bare
 URL with no title card.
 
 Design constraints come from design.md, not from taste:
-  - navy #1a365d ground, gold #d69e2e accent, warm paper #fbfaf7 type
-  - the mark is the real geometry from src/components/Logo.tsx, rendered through
-    rsvg-convert so it is the brand's own arc and keystone, not a redrawing
+  - indigo #0c0b61 ground, red #f40410 rule, white type — the palette sampled
+    from the client's own logo, not chosen for taste
+  - the mark is public/brand/mark-white.png, cut from the client's 1193x839
+    master and recoloured for a dark ground by scripts/prepare-brand.py. The
+    name and subtitle are set in Plus Jakarta, because the header lockup's
+    wordmark only exists as 350x60 pixels
   - no invented numbers, no stock photo, no faces. Nothing on this card is a claim
     the site does not already make in text.
 
@@ -21,8 +24,6 @@ not a build step — it needs network access, the site build does not.
 """
 from __future__ import annotations
 
-import io
-import subprocess
 import sys
 import tempfile
 import urllib.request
@@ -31,30 +32,27 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parent.parent
-OUT = ROOT / "public" / "images" / "og" / "og-cromton-group.jpg"
+OUT = ROOT / "public" / "images" / "og" / "og-crompton-international.jpg"
 
 W, H = 1200, 630
-NAVY = (26, 54, 93)
-GOLD = (214, 158, 46)
-PAPER = (251, 250, 247)
-MUTED = (185, 194, 207)
+NAVY = (12, 11, 97)      # #0c0b61 brand indigo, from the logo's globe
+RED = (244, 4, 16)       # #f40410 brand red, from the logo's swoosh
+PAPER = (255, 255, 255)
+MUTED = (186, 187, 214)
 RULE = (255, 255, 255, 12)
 
 UA_TTF = "Mozilla/4.0"  # old UA makes Google Fonts return TTF instead of woff2
 
 FONTS = {
-    "PJS-ExtraBold": ("Plus+Jakarta+Sans:wght@800", 0),
     "Inter-Regular": ("Inter:wght@400", 0),
     "Inter-SemiBold": ("Inter:wght@600", 0),
 }
 
-# The mark: straight from Logo.tsx (`M36.30 32.60 A15 15 0 1 1 36.99 16.50` +
-# keystone rect). Drawn white on the navy ground, which is the `tone="dark"` variant.
-MARK_SVG = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="{size}" height="{size}">
-  <path d="M36.30 32.60 A15 15 0 1 1 36.99 16.50" stroke="#ffffff" stroke-width="6.5"
-        stroke-linecap="round" fill="none"/>
-  <rect x="30.5" y="20.75" width="7.5" height="6.5" rx="1.5" fill="#d69e2e"/>
-</svg>"""
+# The client's whole lockup, recoloured for a navy ground by scripts/prepare-brand.py.
+# Using the real lockup rather than re-typesetting the name keeps the card's wordmark
+# identical to the one in the header — a set wordmark in a different face is a second,
+# slightly wrong logo.
+LOCKUP = ROOT / "public" / "brand" / "lockup-white.png"
 
 
 def fetch_ttf(query: str, tmp: Path) -> Path:
@@ -103,35 +101,17 @@ def main() -> None:
     for y in range(0, H, 56):
         draw.line([(0, y), (W, y)], fill=RULE, width=1)
 
-    # Mark, rasterised from the real vector.
-    with tempfile.NamedTemporaryFile("w", suffix=".svg", delete=False) as fh:
-        fh.write(MARK_SVG.format(size=104))
-        svg_path = fh.name
-    mark_png = subprocess.run(
-        ["rsvg-convert", "-w", "104", "-h", "104", svg_path],
-        check=True,
-        capture_output=True,
-    ).stdout
-    mark = Image.open(io.BytesIO(mark_png)).convert("RGBA")
-    img.paste(mark, (80, 84), mark)
+    # The client's own lockup, already recoloured for a dark ground.
+    lockup = Image.open(LOCKUP).convert("RGBA")
+    lockup.thumbnail((520, 520), Image.LANCZOS)
+    img.paste(lockup, (80, 82), lockup)
+    lockup_edge = 80 + lockup.width
 
-    f_word = ImageFont.truetype(str(ttf["PJS-ExtraBold"]), 76)
-    f_sub = ImageFont.truetype(str(ttf["Inter-SemiBold"]), 22)
     f_lead = ImageFont.truetype(str(ttf["Inter-Regular"]), 34)
     f_site = ImageFont.truetype(str(ttf["Inter-SemiBold"]), 25)
 
-    # Wordmark lockup: CROMTON over GROUP, to the right of the mark.
-    # Align the cap top to the mark's top rather than the text box origin — PIL's
-    # y is the ascender, so drawing at 88 sits the caps visibly low.
-    word_x = 80 + 104 + 28
-    cap_offset = f_word.getbbox("C")[1]
-    word_y = 84 + 6 - cap_offset
-    word_x_end = tracked_text(draw, (word_x, word_y), "CROMTON", f_word, PAPER, tracking=-0.01)
-    group_y = word_y + f_word.getbbox("CROMTON")[3] + 10
-    tracked_text(draw, (word_x + 3, group_y), "GROUP", f_sub, MUTED, tracking=0.30)
-
-    # Gold rule separating lockup from the statement.
-    draw.rectangle([80, 268, 80 + 88, 268 + 4], fill=GOLD)
+    # Brand red rule separating the mark from the statement.
+    draw.rectangle([80, 268, 80 + 88, 268 + 4], fill=RED)
 
     lead = "Manpower supply & contracting"
     draw.text((80, 300), lead, font=f_lead, fill=PAPER)
@@ -139,14 +119,14 @@ def main() -> None:
 
     # Footer line: domain only. No phone, no stat, no certification badge.
     draw.rectangle([80, 486, W - 80, 487], fill=(255, 255, 255, 40))
-    draw.text((80, 512), "cromtongroup.com", font=f_site, fill=GOLD)
+    draw.text((80, 512), "cromptonqatar.com", font=f_site, fill=PAPER)
 
     # Guard against silent overflow — a card that clips "contracting" looks broken
     # and nobody notices until it is on LinkedIn.
     checks = [
-        ("wordmark", word_x_end, W - 80),
+        ("lockup", lockup_edge, W - 80),
         ("lead", 80 + text_width(f_lead, lead), W - 80),
-        ("domain", 80 + text_width(f_site, "cromtongroup.com"), W - 80),
+        ("domain", 80 + text_width(f_site, "cromptonqatar.com"), W - 80),
     ]
     bad = [(n, edge) for n, edge, limit in checks if edge > limit]
     if bad:

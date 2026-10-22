@@ -20,7 +20,7 @@ const {
   canonical: emitCanonical = true,
 } = Astro.props;
 
-const SITE = Astro.site ?? new URL('https://cromtongroup.com');
+const SITE = Astro.site ?? new URL('https://cromptonqatar.com');
 
 /* Canonical URL. Every page is a directory index in the build (`en/about/index.html`),
    so the served address always ends in a slash; normalise to that rather than emitting
@@ -42,13 +42,13 @@ const alternates = isHome
     ]
   : [];
 
-const ogImage = new URL('/images/og/og-cromton-group.jpg', SITE).href;
+const ogImage = new URL('/images/og/og-crompton-international.jpg', SITE).href;
 const locale = lang === 'ar' ? 'ar_QA' : 'en_QA';
 const localeAlt = lang === 'ar' ? 'en_QA' : 'ar_QA';
 
 const orgDescription =
   lang === 'ar'
-    ? 'كرومتون جروب للتجارة والمقاولات وخدمات ش.م.م — توريد عمالة من الكوادر البيضاء والزرقاء لمشاريع البناء والهندسة والبنية التحتية في قطر.'
+    ? 'كرومبتون إنترناشونال للتجارة والمقاولات ش.م.م — توريد عمالة من الكوادر البيضاء والزرقاء لمشاريع البناء والهندسة والبنية التحتية في قطر.'
     : "Trusted manpower supply company in Qatar, providing skilled white collar and blue collar professionals to construction, engineering, and industrial sectors.";
 
 /* One node, one @id, so every page references the same entity instead of repeating a
@@ -57,12 +57,12 @@ const organisation = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   '@id': `${SITE.origin}/#organization`,
-  name: 'Cromton Group Trading & Contracting & Services W.L.L.',
+  name: 'Crompton International Trading & Contracting Company W.L.L.',
   url: `${SITE.origin}/`,
-  logo: `${SITE.origin}/favicon.svg`,
+  logo: `${SITE.origin}/brand/mark.png`,
   image: ogImage,
   description: orgDescription,
-  email: 'info@cromtongroup.com',
+  email: 'info@cromptonqatar.com',
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'NBK-Msheireb Buildings, 4th Floor, Office #405 & 406',
@@ -100,29 +100,32 @@ const preload =
   <meta property="og:description" content={description}>
   <meta property="og:type" content="website">
   <meta property="og:url" content={canonical}>
-  <meta property="og:site_name" content="Cromton Group">
+  <meta property="og:site_name" content="Crompton International">
   <meta property="og:locale" content={locale}>
   <meta property="og:locale:alternate" content={localeAlt}>
   <meta property="og:image" content={ogImage}>
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Cromton Group — manpower supply and contracting, Doha, Qatar">
+  <meta property="og:image:alt" content="Crompton International — manpower supply and contracting, Doha, Qatar">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content={title}>
   <meta name="twitter:description" content={description}>
   <meta name="twitter:image" content={ogImage}>
-  <meta name="theme-color" content="#1a365d">
+  <meta name="theme-color" content="#0c0b61">
 
   {alternates.map((a) => <link rel="alternate" hreflang={a.hreflang} href={a.href} />)}
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <!-- Icons: the brand mark on the brand ground, cut by scripts/prepare-brand.py -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/brand/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/brand/apple-touch-icon.png">
 
   <!-- Self-hosted fonts: see scripts/vendor-fonts.mjs -->
   {preload.map((href) => <link rel="preload" as="font" type="font/woff2" href={href} crossorigin />)}
 
-  <title>{title} | Cromton Group</title>
+  {/* The brand is transliterated on Arabic pages; a Latin wordmark in an Arabic title
+      bar is the one place a translated page still looks unfinished. */}
+  <title>{title} | {lang === 'ar' ? 'كرومبتون إنترناشونال' : 'Crompton International'}</title>
 
   <!-- Schema.org -->
   <script type="application/ld+json" set:html={JSON.stringify(organisation)} />

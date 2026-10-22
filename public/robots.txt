@@ -1,8 +1,8 @@
-# https://cromtongroup.com
+# https://cromptonqatar.com
 # Everything here is public and indexable. The only non-content route is `/`,
 # which redirects to `/en/` and is therefore excluded from the sitemap.
 
 User-agent: *
 Allow: /
 
-Sitemap: https://cromtongroup.com/sitemap-index.xml
+Sitemap: https://cromptonqatar.com/sitemap-index.xml

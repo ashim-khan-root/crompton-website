@@ -8,7 +8,7 @@ tree that served `cromptonintl.com`, `merlyneqatar.com` and `mgnqatar.com`.
 The archive is **not** a clean photo library. It mixes genuine company photography
 with commercial stock — villas, office fit-outs, model headshots and one image with
 a stock-site **"ADD BANNER"** badge burned into it. `SHOOT-LIST.md` forbids
-substituting stock for Cromton's own operation, so the import is an explicit
+substituting stock for Crompton's own operation, so the import is an explicit
 allow-list rather than a copy of the folder.
 
 ## Verdict by folder
@@ -17,7 +17,7 @@ allow-list rather than a copy of the folder.
 |---|---|---|---|
 | `hero/` | 20 | **Partly used** (6) | Real construction/crew scenes. Some duplicates (`- Copy`, leading-dash variants). |
 | `about/` | 12 | **Partly used** (2) | `lab.jpg` (crew boarding company bus in Doha) and `labc.jpg` (MEP worker) are genuine operational shots. `about-01…09` are stock tool flat-lays and model workers. |
-| `projects/` | 24 | **Refused** | Every image is stock real-estate photography — Bali villas, a Shanghai tower (Oriental Pearl visible), hotel interiors. None is Cromton work in Qatar. |
+| `projects/` | 24 | **Refused** | Every image is stock real-estate photography — Bali villas, a Shanghai tower (Oriental Pearl visible), hotel interiors. None is Crompton work in Qatar. |
 | `team/` | 7 | **Refused** | Six of seven are Western stock model headshots presented as staff. `sajipaul.jpeg` is a real person but is a passport-style shot on a blue field. |
 | `testimonial/` | 6 | **Refused** | Stock portrait models; no attributable quotes. |
 | `news/` | 27 | **Refused** | Stock, mostly 60–80px thumbnails. `news-22.jpg` carries an unlicensed **"ADD BANNER"** placeholder badge. |
