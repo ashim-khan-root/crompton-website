@@ -188,6 +188,27 @@ rendered as a bare URL. No client input was needed, so none of it waited on the 
   fits with a 233px-wide logo at the 1024px breakpoint.
 - **Built, not deployed.** Production still serves the pre-2026-10-22 build.
 
+## 2026-10-22 (close) — Five AI images reviewed, none published
+
+The owner dropped five of the seven briefed images straight into `public/images/gallery/`
+(which is *published*, not staging) as `.jpeg`. Moved to `assets/incoming/ai/` with the
+brief's names; that folder's binaries are now gitignored, only its README is tracked.
+
+Reviewed full size against the brief. Verdicts:
+
+| File | Verdict | Defect |
+|---|---|---|
+| `accommodation-01` | **usable** | none found; red cabinet's markings are illegible blobs, not text |
+| `hse-briefing-01` | usable with a left crop | banner in frame reads gibberish "…ttco"; six faces are clearly identifiable, which the brief forbade |
+| `training-01` | reject | "QATAR INDUSTRIAL MANUFACTURING COMPANY" logo on six vests — a third-party mark implying a client relationship; wall poster text; red artifact on the projector screen |
+| `office-team-01` | reject | wall sign "المكتب الدوحة / DOHA OFFICE" — readable text, and the Arabic is wrong (should be مكتب الدوحة) |
+| `recruitment-01` | reject | same sign, Arabic is gibberish ("المتريق الدوحة") |
+
+Two were renamed from the owner's spelling (`accomodation`, `recruitement`) so the import
+script's slot keys match. Nothing was imported or wired; `white-collar-01` and `payroll-01`
+were never delivered. Generated faces that are clearly identifiable are a liability the
+brief already ruled out — flag that before any of these go live.
+
 ## 2026-10-22 (latest) — Navy and a warm accent, after red read as alarm
 
 The palette sampled from the logo (indigo `#0c0b61` + red `#f40410`) was faithful and wrong for

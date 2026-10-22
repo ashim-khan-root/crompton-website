@@ -11,6 +11,13 @@ dist/
 .env.*
 !.env.example
 
+# Staging drops: images land here first, unvetted. Only the README is tracked —
+# a generated image is not content until it has been reviewed and imported.
+assets/incoming/**/*.jpg
+assets/incoming/**/*.jpeg
+assets/incoming/**/*.png
+assets/incoming/**/*.webp
+
 # Editor and OS noise
 .DS_Store
 *.swp
