@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.tsx';
+import Footer from '../components/Footer.tsx';
+import WhatsAppButton from '../components/WhatsAppButton.tsx';
+
+/* Built to dist/404.html. nginx only serves it if its site file carries
+   `error_page 404 /404.html;` — that directive lives in the dev-agency nginx
+   template, which is not this repo. See DEPLOY.md. */
+const destinations = [
+  { href: '/en/', label: 'Home', note: 'What we supply and who we supply it to' },
+  { href: '/en/services/', label: 'Services', note: 'Blue collar, white collar, outsourcing, project-based' },
+  { href: '/en/workforce/', label: 'Workforce', note: 'Trades, categories and headcount by role' },
+  { href: '/en/contact/', label: 'Contact', note: 'Call, WhatsApp or email the Doha office' },
+];
+---
+
+<BaseLayout
+  title="Page not found"
+  description="That page does not exist on the Cromton Group site. Use the links below to find what you were looking for."
+  noindex={true}
+  canonical={false}
+>
+  <Navbar lang="en" client:load />
+
+  <main>
+    <section class="relative overflow-hidden bg-primary-900 pb-16 pt-36 md:pb-20 md:pt-44">
+      <div class="grain absolute inset-0 grid-tex opacity-50" aria-hidden="true"></div>
+
+      <div class="container-custom relative px-5 md:px-8 lg:px-10">
+        <p class="font-heading text-[0.72rem] uppercase tracking-[0.16em] text-white/45">404</p>
+        <h1 class="mt-4 max-w-[22ch] font-heading text-[2.1rem] font-bold leading-[1.08] text-white md:text-[2.9rem]">
+          This page does not exist
+        </h1>
+        <p class="mt-5 max-w-measure text-[1rem] leading-relaxed text-white/65">
+          The address may be mistyped, or the page may have moved. Everything below is where
+          buyers usually need to go.
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-paper">
+      <div class="container-custom px-5 py-14 md:px-8 md:py-20 lg:px-10">
+        <ul class="border-t border-rule">
+          {destinations.map((d) => (
+            <li class="border-b border-rule">
+              <a
+                href={d.href}
+                class="grid items-baseline gap-2 py-5 transition-colors duration-150 hover:text-accent md:grid-cols-12 md:gap-6"
+              >
+                <span class="font-heading text-[1.05rem] font-semibold text-primary-500 md:col-span-4">
+                  {d.label}
+                </span>
+                <span class="text-[0.9rem] leading-relaxed text-ink-muted md:col-span-8">
+                  {d.note}
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <p class="mt-10 max-w-measure text-[0.9rem] leading-relaxed text-ink-muted">
+          If you followed a link from another site and expected something specific, tell us on
+          <a href="mailto:info@cromtongroup.com" class="text-accent underline underline-offset-4">
+            info@cromtongroup.com
+          </a>.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="en" client:load />
+  <WhatsAppButton lang="en" client:load />
+</BaseLayout>

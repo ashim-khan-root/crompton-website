@@ -1,14 +1,87 @@
 ---
 import '../styles/global.css';
+import '../styles/fonts.css';
 
 interface Props {
   title: string;
   description?: string;
   lang?: string;
   dir?: string;
+  noindex?: boolean;
+  canonical?: boolean;
 }
 
-const { title, description = "Reliable Manpower Solutions for Qatar's Growing Industries", lang = "en", dir = "ltr" } = Astro.props;
+const {
+  title,
+  description = "Reliable Manpower Solutions for Qatar's Growing Industries",
+  lang = 'en',
+  dir = 'ltr',
+  noindex = false,
+  canonical: emitCanonical = true,
+} = Astro.props;
+
+const SITE = Astro.site ?? new URL('https://cromtongroup.com');
+
+/* Canonical URL. Every page is a directory index in the build (`en/about/index.html`),
+   so the served address always ends in a slash; normalise to that rather than emitting
+   `/en/about`, which nginx resolves with a redirect. */
+const rawPath = Astro.url.pathname;
+const pagePath =
+  rawPath.endsWith('/') || /\.[a-z0-9]+$/i.test(rawPath) ? rawPath : `${rawPath}/`;
+const canonical = new URL(pagePath, SITE).href;
+
+/* hreflang is emitted only for a language pair that genuinely exists. Today that is the
+   homepage pair — `/en/` and `/ar/`. A hreflang pointing at a page that redirects or 404s
+   is worse than no hreflang at all, so interior pages carry none until Phase 4 lands. */
+const isHome = pagePath === '/en/' || pagePath === '/ar/';
+const alternates = isHome
+  ? [
+      { hreflang: 'en', href: new URL('/en/', SITE).href },
+      { hreflang: 'ar', href: new URL('/ar/', SITE).href },
+      { hreflang: 'x-default', href: new URL('/en/', SITE).href },
+    ]
+  : [];
+
+const ogImage = new URL('/images/og/og-cromton-group.jpg', SITE).href;
+const locale = lang === 'ar' ? 'ar_QA' : 'en_QA';
+const localeAlt = lang === 'ar' ? 'en_QA' : 'ar_QA';
+
+const orgDescription =
+  lang === 'ar'
+    ? 'كرومتون جروب للتجارة والمقاولات وخدمات ش.م.م — توريد عمالة من الكوادر البيضاء والزرقاء لمشاريع البناء والهندسة والبنية التحتية في قطر.'
+    : "Trusted manpower supply company in Qatar, providing skilled white collar and blue collar professionals to construction, engineering, and industrial sectors.";
+
+/* One node, one @id, so every page references the same entity instead of repeating a
+   second organisation that search engines have to reconcile. */
+const organisation = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': `${SITE.origin}/#organization`,
+  name: 'Cromton Group Trading & Contracting & Services W.L.L.',
+  url: `${SITE.origin}/`,
+  logo: `${SITE.origin}/favicon.svg`,
+  image: ogImage,
+  description: orgDescription,
+  email: 'info@cromtongroup.com',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'NBK-Msheireb Buildings, 4th Floor, Office #405 & 406',
+    addressLocality: 'Doha',
+    addressCountry: 'QA',
+    postalCode: '37491',
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+974-4468-1414',
+    contactType: 'customer service',
+    availableLanguage: ['English', 'Arabic'],
+  },
+};
+
+/* Preload only the faces the page actually paints with. Arabic pages set the whole
+   document in Noto Sans Arabic, so preloading the Latin faces there would be waste. */
+const preload =
+  lang === 'ar' ? ['/fonts/noto-sans-arabic-arabic.woff2'] : ['/fonts/plus-jakarta-sans-latin.woff2', '/fonts/inter-latin.woff2'];
 ---
 
 <!DOCTYPE html>
@@ -18,48 +91,41 @@ const { title, description = "Reliable Manpower Solutions for Qatar's Growing In
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content={description}>
   <meta name="generator" content={Astro.generator}>
-  
-  <!-- Open Graph -->
+  {emitCanonical && <link rel="canonical" href={canonical} />}
+  {noindex && <meta name="robots" content="noindex, nofollow">}
+
+  <!-- Open Graph / social card. WhatsApp and LinkedIn both render this image,
+       and WhatsApp is where every enquiry currently starts. -->
   <meta property="og:title" content={title}>
   <meta property="og:description" content={description}>
   <meta property="og:type" content="website">
-  <meta property="og:locale" content={lang === 'ar' ? 'ar_QA' : 'en_QA'}>
+  <meta property="og:url" content={canonical}>
   <meta property="og:site_name" content="Cromton Group">
+  <meta property="og:locale" content={locale}>
+  <meta property="og:locale:alternate" content={localeAlt}>
+  <meta property="og:image" content={ogImage}>
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Cromton Group — manpower supply and contracting, Doha, Qatar">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content={title}>
+  <meta name="twitter:description" content={description}>
+  <meta name="twitter:image" content={ogImage}>
   <meta name="theme-color" content="#1a365d">
-  
+
+  {alternates.map((a) => <link rel="alternate" hreflang={a.hreflang} href={a.href} />)}
+
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  
+
+  <!-- Self-hosted fonts: see scripts/vendor-fonts.mjs -->
+  {preload.map((href) => <link rel="preload" as="font" type="font/woff2" href={href} crossorigin />)}
+
   <title>{title} | Cromton Group</title>
-  
+
   <!-- Schema.org -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Cromton Group Trading & Contracting & Services W.L.L.",
-    "url": "https://cromtongroup.com",
-    "logo": "https://cromtongroup.com/favicon.svg",
-    "description": "Trusted manpower supply company in Qatar, providing skilled white collar and blue collar professionals to construction, engineering, and industrial sectors.",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "NBK-Msheireb Buildings, 4th Floor, Office #405 & 406",
-      "addressLocality": "Doha",
-      "addressCountry": "QA",
-      "postalCode": "37491"
-    },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+974-4468-1414",
-      "contactType": "customer service",
-      "availableLanguage": ["English", "Arabic"]
-    }
-  }
-  </script>
+  <script type="application/ld+json" set:html={JSON.stringify(organisation)} />
 </head>
 <body class="bg-paper font-body text-ink">
   <slot />

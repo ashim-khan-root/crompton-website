@@ -8,7 +8,14 @@ export default defineConfig({
   integrations: [
     react(),
     tailwind(),
-    sitemap(),
+    sitemap({
+      // `/` is a redirect to `/en/`, not content. A sitemap entry that 301s is a
+      // crawl signal pointing at nothing. The 404 is excluded for the same reason.
+      filter: (page) => {
+        const { pathname } = new URL(page);
+        return pathname !== '/' && pathname !== '/404/';
+      },
+    }),
   ],
   i18n: {
     defaultLocale: 'en',
