@@ -240,8 +240,7 @@ const PAIRS = [
   ['accent on paper', C.accent, C.paper.DEFAULT, TEXT],
   ['white on primary-500', '#ffffff', C.primary[500], TEXT],
   ['white on primary-700', '#ffffff', C.primary[700], TEXT],
-  ['white on primary-900', '#ffffff', C.primary[900], TEXT],
-  ['white on secondary-500 (button)', '#ffffff', C.secondary[500], TEXT],
+  ['navy on secondary-400 (button)', C.primary[500], C.secondary[400], TEXT],
   ['white on ground', '#ffffff', C.ground, TEXT],
   ['secondary-300 on ground (labels)', C.secondary[300], C.ground, TEXT],
 ];

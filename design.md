@@ -19,31 +19,34 @@ and the ground moved from indigo to true navy:
 |---|---|---|
 | `primary.500` | `#0c2340` navy | headings, nav, primary buttons (15.79:1 on white) |
 | `ground` | `#0c2340` navy | every full-bleed dark section: utility strip, hero, page headers, footer |
-| `primary.600-900` | `#0a1d36` → `#040e1a` | insets and depth *inside* a dark ground |
+| `primary.700` | `#08182c` | the one inset that must sit darker than a ground |
 | `secondary.400` | `#e8621c` warm accent | marks, rules, big stat numerals, icons, the accent button fill. 3.39:1 on white, 3.09:1 on `paper-2` — graphics and large type only |
 | `secondary.500` | `#b84916` | accent text where the 400 is too light; `5.25:1` on white, `4.78:1` on `paper-2` |
 | `secondary.600/700` | `#a53f12` / `#93380f` | small accent text on light grounds (`6.33:1` / `7.46:1`) |
 | `secondary.300` | `#ff8a4c` | small labels and icons on the navy ground (`6.76:1`) |
+| `secondary.50` | `#fff4ed` | the light wash behind one badge |
 | `accent` | `#a53f12` | links |
 | `paper` / `paper-2` | `#ffffff` / `#f4f4f8` | page / inset surface |
 | `ink` / `ink-muted` / `ink-faint` | `#000000` / `#4b4b5a` / `#6b6b7a` | body / secondary / labels |
 | `rule` | `#e2e2ea` | hairlines |
 
-**Why the accent is one hue with four steps.** `#e8621c` is `3.39:1` on white: right for a rule,
+**Why the accent is one hue with four jobs.** `#e8621c` is `3.39:1` on white: right for a rule,
 a 40px numeral or an icon, and a WCAG AA failure for a 15px label. So `400` is the brand value and
 never carries small text; `500` carries accent text on light grounds, `600/700` set the smaller
 and denser text, and `300` is the tint for 11px uppercase labels on navy, where the warmer steps
-fall below 4.5:1. `npm run check:build` imports this config and fails if any of those pairs drops
-below 4.5:1, so a future tint cannot quietly break it.
+fall below 4.5:1. `npm run check:build` imports this config, asserts the 14 pairs the site
+actually renders, and fails if any drops below 4.5:1 — so a future tint cannot quietly break it.
 
 **The accent button is navy on orange, not white on orange.** White on `secondary.400` is
 `3.39:1` and would fail AA at button size; navy on it is `4.63:1` and passes, and it keeps the
 button the colour of the accent instead of darkening it to brown. `.btn-accent` therefore sets
 `bg-secondary-400` + `text-primary-500`, and hovers to `secondary.300`.
 
-There is one deliberate scale quirk: `primary.50-300` are light navy *tints* for UI, while `500`
-is the brand value and `600-900` run darker. It is not a monotonically lightening ramp — take new
-colours from the existing values rather than inventing hexes.
+**The ramps are short on purpose.** `primary` has two steps (`500`, `700`) because that is every
+navy the site renders, and `secondary` has six because each one carries a different job at a
+different size. Add a step when a surface asks for one; an unused step in the config is a promise
+the design system is not keeping, and the table above would quietly start describing colours
+nobody sees.
 
 Gold is gone. The old rule "gold on dark grounds, navy on light grounds" is now **warm accent on
 dark grounds, navy on light grounds**: a light-ground page uses `.btn-primary` (navy) and the navy

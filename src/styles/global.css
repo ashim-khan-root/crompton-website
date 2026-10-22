@@ -8,21 +8,18 @@
 @tailwind utilities;
 
 @layer base {
+  /* Only the values that hand-written CSS actually reads live here. Every colour
+     utility (text-ink-muted, bg-ground, border-rule …) is compiled from
+     tailwind.config.js, so a hex copied here would be a second source of truth
+     that silently drifts. */
   :root {
-    --color-primary: #0c2340;
     --color-secondary: #e8621c;
-    --color-accent: #a53f12;
     --color-paper: #ffffff;
-    --color-paper-2: #f4f4f8;
     --color-ink: #000000;
-    --color-ink-muted: #4b4b5a;
-    --color-rule: #e2e2ea;
     --font-heading: 'Plus Jakarta Sans', sans-serif;
     --font-body: 'Inter', sans-serif;
     --font-arabic: 'Noto Sans Arabic', sans-serif;
-    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
     --dur-1: 160ms;
-    --dur-2: 280ms;
   }
 
   html {

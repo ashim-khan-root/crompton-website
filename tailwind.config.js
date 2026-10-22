@@ -4,36 +4,27 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Navy ramp. 500 is the anchor and the ground; 700-900 are the deeper
-        // insets used inside a dark section. 50-400 are UI tints only.
+        // Two navy values carry the whole site: 500 (headings, ground, primary
+        // buttons) and 700 (the one inset that needs to sit darker than a ground).
+        // Add a step when a surface asks for one; an unused step is a promise the
+        // design system is not keeping.
         primary: {
-          50: '#eef2f7',
-          100: '#dbe4ef',
-          200: '#b7c8dd',
-          300: '#8ba3c1',
-          400: '#4d6d95',
           500: '#0c2340',
-          600: '#0a1d36',
           700: '#08182c',
-          800: '#061323',
-          900: '#040e1a',
         },
-        // Warm accent, one hue with three jobs. 400 is the brand accent for marks,
+        // Warm accent, one hue with four jobs. 400 is the brand accent for marks,
         // rules and large numerals (3.4:1 on white, 3.1:1 on paper-2 — graphics and
-        // large type only). 500 carries white button text at 5.25:1, 600/700 are for
-        // small text, and 300 is the tint used on navy, where the darker steps fall
-        // below 4.5:1.
+        // large type only) and fills the accent button, whose label is navy (4.63:1)
+        // rather than white (3.39:1, a fail). 500/600/700 carry accent text at body
+        // and small sizes, 300 is the tint for labels on navy, and 50 is the light
+        // wash behind one badge.
         secondary: {
           50: '#fff4ed',
-          100: '#ffe3d2',
-          200: '#ffc19e',
           300: '#ff8a4c',
           400: '#e8621c',
           500: '#b84916',
           600: '#a53f12',
           700: '#93380f',
-          800: '#6f2a0b',
-          900: '#401807',
         },
         accent: '#a53f12',
         // Every full-bleed dark section sits on the navy itself, so the hero, page
