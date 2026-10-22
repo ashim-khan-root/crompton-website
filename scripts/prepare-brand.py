@@ -39,8 +39,9 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "public" / "brand"
 
-RED = (244, 4, 16)      # #f40410 — brand red, as specified
-NAVY = (12, 11, 97)     # #0c0b61 — brand navy, as specified
+RED = (244, 4, 16)      # #f40410 — the logo's own red, never changed
+NAVY = (12, 11, 97)     # #0c0b61 — the logo's own indigo, never changed
+TILE = (12, 35, 64)     # #0c2340 — site navy, used as the icon ground
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 
@@ -205,7 +206,7 @@ def main() -> None:
         inner = round(size * (1 - 2 * pad))
         m = mark.copy()
         m.thumbnail((inner, inner), Image.LANCZOS)
-        tile = Image.new("RGB", (size, size), NAVY)
+        tile = Image.new("RGB", (size, size), TILE)
         tile.paste(m, ((size - m.size[0]) // 2, (size - m.size[1]) // 2), m)
         tile.save(OUT / name, optimize=True)
     print("  favicon-32.png / apple-touch-icon.png")

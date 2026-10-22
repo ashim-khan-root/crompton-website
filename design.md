@@ -6,40 +6,54 @@ constraints; the config files are the implementation contract.
 
 ## Brand
 
-Crompton International — manpower supply, Doha. The visual language is corporate-industrial and
-is taken from the client's own logo rather than chosen for taste: deep indigo grounds, a single
-red accent, black text on white paper. The name, the mark and the palette all come from that one
-file, which is why the header no longer argues with the rest of the page.
+Crompton International — manpower supply, Doha. The visual language is corporate-industrial. The
+logo is the client's own artwork and keeps its own colours (a red globe stroke and an indigo
+wordmark); the *site around it* is a navy ground with one warm accent, black text on white paper.
+Keeping those two ideas separate is what lets the theme change without redrawing the logo.
+
+The theme was red-and-indigo for a few hours on 2026-10-22 and read as alarm rather than
+corporate. The owner asked for navy and "a little orangish". So the accent moved one step warm
+and the ground moved from indigo to true navy:
 
 | Token | Value | Use |
 |---|---|---|
-| `primary.500` | `#0c0b61` indigo | headings, nav, primary buttons (16.99:1 on white) |
-| `ground` | `#0c0b61` indigo | every full-bleed dark section: utility strip, hero, page headers, footer |
-| `primary.600-900` | `#0a0952` → `#05042c` | insets and depth *inside* a dark ground |
-| `secondary.400` | `#f40410` red | the brand red — marks, rules, big stat numerals, icons. Graphics and large type only |
-| `secondary.500` | `#d4030f` | button fills (white text = 5.50:1) |
-| `secondary.600/700` | `#b80210` / `#9c020c` | small red text on light grounds |
-| `secondary.300` | `#ff4b52` | small labels and icons on dark grounds (5.15:1) |
-| `accent` | `#b80210` | links |
+| `primary.500` | `#0c2340` navy | headings, nav, primary buttons (15.79:1 on white) |
+| `ground` | `#0c2340` navy | every full-bleed dark section: utility strip, hero, page headers, footer |
+| `primary.600-900` | `#0a1d36` → `#040e1a` | insets and depth *inside* a dark ground |
+| `secondary.400` | `#e8621c` warm accent | marks, rules, big stat numerals, icons, the accent button fill. 3.39:1 on white, 3.09:1 on `paper-2` — graphics and large type only |
+| `secondary.500` | `#b84916` | accent text where the 400 is too light; `5.25:1` on white, `4.78:1` on `paper-2` |
+| `secondary.600/700` | `#a53f12` / `#93380f` | small accent text on light grounds (`6.33:1` / `7.46:1`) |
+| `secondary.300` | `#ff8a4c` | small labels and icons on the navy ground (`6.76:1`) |
+| `accent` | `#a53f12` | links |
 | `paper` / `paper-2` | `#ffffff` / `#f4f4f8` | page / inset surface |
 | `ink` / `ink-muted` / `ink-faint` | `#000000` / `#4b4b5a` / `#6b6b7a` | body / secondary / labels |
 | `rule` | `#e2e2ea` | hairlines |
 
-**Why three reds.** The red sampled from the logo is `4.31:1` on white and `3.94:1` on the
-navy ground: correct for the mark, rules and 40px numerals, and a WCAG AA failure for a 15px
-button label or an 11px uppercase eyebrow. So `secondary.400` is the brand value and never
-carries small text; `500` fills buttons, `600/700` set small text on light grounds, and `300`
-tints the labels that sit on dark grounds. `npm run check:build` imports this config and
-fails if any of those pairs drops below 4.5:1, so a future tint cannot quietly break it.
+**Why the accent is one hue with four steps.** `#e8621c` is `3.39:1` on white: right for a rule,
+a 40px numeral or an icon, and a WCAG AA failure for a 15px label. So `400` is the brand value and
+never carries small text; `500` carries accent text on light grounds, `600/700` set the smaller
+and denser text, and `300` is the tint for 11px uppercase labels on navy, where the warmer steps
+fall below 4.5:1. `npm run check:build` imports this config and fails if any of those pairs drops
+below 4.5:1, so a future tint cannot quietly break it.
 
-There is one deliberate scale quirk: `primary.50-300` are light indigo *tints* for UI, while
-`500` is the brand value and `600-900` run darker. It is not a monotonically lightening ramp —
-take new colours from the existing values rather than inventing hexes.
+**The accent button is navy on orange, not white on orange.** White on `secondary.400` is
+`3.39:1` and would fail AA at button size; navy on it is `4.63:1` and passes, and it keeps the
+button the colour of the accent instead of darkening it to brown. `.btn-accent` therefore sets
+`bg-secondary-400` + `text-primary-500`, and hovers to `secondary.300`.
 
-Gold is gone. The old rule "gold on dark grounds, navy on light grounds" is now **red on dark
-grounds, indigo on light grounds**: a light-ground page uses `.btn-primary` (indigo) and the
-navy footer below it uses `.btn-accent` (red), so a page never ends with two identical buttons
+There is one deliberate scale quirk: `primary.50-300` are light navy *tints* for UI, while `500`
+is the brand value and `600-900` run darker. It is not a monotonically lightening ramp — take new
+colours from the existing values rather than inventing hexes.
+
+Gold is gone. The old rule "gold on dark grounds, navy on light grounds" is now **warm accent on
+dark grounds, navy on light grounds**: a light-ground page uses `.btn-primary` (navy) and the navy
+footer below it uses `.btn-accent` (orange), so a page never ends with two identical buttons
 stacked.
+
+The logo assets are the exception to all of this: `public/brand/*` keeps the artwork's own
+`#f40410` and `#0c0b61`. `scripts/prepare-brand.py` snaps pixels to *those* values, not to the
+theme's navy, because cleaning the client's file must not recolour the client's brand. Only the
+favicon tile behind the mark uses the site navy (`#0c2340`).
 
 ## Logo
 
@@ -97,7 +111,7 @@ CSS rather than being written by hand. The site previously used a render-blockin
 - `ClientCarousel.tsx` — renders only when `clients.json` is non-empty (deliberate)
 - `StatsCounter.tsx` — animated counters; values must satisfy the content-truth rules
 - `WhatsAppButton.tsx` — floating CTA, bottom corner
-- Reusable classes in `global.css`: `.btn-primary` (indigo), `.btn-accent` (red), `.btn-ghost`,
+- Reusable classes in `global.css`: `.btn-primary` (navy), `.btn-accent` (warm accent), `.btn-ghost`,
   `.btn-outline`, `.container-custom`, `.rule`, `.slot` / `.slot-dark` (labelled placeholders)
 - Dark sections are flat `bg-ground` with a faint grid texture, not a gradient — depth comes
   from `primary-800/900` insets and hairlines, never from a second accent colour

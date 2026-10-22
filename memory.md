@@ -188,6 +188,31 @@ rendered as a bare URL. No client input was needed, so none of it waited on the 
   fits with a 233px-wide logo at the 1024px breakpoint.
 - **Built, not deployed.** Production still serves the pre-2026-10-22 build.
 
+## 2026-10-22 (latest) — Navy and a warm accent, after red read as alarm
+
+The palette sampled from the logo (indigo `#0c0b61` + red `#f40410`) was faithful and wrong for
+the job: on screen the red accents read as warning, not as a contracting company. The owner asked
+for "navy blue or a little darker shade of blue, and a little orangish — it's looking red".
+
+- **Two things were being conflated.** The logo is the client's artwork and keeps its own red
+  and indigo; the *theme around it* is a separate decision. `scripts/prepare-brand.py` still
+  snaps pixels to `#f40410`/`#0c0b61`, and `design.md` now says so explicitly, because "clean
+  the logo" must never become "recolour the logo".
+- **Ground moved from indigo to true navy** `#0c2340` — same roles (`ground`, `primary.500`,
+  utility strip, hero, page headers, footer), less purple, 15.79:1 with white.
+- **Accent moved one hue warm** to `#e8621c`, with the same four-job discipline measured before:
+  `400` is the brand value for rules, icons and large numerals (3.39:1 on white, 3.09:1 on
+  `paper-2`); `500 #b84916` carries accent text on light grounds (5.25:1 / 4.78:1); `600/700`
+  for small text; `300 #ff8a4c` for 11px labels on navy (6.76:1). `check:build` still asserts
+  all 15 pairs.
+- **The accent button flipped to navy-on-orange.** White on `#e8621c` is 3.39:1 — an AA failure
+  at button size; navy on it is 4.63:1 and passes. Darkening the fill to keep white text made it
+  brown, which is why the fill and the label swapped roles instead.
+- Regenerated `public/brand/favicon-32.png` + `apple-touch-icon.png` (tile is the site navy) and
+  the OG card (`#0c2340` ground, `#e8621c` rule). `theme-color` and its build assertion follow.
+- Verified in Chromium at 1440 and 390: hero, contact, footer and services; no failed requests,
+  theme-color `#0c2340`.
+
 ## 2026-10-22 (later) — The name and the domain were both wrong
 
 Two corrections landed the same day, both from the owner, both reversing something this repo

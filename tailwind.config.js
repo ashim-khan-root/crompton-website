@@ -4,46 +4,41 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Brand indigo from the client's logo (#0c0b61). 500 is the anchor; 700-900
-        // are the deep surfaces used for hero and footer grounds. 50-400 are UI
-        // tints only. The mark's globe is this exact colour, so headings and grounds
-        // read as the same ink as the logo.
+        // Navy ramp. 500 is the anchor and the ground; 700-900 are the deeper
+        // insets used inside a dark section. 50-400 are UI tints only.
         primary: {
-          50: '#f2f2f9',
-          100: '#e4e4f2',
-          200: '#c6c6e4',
-          300: '#9d9dd1',
-          400: '#6363b4',
-          500: '#0c0b61',
-          600: '#0a0952',
-          700: '#080743',
-          800: '#060534',
-          900: '#05042c',
+          50: '#eef2f7',
+          100: '#dbe4ef',
+          200: '#b7c8dd',
+          300: '#8ba3c1',
+          400: '#4d6d95',
+          500: '#0c2340',
+          600: '#0a1d36',
+          700: '#08182c',
+          800: '#061323',
+          900: '#040e1a',
         },
-        // Brand red from the logo's swoosh (#f40410). 400 is the brand value and is
-        // for marks, rules and large accents only — with white text it is 4.31:1,
-        // which fails AA at body size. 500 (5.50:1) is the action shade used for
-        // buttons and links; 600/700 are for small text on white.
+        // Warm accent, one hue with three jobs. 400 is the brand accent for marks,
+        // rules and large numerals (3.4:1 on white, 3.1:1 on paper-2 — graphics and
+        // large type only). 500 carries white button text at 5.25:1, 600/700 are for
+        // small text, and 300 is the tint used on navy, where the darker steps fall
+        // below 4.5:1.
         secondary: {
-          50: '#fff1f1',
-          100: '#ffdcdc',
-          200: '#ffb3b3',
-          300: '#ff4b52',
-          400: '#f40410',
-          500: '#d4030f',
-          600: '#b80210',
-          700: '#9c020c',
-          800: '#6b0209',
-          900: '#3d0106',
+          50: '#fff4ed',
+          100: '#ffe3d2',
+          200: '#ffc19e',
+          300: '#ff8a4c',
+          400: '#e8621c',
+          500: '#b84916',
+          600: '#a53f12',
+          700: '#93380f',
+          800: '#6f2a0b',
+          900: '#401807',
         },
-        accent: '#b80210',
-        // Every full-bleed dark section (utility strip, hero, page headers, footer)
-        // sits on the brand navy itself — #0c0b61 sampled from the logo's globe —
-        // so the site reads as the client's colour rather than near-black. The
-        // deeper end of the primary ramp is for insets inside those grounds.
-        ground: '#0c0b61',
-        // Cool neutrals, to sit with the indigo rather than fight it. Pure white
-        // paper and true black ink; rule is the hairline.
+        accent: '#a53f12',
+        // Every full-bleed dark section sits on the navy itself, so the hero, page
+        // headers and footer read as one surface rather than near-black.
+        ground: '#0c2340',
         paper: { DEFAULT: '#ffffff', 2: '#f4f4f8' },
         ink: { DEFAULT: '#000000', muted: '#4b4b5a', faint: '#6b6b7a' },
         rule: '#e2e2ea',

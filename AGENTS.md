@@ -90,7 +90,7 @@ public/                 brand/ (logo assets + icons), robots.txt, fonts/*.woff2,
                         gallery, og card), images/manifest.json
 scripts/                vendor-fonts.mjs, make-og-image.py, check-build.mjs,
                         import-legacy-assets.py, deploy helpers
-astro.config.mjs        site=cromtongroup.com, i18n en+ar, prefixDefaultLocale,
+astro.config.mjs        site=cromptonqatar.com, i18n en+ar, prefixDefaultLocale,
                         sitemap filtered to drop the `/` redirect and the 404
 tailwind.config.js      design tokens
 ```
@@ -114,10 +114,12 @@ Editing and shipping are split across two machines, by design:
 3. **Owner runs the deploy** (needs root; agents on the VPS have no passwordless sudo):
    `sudo ./deploy-static-site.sh cromptonqatar.com <path>/dist` from the separate
    `dev-agency` repo, which also holds the nginx site template.
-4. Verify live: `curl -I -H 'Host: cromtongroup.com' http://localhost` and a public `curl`.
+4. Verify live: `curl -I -H 'Host: cromptonqatar.com' http://localhost` and a public `curl`.
+   (Until the DNS move lands, the only host that answers is `cromtongroup.com` — the wrong deploy.
+   Substitute it in the command above and read *Domain trap* before drawing conclusions.)
 
-The deploy script **wipes and replaces** `/var/www/cromtongroup.com/html` and regenerates
-`/etc/nginx/conf.d/cromtongroup.com.conf`. It has no backup step. If you add nginx directives
+The deploy script **wipes and replaces** `/var/www/cromptonqatar.com/html` and regenerates
+`/etc/nginx/conf.d/cromptonqatar.com.conf`. It has no backup step. If you add nginx directives
 (gzip, cache headers, redirects), update the template in `dev-agency/deploy/nginx/` first,
 or the next deploy silently drops them.
 
@@ -140,11 +142,12 @@ or the next deploy silently drops them.
   fonts.googleapis.com `@import`. `check:build` fails on the latter.
 - **`dist/404.html` is only served if nginx says so.** The site file needs
   `error_page 404 /404.html;` — it lives in the `dev-agency` nginx template, not here.
-- **The logo is a raster with the old brand name in it.** `public/brand/lockup.png` is the
-  client's artwork and its wordmark says "Crompton International"; the site says Cromton Group.
-  That is the owner's call, recorded in `design.md` → Logo. Regenerate assets with
-  `scripts/prepare-brand.py` (never hand-edit the PNGs), and never place the colour lockup on a
-  dark ground — use `lockup-white.png`, or the navy globe disappears.
+- **The logo is a raster, and it is the authority on the name.** `public/brand/lockup.png`
+  carries "Crompton International — Trading & Contracting Company WLL" baked in, and the whole
+  site now uses that name. No vector exists anywhere; do not trace one. Regenerate assets with
+  `scripts/prepare-brand.py` (never hand-edit the PNGs) — it keeps the artwork's own
+  `#f40410`/`#0c0b61`, which are *not* the site's navy/orange theme. Never place the colour
+  lockup on a dark ground: use `lockup-white.png`, or the indigo globe disappears.
 - **`hreflang` covers the homepage pair only**, because only the homepage has an Arabic
   version. If Arabic sub-pages land (Phase 4), extend the `alternates` block in
   `BaseLayout.astro` at the same time, or the AR pages will be orphans.
@@ -160,9 +163,11 @@ Done 2026-10-22, needs a redeploy to go live: canonical, og:image + og:url + twi
 `robots.txt`, `404.html`, self-hosted fonts, sitemap filtered, Organization `@id`.
 
 Done 2026-10-22, also undeployed: the client's own logo in the header/footer/favicon/OG card,
-and a full palette swap to the four colours sampled from it — brand indigo `#0c0b61` grounds and
-headings, brand red `#f40410` accents (with AA-safe shades for buttons and small text), true
-white paper and black ink. Gold is gone site-wide.
+and a full palette swap — navy `#0c2340` grounds and headings, one warm accent `#e8621c` (with
+AA-safe shades for buttons and small text), white paper and black ink. Gold is gone site-wide.
+The accent started as the logo's red `#f40410`, which read as alarm; the owner asked for navy
+and "a little orangish" the same day, so the theme moved warm and the logo kept its own colours.
+The accent button is navy-on-orange, not white-on-orange: 4.63:1 vs a failing 3.39:1.
 
 Still not blocked: gzip + cache headers, `www` → apex redirect, `error_page 404` in nginx,
 analytics, uptime monitoring. The first three are nginx-template changes in `dev-agency`.

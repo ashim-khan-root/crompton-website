@@ -9,9 +9,9 @@
 
 @layer base {
   :root {
-    --color-primary: #0c0b61;
-    --color-secondary: #f40410;
-    --color-accent: #b80210;
+    --color-primary: #0c2340;
+    --color-secondary: #e8621c;
+    --color-accent: #a53f12;
     --color-paper: #ffffff;
     --color-paper-2: #f4f4f8;
     --color-ink: #000000;
@@ -80,10 +80,11 @@
     transform: translateY(1px);
   }
 
-  /* The one accent button. White on secondary-500 (#d4030f) is 5.50:1 — the brand
-     red at 400 is only 4.31:1 and would fail AA at this text size. */
+  /* The one accent button: navy on the warm accent, not white on it. White on
+     secondary-400 is 3.39:1 and fails AA at this text size; navy on it is 4.63:1,
+     and it keeps the button the colour of the accent rather than a muddy brown. */
   .btn-accent {
-    @apply btn bg-secondary-500 text-white hover:bg-secondary-600;
+    @apply btn bg-secondary-400 text-primary-500 hover:bg-secondary-300;
   }
 
   .btn-ghost {

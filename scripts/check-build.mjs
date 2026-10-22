@@ -204,7 +204,7 @@ for (const file of pages) {
   if (/http-equiv="refresh"/.test(html)) continue;
   if (!html.includes('/brand/lockup.png')) fail('brand', `${rel} does not render the header lockup`);
   if (html.includes('/favicon.svg')) fail('brand', `${rel} still points at the retired favicon.svg`);
-  if (!html.includes('content="#0c0b61"')) fail('brand', `${rel} theme-color is not the brand indigo`);
+  if (!html.includes('content="#0c2340"')) fail('brand', `${rel} theme-color is not the site navy`);
 }
 if (!failures.some((f) => f.startsWith('brand'))) ok('every page renders the lockup, no retired icon, brand theme-color');
 
@@ -254,18 +254,15 @@ if (!failures.some((f) => f.startsWith('contrast'))) {
   ok(`${PAIRS.length} text pairs meet AA (lowest ${Math.min(...PAIRS.map(([, a, b]) => contrast(a, b))).toFixed(2)}:1)`);
 }
 
-// The brand red on white is 4.31:1 — fine for the mark, rules and large type, not for
-// body copy. Assert it stays below the body threshold, so nobody quietly uses it for a
-// paragraph on the assumption that "brand colour" means "safe everywhere".
-const brandRedOnWhite = contrast(C.secondary[400], C.paper.DEFAULT);
-if (brandRedOnWhite >= TEXT) {
-  notes.push(`  note #f40410 clears AA on its own (${brandRedOnWhite.toFixed(2)}:1) — the action shade could be collapsed`);
+// The brand accent at 400 is 3.4:1 on white — fine for marks, rules and large type,
+// not for body copy. If it ever clears the body threshold, the darker steps exist for
+// nothing and someone should say so rather than leave three shades doing one job.
+const accentOnWhite = contrast(C.secondary[400], C.paper.DEFAULT);
+if (accentOnWhite >= TEXT) {
+  notes.push(`  note ${C.secondary[400]} clears AA on its own (${accentOnWhite.toFixed(2)}:1) — the action shade could be collapsed`);
 }
-// Same red on the navy ground is only 3.94:1: fine for the big stat numerals and
-// for icons, not for the uppercase labels that sit beside them. Those use the 300
-// tint, which the pair list above holds to 4.5:1.
 if (contrast(C.secondary[400], C.ground) >= TEXT) {
-  notes.push('  note #f40410 clears AA on the navy ground too — the label tint is now redundant');
+  notes.push(`  note ${C.secondary[400]} clears AA on the navy ground (${contrast(C.secondary[400], C.ground).toFixed(2)}:1); the 300 tint is kept for 11px labels, not for compliance`);
 }
 
 // --------------------------------------------------------------------- report

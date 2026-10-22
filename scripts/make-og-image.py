@@ -7,8 +7,7 @@ places a Crompton link actually gets looked at. A missing og:image renders as a 
 URL with no title card.
 
 Design constraints come from design.md, not from taste:
-  - indigo #0c0b61 ground, red #f40410 rule, white type — the palette sampled
-    from the client's own logo, not chosen for taste
+  - navy #0c2340 ground, warm accent #e8621c rule, white type
   - the mark is public/brand/mark-white.png, cut from the client's 1193x839
     master and recoloured for a dark ground by scripts/prepare-brand.py. The
     name and subtitle are set in Plus Jakarta, because the header lockup's
@@ -35,8 +34,8 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "public" / "images" / "og" / "og-crompton-international.jpg"
 
 W, H = 1200, 630
-NAVY = (12, 11, 97)      # #0c0b61 brand indigo, from the logo's globe
-RED = (244, 4, 16)       # #f40410 brand red, from the logo's swoosh
+NAVY = (12, 35, 64)      # #0c2340 site navy ground
+RED = (232, 98, 28)      # #e8621c warm accent, the rule under the lockup
 PAPER = (255, 255, 255)
 MUTED = (186, 187, 214)
 RULE = (255, 255, 255, 12)
