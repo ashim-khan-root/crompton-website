@@ -696,5 +696,107 @@
     "alt": "Voltas logo",
     "provenance": "legacy-site",
     "note": "third-party logo \u2014 publication approved by the client"
+  },
+  {
+    "path": "/images/gallery/accommodation.webp",
+    "source": "assets/incoming/ai/accommodation-01.jpg",
+    "source_size": [
+      1536,
+      1024
+    ],
+    "size": [
+      1365,
+      1024
+    ],
+    "bytes": 185612,
+    "sha": "82ca7938c4f89785",
+    "alt": "Two-storey accommodation blocks with external staircases, shaded walkways and planted surrounds",
+    "provenance": "ai-generated",
+    "note": "client approved AI imagery for staff-free operational scenes"
+  },
+  {
+    "path": "/images/gallery/training.webp",
+    "source": "assets/incoming/ai/training-01.jpg",
+    "source_size": [
+      1448,
+      1086
+    ],
+    "size": [
+      1448,
+      1086
+    ],
+    "bytes": 86220,
+    "sha": "869ae0c62082dc43",
+    "alt": "Workers in navy coveralls at induction, facing an instructor at a blank whiteboard",
+    "provenance": "ai-generated",
+    "note": "client approved AI imagery for staff-free operational scenes"
+  },
+  {
+    "path": "/images/hse/briefing.webp",
+    "source": "assets/incoming/ai/hse-briefing-01.jpg",
+    "source_size": [
+      1448,
+      1086
+    ],
+    "size": [
+      1448,
+      1086
+    ],
+    "bytes": 108384,
+    "sha": "8d30d4f4b9a5a5d2",
+    "alt": "Crew watching a toolbox talk from behind, supervisor in a hi-vis vest addressing the site",
+    "provenance": "ai-generated",
+    "note": "client approved AI imagery for staff-free operational scenes"
+  },
+  {
+    "path": "/images/gallery/office.webp",
+    "source": "assets/incoming/ai/office-team-01.jpg",
+    "source_size": [
+      1448,
+      1086
+    ],
+    "size": [
+      1448,
+      1086
+    ],
+    "bytes": 118316,
+    "sha": "e1f2f882968e7780",
+    "alt": "Reception counter at the Doha office, a visitor with a folder at the desk",
+    "provenance": "ai-generated",
+    "note": "client approved AI imagery for staff-free operational scenes"
+  },
+  {
+    "path": "/images/services/white-collar.webp",
+    "source": "assets/incoming/ai/white-collar-01.jpg",
+    "source_size": [
+      1448,
+      1086
+    ],
+    "size": [
+      1448,
+      1086
+    ],
+    "bytes": 87978,
+    "sha": "2d42a7c9d28e3104",
+    "alt": "Engineers reviewing structural drawings around a table in a Doha office",
+    "provenance": "ai-generated",
+    "note": "client approved AI imagery for staff-free operational scenes"
+  },
+  {
+    "path": "/images/services/payroll.webp",
+    "source": "assets/incoming/ai/payroll-01.jpg",
+    "source_size": [
+      1448,
+      1086
+    ],
+    "size": [
+      1448,
+      1086
+    ],
+    "bytes": 113640,
+    "sha": "a5909a0de851a8d1",
+    "alt": "Payroll desk with a stack of payslips, a calculator and a blurred spreadsheet on screen",
+    "provenance": "ai-generated",
+    "note": "client approved AI imagery for staff-free operational scenes"
   }
 ]

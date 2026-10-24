@@ -8,9 +8,13 @@ import CtaBand from '../../components/CtaBand.astro';
 import Photo from '../../components/Photo.astro';
 import services from '../../data/services.json';
 
-// Photographs exist for three of the six services. The rest keep their labelled
+// Photographs exist for five of the six services. Recruitment keeps its labelled
 // placeholder rather than borrowing an image of something else.
 const serviceImages: Record<string, { src: string; alt: string }> = {
+  'white-collar': {
+    src: '/images/services/white-collar.webp',
+    alt: 'Engineers reviewing structural drawings around a table in a Doha office',
+  },
   'blue-collar': {
     src: '/images/services/blue-collar.webp',
     alt: 'Skilled worker using an angle grinder with full protective equipment',
@@ -22,6 +26,10 @@ const serviceImages: Record<string, { src: string; alt: string }> = {
   outsourcing: {
     src: '/images/services/outsourcing.webp',
     alt: 'Plasterer finishing an internal wall',
+  },
+  payroll: {
+    src: '/images/services/payroll.webp',
+    alt: 'Payroll desk with a stack of payslips, a calculator and a blurred spreadsheet on screen',
   },
 };
 ---

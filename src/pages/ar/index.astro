@@ -5,6 +5,7 @@ import Footer from '../../components/Footer.tsx';
 import WhatsAppButton from '../../components/WhatsAppButton.tsx';
 import services from '../../data/services.json';
 import HeroCarousel from '../../components/HeroCarousel.astro';
+import Photo from '../../components/Photo.astro';
 import industries from '../../data/industries.json';
 import { ArrowRight, Phone, ShieldCheck, Truck, GraduationCap, BedDouble } from 'lucide-react';
 
@@ -16,6 +17,8 @@ const operations = [
     title: 'السكن',
     description: 'سكن عمال مطابق للمعايير القطرية، مع النقل بين السكن والموقع.',
     slot: 'صورة — سكن العمال، من الخارج',
+    image: '/images/gallery/accommodation.webp',
+    alt: 'مبانٍ سكنية من طابقين للعمال، مع ممرات مظللة ومساحات خضراء',
     span: 'lg:col-span-7',
   },
   {
@@ -23,6 +26,8 @@ const operations = [
     title: 'النقل',
     description: 'أسطول مخصص للنقل اليومي والتنقل بين المواقع.',
     slot: 'صورة — أسطول النقل في الموقع',
+    image: '/images/gallery/transportation.webp',
+    alt: 'حافلة النقل التابعة للشركة تقلّ العمال للتنقل بين المواقع في الدوحة',
     span: 'lg:col-span-5',
   },
   {
@@ -30,6 +35,8 @@ const operations = [
     title: 'التدريب',
     description: 'تدريب مهني وتعريفي بالسلامة قبل وصول العامل إلى مشروعك.',
     slot: 'صورة — جلسة تدريب وتعريف',
+    image: '/images/gallery/training.webp',
+    alt: 'عمال بملابس عمل زرقاء في قاعة تدريب يستمعون إلى المدرب أمام لوح أبيض',
     span: 'lg:col-span-5',
   },
   {
@@ -37,6 +44,8 @@ const operations = [
     title: 'الصحة والسلامة',
     description: 'إجراءات صحة وسلامة متوافقة مع قوانين العمل ومتطلبات المواقع في قطر.',
     slot: 'صورة — اجتماع سلامة مع معدات الوقاية',
+    image: '/images/hse/briefing.webp',
+    alt: 'عمال يرتدون خوذات وملابس عمل أثناء اجتماع سلامة في الموقع',
     span: 'lg:col-span-7',
   },
 ];
@@ -184,9 +193,12 @@ const operations = [
             const Icon = op.icon;
             return (
               <figure class={`${op.span} flex flex-col`}>
-                <div class="slot aspect-[4/3] min-h-[220px] flex-1">
-                  <p class="slot-label">{op.slot}</p>
-                </div>
+                <Photo
+                  src={op.image}
+                  alt={op.alt}
+                  label={op.slot}
+                  class="min-h-[220px] flex-1 aspect-[4/3]"
+                />
                 <figcaption class="mt-5 flex items-start gap-3">
                   <Icon size={20} class="mt-0.5 shrink-0 text-secondary-500" aria-hidden="true" />
                   <span>
